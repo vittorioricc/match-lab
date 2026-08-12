@@ -41,11 +41,10 @@ body{
 .mono{font-family:'JetBrains Mono',monospace;}
 .display{font-family:'Space Grotesk',sans-serif;}
 
-/* Top bar — impilata su due righe, con safe-area per notch/Dynamic Island */
+/* Top bar */
 header.topbar{
   display:flex;flex-direction:column;gap:10px;
-  padding:calc(env(safe-area-inset-top) + 12px) 16px 12px;
-  border-bottom:1px solid var(--line);
+  padding:calc(env(safe-area-inset-top) + 12px) 16px 12px;border-bottom:1px solid var(--line);
   background:linear-gradient(180deg,var(--surface),var(--bg));
   position:sticky;top:0;z-index:10;
 }
@@ -55,10 +54,9 @@ header.topbar{
   background:conic-gradient(from 140deg,var(--pitch),var(--pitch-dim),var(--pitch));
   display:flex;align-items:center;justify-content:center;
   font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;color:#05130a;
-  flex-shrink:0;
 }
-.brand-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;letter-spacing:.2px;}
-.brand-sub{font-size:10.5px;color:var(--text-dim);margin-top:-2px;}
+.brand-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;letter-spacing:.2px;}
+.brand-sub{font-size:11px;color:var(--text-dim);margin-top:-2px;}
 .topbar-actions{
   display:flex;align-items:center;gap:8px;
   overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;
@@ -78,7 +76,7 @@ header.topbar{
 main{max-width:640px;margin:0 auto;padding:20px 16px calc(90px + env(safe-area-inset-bottom));}
 .hidden{display:none !important;}
 
-/* Tap target minimo consigliato da Apple HIG: 44pt */
+/* Tap target minimo Apple HIG: 44pt */
 .btn, .btn.secondary, .league-row, .fixture-card, .pick-target, .settle-actions button{min-height:44px;}
 
 /* Setup screen */
@@ -87,7 +85,7 @@ main{max-width:640px;margin:0 auto;padding:20px 16px calc(90px + env(safe-area-i
   border:1px solid var(--line);border-radius:var(--radius);padding:24px 20px;
 }
 .setup-card h1{font-family:'Space Grotesk',sans-serif;font-size:20px;margin:0 0 8px;}
-.setup-card p{color:var(--text-dim);font-size:13.5px;line-height:1.5;margin:0 0 20px;}
+.setup-card p{color:var(--text-dim);font-size:14px;line-height:1.5;margin:0 0 20px;}
 label{font-size:12px;color:var(--text-dim);display:block;margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em;}
 input[type=text],input[type=password],select{
   width:100%;background:var(--bg);border:1px solid var(--line);color:var(--text);
@@ -164,7 +162,7 @@ input[type=text]:focus,input[type=password]:focus,select:focus{border-color:var(
   padding:14px 16px calc(14px + env(safe-area-inset-bottom));
   display:flex;align-items:center;justify-content:space-between;z-index:20;gap:12px;
 }
-.floating-bar .count{font-family:'JetBrains Mono',monospace;color:var(--pitch);font-size:13px;}
+.floating-bar .count{font-family:'JetBrains Mono',monospace;color:var(--pitch);font-size:14px;}
 
 .empty-state{color:var(--text-dim);font-size:13px;padding:20px 0;text-align:center;}
 .loading{color:var(--text-dim);font-size:13px;padding:16px 0;font-family:'JetBrains Mono',monospace;}
@@ -193,6 +191,115 @@ input[type=text]:focus,input[type=password]:focus,select:focus{border-color:var(
 .sb-team .tname{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;text-align:center;}
 .sb-team .tform{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);letter-spacing:.15em;}
 .sb-team .sb-elo{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--pitch);opacity:.85;}
+
+.reliability-badge{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;}
+.reliability-label{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;margin-bottom:8px;}
+.reliability-bar-track{height:6px;border-radius:4px;background:var(--surface-2);overflow:hidden;}
+.reliability-bar-fill{height:100%;border-radius:4px;background:var(--pitch);}
+.reliability-note{font-size:11px;color:var(--text-dim);margin-top:8px;}
+.reliability-insufficient .reliability-bar-fill{background:#e05c5c;}
+.reliability-insufficient .reliability-label{color:#e05c5c;}
+.reliability-low .reliability-bar-fill{background:var(--warn);}
+.reliability-low .reliability-label{color:var(--warn);}
+.reliability-medium .reliability-bar-fill{background:var(--away);}
+.reliability-medium .reliability-label{color:var(--away);}
+
+.best-pick-card{margin-top:14px;background:var(--surface);border:1px solid var(--pitch);border-radius:12px;padding:16px;}
+.best-pick-eyebrow{font-size:11px;color:var(--pitch);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;font-weight:600;}
+.best-pick-row{display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;background:var(--surface-2);border-radius:10px;padding:14px;min-height:44px;}
+.best-pick-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;}
+.best-pick-nums{display:flex;flex-direction:column;align-items:flex-end;gap:2px;}
+.best-pick-prob{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:18px;color:var(--pitch);}
+.best-pick-odds{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);}
+
+.ts-grid{display:grid;grid-template-columns:1fr;gap:10px;}
+.ts-col{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:14px;}
+.ts-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;margin-bottom:10px;}
+.ts-row{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12px;padding:3px 0;color:var(--text-dim);}
+.ts-row b{color:var(--text);font-size:12.5px;}
+.ts-sep{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-dim);margin:10px 0 4px;padding-top:8px;border-top:1px solid var(--line);}
+@media(max-width:680px){.ts-grid{grid-template-columns:1fr;}}
+
+.drift-warning{background:rgba(224,92,92,.08);border:1px solid #e05c5c;border-radius:10px;padding:12px 14px;margin-top:12px;font-size:12.5px;line-height:1.5;color:#e0a0a0;}
+.diagnostics{background:var(--surface);border:1px solid var(--line);border-radius:11px;margin-top:14px;}
+.diagnostics summary{cursor:pointer;padding:13px 16px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;color:var(--text-dim);}
+.diagnostics summary:hover{color:var(--text);}
+.diagnostics[open] summary{border-bottom:1px solid var(--line);color:var(--text);}
+.diag-body{padding:14px 16px;}
+.diag-block{margin-bottom:18px;}
+.diag-block:last-child{margin-bottom:0;}
+.diag-block h4{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-dim);margin:0 0 8px;font-weight:600;}
+
+.queue-row{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:8px;cursor:pointer;}
+.queue-row:hover{border-color:var(--pitch-dim);}
+.queue-row.queue-current{border-color:var(--pitch);background:var(--surface-2);}
+.queue-num{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;color:var(--text-dim);width:20px;flex-shrink:0;text-align:center;}
+.queue-row.queue-current .queue-num{color:var(--pitch);}
+.queue-teams{display:flex;align-items:center;gap:7px;font-size:13.5px;flex-wrap:wrap;}
+.queue-teams img{width:18px;height:18px;object-fit:contain;}
+.queue-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);margin-top:4px;}
+.queue-remove{cursor:pointer;color:var(--text-dim);font-size:13px;padding:4px 8px;border-radius:6px;flex-shrink:0;line-height:1;}
+.queue-remove:hover{color:#e05c5c;background:rgba(224,92,92,.10);}
+
+.opp-overview{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.ov-cell{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 8px;text-align:center;}
+.ov-n{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:22px;}
+.ov-l{font-size:9.5px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.04em;margin-top:3px;line-height:1.3;}
+.ov-strong{border-color:var(--pitch);} .ov-strong .ov-n{color:var(--pitch);}
+.ov-moderate{border-color:#6fae7f;} .ov-moderate .ov-n{color:#6fae7f;}
+.ov-watch{border-color:var(--warn);} .ov-watch .ov-n{color:var(--warn);}
+.ov-nobet .ov-n{color:var(--text-dim);}
+@media(max-width:680px){.opp-overview{grid-template-columns:repeat(3,1fr);}}
+
+.opp-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:10px;}
+.opp-card.os-strong{border:2px solid var(--pitch);}
+.opp-card.os-moderate{border:1px solid #6fae7f;}
+.opp-card.os-watch{border:1px solid var(--warn);}
+.opp-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;}
+.opp-market{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.05em;}
+.opp-selection{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;margin-top:2px;}
+.opp-badge{font-family:'JetBrains Mono',monospace;font-size:9.5px;padding:4px 9px;border-radius:999px;white-space:nowrap;letter-spacing:.04em;}
+.opp-badge.os-strong{background:rgba(63,143,95,.20);color:var(--pitch);}
+.opp-badge.os-moderate{background:rgba(111,174,127,.18);color:#6fae7f;}
+.opp-badge.os-watch{background:rgba(227,178,60,.15);color:var(--warn);}
+.opp-badge.os-nobet{background:rgba(152,165,152,.12);color:var(--text-dim);}
+
+.opp-explain{margin-top:12px;background:var(--surface-2);border-radius:9px;padding:12px 14px;}
+.opp-explain-title{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-dim);margin-bottom:8px;}
+.opp-explain ul{margin:0;padding:0;list-style:none;}
+.opp-explain li{font-size:12.5px;padding:2px 0;line-height:1.45;}
+.exp-pro{color:var(--pitch);} .exp-con{color:#c98a8a;}
+.opp-explain-conc{font-size:12px;color:var(--text-dim);margin-top:8px;padding-top:8px;border-top:1px solid var(--line);}
+
+.opp-empty{background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:22px;text-align:center;color:var(--text-dim);font-size:13px;line-height:1.6;}
+.opp-empty-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--text);margin-bottom:6px;letter-spacing:.03em;}
+
+.watch-row,.nobet-row{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:7px;}
+.watch-nums{display:flex;flex-wrap:wrap;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);}
+.watch-score{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:17px;color:var(--warn);flex-shrink:0;}
+
+.value-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
+.value-grid > div{background:var(--surface-2);border-radius:8px;padding:9px 11px;display:flex;flex-direction:column;gap:2px;}
+.value-grid span{font-size:9.5px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.04em;}
+.value-grid b{font-size:13.5px;}
+.value-hero-action{margin-top:12px;background:var(--pitch);color:#04120a;border-radius:9px;padding:12px;text-align:center;font-weight:600;font-size:13.5px;cursor:pointer;}
+.value-hero-action:hover{background:#4ea36c;}
+@media(max-width:680px){.value-grid{grid-template-columns:repeat(2,1fr);}}
+
+.risk-tiers{display:flex;flex-direction:column;gap:10px;}
+.risk-tier-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;}
+.risk-tier-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.risk-tier-head span{font-size:18px;}
+.risk-tier-label{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;}
+.risk-tier-sub{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-dim);}
+.risk-tier-row{display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;background:var(--surface-2);border-radius:10px;padding:12px 14px;min-height:44px;}
+.risk-tier-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;}
+.risk-tier-nums{display:flex;flex-direction:column;align-items:flex-end;gap:2px;}
+.risk-tier-prob{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:16px;color:var(--pitch);}
+.risk-tier-odds{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-dim);}
+.risk-tier-card.risk-easy{border-color:var(--pitch-dim);}
+.risk-tier-card.risk-medium{border-color:var(--warn);}
+.risk-tier-card.risk-crazy{border-color:#e05c5c;}
 .sb-mid{display:flex;flex-direction:column;align-items:center;gap:6px;z-index:1;}
 .sb-mid .date{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim);}
 .sb-mid .vs{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:var(--text-dim);}
@@ -224,27 +331,27 @@ input[type=text]:focus,input[type=password]:focus,select:focus{border-color:var(
 .stat-row .bars .bh{background:var(--home);}
 .stat-row .bars .ba{background:var(--away);}
 
-.poisson-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px;}
+.poisson-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;}
 .poisson-cell{background:var(--surface-2);border-radius:8px;padding:10px 6px;text-align:center;}
 .poisson-cell .n{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;}
 .poisson-cell .l{font-size:9.5px;color:var(--text-dim);margin-top:4px;text-transform:uppercase;letter-spacing:.03em;line-height:1.3;}
 
-.h2h-row{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);font-size:12.5px;}
+.h2h-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px;}
 .h2h-row:last-child{border:none;}
-.h2h-row .d{font-family:'JetBrains Mono',monospace;color:var(--text-dim);font-size:10.5px;width:64px;flex-shrink:0;}
-.h2h-row .score{font-family:'JetBrains Mono',monospace;font-weight:700;margin-left:auto;flex-shrink:0;}
+.h2h-row .d{font-family:'JetBrains Mono',monospace;color:var(--text-dim);font-size:11px;width:80px;}
+.h2h-row .score{font-family:'JetBrains Mono',monospace;font-weight:700;margin-left:auto;}
 
-.injury-row{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;padding:6px 0;border-bottom:1px solid var(--line);}
+.injury-row{display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid var(--line);}
 .injury-row:last-child{border:none;}
 .injury-row .p{font-weight:500;}
-.injury-row .t{color:var(--warn);font-size:11px;text-align:right;flex-shrink:0;}
+.injury-row .t{color:var(--warn);font-size:12px;}
 
 .model-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -4px;}
 .model-table{width:100%;min-width:340px;border-collapse:collapse;font-size:12.5px;}
-.model-table th{text-align:center;color:var(--text-dim);font-size:10px;text-transform:uppercase;letter-spacing:.05em;padding:6px 6px;border-bottom:1px solid var(--line);}
+.model-table th{text-align:center;color:var(--text-dim);font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:6px 8px;border-bottom:1px solid var(--line);}
 .model-table th:first-child{text-align:left;}
-.model-table td{text-align:center;padding:11px 6px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;}
-.model-table td:first-child{text-align:left;font-family:'Inter',sans-serif;color:var(--text-dim);font-size:11.5px;}
+.model-table td{text-align:center;padding:9px 8px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;}
+.model-table td:first-child{text-align:left;font-family:'Inter',sans-serif;color:var(--text-dim);}
 .model-table tr:last-child td{border-bottom:none;}
 .model-table td.pick-target:active{background:var(--surface-2);border-radius:6px;}
 
@@ -253,13 +360,13 @@ input[type=text]:focus,input[type=password]:focus,select:focus{border-color:var(
 .final-pick-btn{
   display:flex;flex-direction:column;align-items:center;gap:2px;
   background:var(--surface-2);border:1px solid var(--line);border-radius:10px;
-  padding:12px 4px;cursor:pointer;font-family:'Inter',sans-serif;color:var(--text);
-  min-height:56px;
+  padding:14px 8px;cursor:pointer;font-family:'Inter',sans-serif;color:var(--text);
+  transition:border-color .1s,background .1s;
 }
-.final-pick-btn:active{border-color:var(--pitch);background:var(--surface);}
-.final-pick-btn .fp-sym{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--pitch);}
-.final-pick-btn .fp-name{font-size:10px;color:var(--text-dim);text-align:center;line-height:1.2;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.final-pick-btn .fp-pct{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;margin-top:2px;}
+.final-pick-btn:hover{border-color:var(--pitch);background:var(--surface);}
+.final-pick-btn .fp-sym{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:var(--pitch);}
+.final-pick-btn .fp-name{font-size:11px;color:var(--text-dim);text-align:center;line-height:1.2;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.final-pick-btn .fp-pct{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;margin-top:2px;}
 
 .ou-lines{display:flex;flex-direction:column;gap:10px;}
 .ou-line-row{display:flex;align-items:center;gap:12px;}
@@ -283,7 +390,7 @@ input[type=text]:focus,input[type=password]:focus,select:focus{border-color:var(
 .poisson-cell.pick-target{cursor:pointer;}
 .poisson-cell.pick-target:hover{background:var(--pitch-dim);outline:1px solid var(--pitch);}
 
-/* Stake calculator modal — su mobile: bottom sheet a tutta altezza, con safe-area */
+/* Stake calculator modal */
 .modal-overlay{
   position:fixed;inset:0;background:rgba(4,7,4,.72);
   display:flex;align-items:flex-end;justify-content:center;z-index:50;
@@ -300,7 +407,7 @@ input[type=text]:focus,input[type=password]:focus,select:focus{border-color:var(
   flex-shrink:0;position:sticky;top:0;background:var(--surface);z-index:1;
 }
 .modal-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;}
-.modal-close{cursor:pointer;color:var(--text-dim);font-size:20px;padding:6px 10px;min-height:auto;}
+.modal-close{cursor:pointer;color:var(--text-dim);font-size:20px;padding:6px 10px;}
 .modal-close:active{color:var(--text);}
 .modal-body{padding:20px 20px calc(24px + env(safe-area-inset-bottom));overflow-y:auto;}
 .stake-prob-row{margin-bottom:16px;}
@@ -365,21 +472,24 @@ input[type=text]:focus,input[type=password]:focus,select:focus{border-color:var(
 .bet-item .profit{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;margin-top:8px;}
 .bet-item .profit.positive{color:var(--pitch);}
 .bet-item .profit.negative{color:#e05c5c;}
+.bet-delete{cursor:pointer;color:var(--text-dim);font-size:13px;padding:3px 7px;border-radius:6px;line-height:1;}
+.bet-delete:hover{color:#e05c5c;background:rgba(224,92,92,.10);}
 
-/* Migliori giocate della giornata */
-.bestbet-item{
+/* Righe della scansione opportunità di mercato */
+.opp-scan-row{
   display:flex;align-items:center;gap:14px;background:var(--surface-2);
   border-radius:10px;padding:14px;margin-bottom:8px;cursor:pointer;
-  border:1px solid var(--line);min-height:44px;
+  border:1px solid var(--line);
 }
-.bestbet-item:active{border-color:var(--pitch-dim);}
-.bestbet-rank{
+.opp-scan-row:hover{border-color:var(--pitch-dim);}
+.opp-scan-rank{
   font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;
   color:var(--pitch);width:26px;flex-shrink:0;text-align:center;
 }
-.bestbet-item .match{font-size:11px;color:var(--text-dim);margin-bottom:2px;}
-.bestbet-item .pick{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;}
-.bestbet-item .pct{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:18px;color:var(--pitch);flex-shrink:0;}
+.opp-scan-row .match{font-size:11px;color:var(--text-dim);margin-bottom:2px;}
+.opp-scan-row .pick{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;}
+.opp-scan-row .odds{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--pitch);margin-top:2px;}
+.opp-scan-row .pct{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:18px;color:var(--pitch);flex-shrink:0;}
 </style>
 </head>
 <body>
@@ -396,6 +506,7 @@ input[type=text]:focus,input[type=password]:focus,select:focus{border-color:var(
     <div class="pill" id="queuePill">0 partite in coda</div>
     <div class="pill" id="cartPill">🎟 carrello (0)</div>
     <div class="pill" id="historyPill">📜 giocate (0)</div>
+    <div class="pill" id="backtestPill">🧠 autoapprendimento (0)</div>
     <div class="pill" id="creditsPill" title="Controlla le richieste API rimaste oggi">📊 crediti</div>
     <div class="pill" id="stakeSettingsPill">💰 bankroll</div>
     <div class="pill" id="settingsPill">⚙ chiave API</div>
@@ -460,7 +571,7 @@ input[type=text]:focus,input[type=password]:focus,select:focus{border-color:var(
         <div class="pill" data-mode="last">Ultime giocate</div>
         <div class="pill" data-mode="round">Giornata corrente</div>
       </div>
-      <button class="btn secondary" id="bestBetsBtn" style="width:100%;margin-bottom:14px;">🏆 Trova le 5 partite più prevedibili (risultato esatto)</button>
+      <button class="btn secondary" id="oppScanBtn" style="width:100%;margin-bottom:14px;">📊 Analizza le opportunità di mercato</button>
       <div id="fixturesList"></div>
     </div>
 
@@ -537,14 +648,38 @@ input[type=text]:focus,input[type=password]:focus,select:focus{border-color:var(
   </div>
 </div>
 
-<div class="modal-overlay hidden" id="bestBetsModal">
-  <div class="modal-card" style="max-width:600px;">
+<div class="modal-overlay hidden" id="queueModal">
+  <div class="modal-card" style="max-width:560px;">
     <div class="modal-head">
-      <div class="modal-title">🏆 Le 5 migliori giocate</div>
-      <div class="modal-close" id="bestBetsModalClose">✕</div>
+      <div class="modal-title">📋 Partite in coda</div>
+      <div class="modal-close" id="queueModalClose">✕</div>
     </div>
     <div class="modal-body" style="flex:1;min-height:0;">
-      <div id="bestBetsContent"></div>
+      <div id="queueContent"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay hidden" id="oppScanModal">
+  <div class="modal-card" style="max-width:600px;">
+    <div class="modal-head">
+      <div class="modal-title">📊 Opportunità di mercato</div>
+      <div class="modal-close" id="oppScanModalClose">✕</div>
+    </div>
+    <div class="modal-body" style="flex:1;min-height:0;">
+      <div id="oppScanContent"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay hidden" id="backtestModal">
+  <div class="modal-card" style="max-width:600px;">
+    <div class="modal-head">
+      <div class="modal-title">🧠 Autoapprendimento</div>
+      <div class="modal-close" id="backtestModalClose">✕</div>
+    </div>
+    <div class="modal-body" style="flex:1;min-height:0;">
+      <div id="backtestContent"></div>
     </div>
   </div>
 </div>
@@ -553,12 +688,1020 @@ input[type=text]:focus,input[type=password]:focus,select:focus{border-color:var(
 
 <script>
 const API_BASE = 'https://v3.football.api-sports.io';
+
+// ---------- Correttivi del modello (dal foglio PARAMETRI_MODELLO dell'Excel di riferimento) ----------
+const MODEL_SHRINKAGE = 0.85;      // smorzamento verso la media di lega: lambda^0.85 * media_lega^0.15
+const LAMBDA_MIN = 0.2;            // limite inferiore di sicurezza sui gol attesi
+const LAMBDA_MAX = 4.5;            // limite superiore di sicurezza sui gol attesi
+const FORM_DECAY = 0.85;           // decadimento della forma pesata: le partite più vecchie pesano meno
+const FORM_ADJUST_WEIGHT = 0.25;   // quanto la forma recente corregge i gol attesi di base
+const H2H_WEIGHT = 0.10;           // peso volutamente basso: campione piccolo, poco rappresentativo
+const H2H_MIN_SAMPLE = 3;          // sotto questa soglia il correttivo H2H resta disattivato
+const RELIABILITY_FULL_MATCHES = 20; // partite (per squadra) oltre le quali l'affidabilità è piena
+const BEST_PICK_MIN_ODDS = 1.70;   // quota equa minima per la "scommessa consigliata" di ogni partita
+
+// Medie gol approssimative per competizione (casa/trasferta), usate come riferimento di lega per
+// lo smorzamento e la normalizzazione forza attacco/difesa. Sono valori storici tipici, non calcolati
+// in tempo reale sull'intera classifica (richiederebbe recuperare le statistiche di tutte le squadre
+// del campionato): un'approssimazione dichiarata, non un dato preciso aggiornato alla giornata.
+const LEAGUE_GOAL_AVERAGES = {
+  39:  {home:1.55, away:1.25}, // Premier League
+  140: {home:1.45, away:1.15}, // La Liga
+  135: {home:1.50, away:1.15}, // Serie A
+  78:  {home:1.65, away:1.35}, // Bundesliga
+  61:  {home:1.45, away:1.10}, // Ligue 1
+  2:   {home:1.55, away:1.25}, // UEFA Champions League
+  DEFAULT: {home:1.45, away:1.15},
+};
+function getLeagueAverages(leagueId){
+  return LEAGUE_GOAL_AVERAGES[leagueId] || LEAGUE_GOAL_AVERAGES.DEFAULT;
+}
+
+/* =====================================================================================
+   MOTORE QUANTITATIVO
+   Tutte le funzioni di questo blocco lavorano con probabilita' in scala 0..1.
+   La conversione in percentuale avviene SOLO nell'interfaccia.
+   ===================================================================================== */
+
+const EPS = 1e-9;
+function clampProb(p){ return Math.min(1-EPS, Math.max(EPS, p)); }
+function isFiniteNum(x){ return typeof x==='number' && isFinite(x) && !isNaN(x); }
+
+// Normalizza un vettore di probabilita' a somma 1. Se il vettore e' degenere (somma 0 o
+// valori non validi) ritorna null invece di produrre NaN silenziosi.
+function normalizeVector(arr){
+  const clean = arr.map(v=> isFiniteNum(v) && v>0 ? v : 0);
+  const sum = clean.reduce((a,b)=>a+b,0);
+  if(sum<=0) return null;
+  return clean.map(v=> v/sum);
+}
+
+// ---------- METRICHE DI VALUTAZIONE PROBABILISTICA ----------
+
+// Brier score multiclasse per 1X2: somma dei quadrati degli scarti sui 3 esiti.
+// Range 0..2, piu' basso = meglio. Penalizza le previsioni sicure e sbagliate.
+function multiclassBrier(probs, actualIndex){
+  let s = 0;
+  for(let i=0;i<probs.length;i++){
+    const outcome = (i===actualIndex) ? 1 : 0;
+    s += Math.pow(probs[i]-outcome, 2);
+  }
+  return s;
+}
+
+// Brier score binario (Over/Under, BTTS...). Range 0..1, piu' basso = meglio.
+function binaryBrier(p, occurred){
+  return Math.pow(clampProb(p) - (occurred?1:0), 2);
+}
+
+// Log loss multiclasse: -log(probabilita' assegnata all'esito che si e' verificato).
+// Penalizza in modo molto piu' aggressivo del Brier le previsioni sicure e sbagliate:
+// e' la metrica che impedisce al modello di diventare artificialmente troppo confidente.
+function logLossMulti(probs, actualIndex){
+  return -Math.log(clampProb(probs[actualIndex]));
+}
+function logLossBinary(p, occurred){
+  return occurred ? -Math.log(clampProb(p)) : -Math.log(clampProb(1-p));
+}
+
+// Errore di calibrazione (ECE, Expected Calibration Error): media pesata dello scarto
+// assoluto tra probabilita' prevista e frequenza osservata, per fasce di probabilita'.
+// 0 = perfettamente calibrato.
+function expectedCalibrationError(observations, bucketCount=10){
+  if(!observations.length) return null;
+  const buckets = Array.from({length:bucketCount}, ()=>({sumP:0, hits:0, n:0}));
+  observations.forEach(o=>{
+    if(!isFiniteNum(o.p)) return;
+    let idx = Math.floor(o.p*bucketCount);
+    if(idx>=bucketCount) idx = bucketCount-1;
+    if(idx<0) idx = 0;
+    buckets[idx].sumP += o.p;
+    buckets[idx].n++;
+    if(o.occurred) buckets[idx].hits++;
+  });
+  const total = buckets.reduce((a,b)=>a+b.n,0);
+  if(!total) return null;
+  let ece = 0;
+  buckets.forEach(b=>{
+    if(!b.n) return;
+    const meanP = b.sumP/b.n;
+    const observed = b.hits/b.n;
+    ece += (b.n/total) * Math.abs(meanP-observed);
+  });
+  return ece;
+}
+
+// Curva di calibrazione a fasce: per ogni fascia restituisce previsto, osservato,
+// differenza e dimensione del campione — la base della sezione "Calibration Curve".
+function calibrationCurve(observations, bucketCount=10){
+  const buckets = Array.from({length:bucketCount}, (_,i)=>({
+    lo:i/bucketCount, hi:(i+1)/bucketCount, sumP:0, hits:0, n:0
+  }));
+  observations.forEach(o=>{
+    if(!isFiniteNum(o.p)) return;
+    let idx = Math.floor(o.p*bucketCount);
+    if(idx>=bucketCount) idx = bucketCount-1;
+    if(idx<0) idx = 0;
+    buckets[idx].sumP += o.p; buckets[idx].n++;
+    if(o.occurred) buckets[idx].hits++;
+  });
+  return buckets.map(b=>({
+    lo:b.lo, hi:b.hi, n:b.n,
+    predicted: b.n ? b.sumP/b.n : null,
+    observed: b.n ? b.hits/b.n : null,
+    diff: b.n ? (b.hits/b.n) - (b.sumP/b.n) : null,
+  }));
+}
+
+// ---------- CALIBRAZIONE: REGRESSIONE ISOTONICA (Pool Adjacent Violators) ----------
+// Trova la funzione monotona non decrescente che meglio mappa probabilita' previste ->
+// frequenze osservate. E' la calibrazione non parametrica standard: non assume alcuna
+// forma funzionale (a differenza di Platt scaling) e non introduce dipendenze esterne.
+function fitIsotonic(observations, minSample=30){
+  const pts = observations
+    .filter(o=> isFiniteNum(o.p))
+    .map(o=> ({x:clampProb(o.p), y: o.occurred?1:0}))
+    .sort((a,b)=> a.x-b.x);
+  if(pts.length < minSample) return null;
+
+  // Blocchi iniziali: un punto per blocco
+  let blocks = pts.map(p=> ({sumY:p.y, n:1, xMin:p.x, xMax:p.x, value:p.y}));
+  // PAV: finche' esiste una violazione della monotonia, fondi i blocchi adiacenti
+  let merged = true;
+  while(merged){
+    merged = false;
+    for(let i=0;i<blocks.length-1;i++){
+      if(blocks[i].value > blocks[i+1].value + EPS){
+        const a = blocks[i], b = blocks[i+1];
+        const nb = { sumY:a.sumY+b.sumY, n:a.n+b.n, xMin:a.xMin, xMax:b.xMax, value:0 };
+        nb.value = nb.sumY/nb.n;
+        blocks.splice(i, 2, nb);
+        merged = true;
+        break;
+      }
+    }
+  }
+  return { blocks, n: pts.length };
+}
+
+// Applica la mappa isotonica a una probabilita' grezza, con interpolazione lineare tra i
+// centri dei blocchi per evitare salti a gradino.
+//
+// Due protezioni contro i campioni piccoli, entrambe necessarie: senza di esse la PAV su
+// poche decine di osservazioni produce blocchi degeneri con valore esattamente 0 o 1
+// ("questo esito e' impossibile / certo"), che e' statisticamente insostenibile e manderebbe
+// a zero o a infinito i calcoli di EV a valle.
+//   1. Smoothing di Laplace sul valore del blocco: (successi+1)/(n+2) invece di successi/n.
+//   2. Shrinkage verso la probabilita' grezza in funzione della dimensione del blocco:
+//      blocchi piccoli spostano poco la stima, blocchi grandi la spostano molto.
+const ISOTONIC_SHRINK_K = 25; // dimensione blocco alla quale la correzione pesa il 50%
+
+function applyIsotonic(model, rawP){
+  if(!model || !model.blocks || !model.blocks.length) return null;
+  const x = clampProb(rawP);
+  const blocks = model.blocks;
+  // valore del blocco con smoothing di Laplace + dimensione, per l'interpolazione
+  const centers = blocks.map(b=> ({
+    x: (b.xMin+b.xMax)/2,
+    y: (b.sumY + 1) / (b.n + 2),
+    n: b.n,
+  }));
+
+  let isoVal, effN;
+  if(x <= centers[0].x){ isoVal = centers[0].y; effN = centers[0].n; }
+  else if(x >= centers[centers.length-1].x){ isoVal = centers[centers.length-1].y; effN = centers[centers.length-1].n; }
+  else {
+    isoVal = centers[centers.length-1].y; effN = centers[centers.length-1].n;
+    for(let i=0;i<centers.length-1;i++){
+      const a = centers[i], b = centers[i+1];
+      if(x>=a.x && x<=b.x){
+        const t = (b.x-a.x)>EPS ? (x-a.x)/(b.x-a.x) : 0;
+        isoVal = a.y + t*(b.y-a.y);
+        effN = a.n + b.n;
+        break;
+      }
+    }
+  }
+  if(!isFiniteNum(isoVal)) return null;
+  // shrinkage verso la probabilita' grezza in base alla numerosita' locale
+  const w = effN / (effN + ISOTONIC_SHRINK_K);
+  return clampProb(w*isoVal + (1-w)*x);
+}
+
+// ---------- VALUE ENGINE ----------
+
+// Rimuove l'overround (margine del bookmaker) da un set di quote, restituendo le
+// probabilita' implicite "pulite" che sommano a 1. Senza questo passaggio ogni confronto
+// modello-vs-mercato e' distorto dal margine, che nel calcio vale tipicamente 3-8%.
+function calculateMarketProbability(oddsArray){
+  const raw = oddsArray.map(o=> (isFiniteNum(o) && o>1) ? 1/o : null);
+  if(raw.some(v=> v==null)) return null;
+  const sum = raw.reduce((a,b)=>a+b,0);
+  if(sum<=0) return null;
+  return { probs: raw.map(v=> v/sum), overround: sum-1 };
+}
+
+// Quota equa = quota che non lascia margine a nessuno, dato il nostro modello calibrato.
+function calculateFairOdds(pCalibrated){
+  if(!isFiniteNum(pCalibrated) || pCalibrated<=0) return null;
+  return 1/pCalibrated;
+}
+
+// Edge = vantaggio in punti di probabilita' del modello sul mercato (già senza overround).
+function calculateEdge(pModel, pMarket){
+  if(!isFiniteNum(pModel) || !isFiniteNum(pMarket)) return null;
+  return pModel - pMarket;
+}
+
+// Valore atteso per unita' puntata: quanto ci si aspetta di guadagnare (o perdere) in media.
+function calculateEV(pCalibrated, odds){
+  if(!isFiniteNum(pCalibrated) || !isFiniteNum(odds) || odds<=1) return null;
+  return (pCalibrated*odds) - 1;
+}
+
+// Accordo tra modelli 0..1: 1 = tutti i modelli dicono la stessa cosa, 0 = massimo disaccordo.
+// Si basa sulla deviazione standard media delle probabilita' assegnate a ciascun esito.
+function calculateModelAgreement(modelProbSets){
+  const valid = modelProbSets.filter(s=> Array.isArray(s) && s.every(isFiniteNum));
+  if(valid.length < 2) return null;
+  const k = valid[0].length;
+  let sumStd = 0;
+  for(let i=0;i<k;i++){
+    const vals = valid.map(s=> s[i]);
+    const mean = vals.reduce((a,b)=>a+b,0)/vals.length;
+    const variance = vals.reduce((a,b)=> a+Math.pow(b-mean,2), 0)/vals.length;
+    sumStd += Math.sqrt(variance);
+  }
+  const avgStd = sumStd/k;
+  // std 0 -> agreement 1; std 0.25 (molto alto per probabilita') -> agreement ~0
+  return Math.max(0, Math.min(1, 1 - (avgStd/0.25)));
+}
+
+// Value Score 0..100: sintesi di edge, EV, calibrazione, accordo tra modelli e qualita' dati,
+// penalizzata da incertezza e rischio di mercato. NON e' la sola probabilita': una giocata
+// molto probabile ma senza vantaggio sulla quota ottiene uno score basso.
+function calculateValueScore(components){
+  const { edge=0, ev=0, calibrationQuality=0.5, modelAgreement=0.5, dataQuality=0.5, uncertainty=0.5, marketRisk=0.3 } = components||{};
+  const edgeScore = Math.max(0, Math.min(1, edge/0.10));          // +10% edge = punteggio pieno
+  const evScore = Math.max(0, Math.min(1, ev/0.20));              // +20% EV = punteggio pieno
+  const raw =
+      0.30*edgeScore
+    + 0.25*evScore
+    + 0.15*calibrationQuality
+    + 0.15*modelAgreement
+    + 0.15*dataQuality
+    - 0.15*uncertainty
+    - 0.10*marketRisk;
+  return Math.max(0, Math.min(100, raw*100));
+}
+
+// Soglie di ingresso per mercato: mercati piu' rumorosi (corner, cartellini, primo tempo)
+// richiedono un vantaggio maggiore per giustificare una giocata.
+const VALUE_THRESHOLDS = {
+  '1X2':      { minEdge:0.03, minEV:0.04, minValueScore:45 },
+  'OU':       { minEdge:0.03, minEV:0.04, minValueScore:45 },
+  'BTTS':     { minEdge:0.035, minEV:0.05, minValueScore:48 },
+  'DC':       { minEdge:0.025, minEV:0.03, minValueScore:42 },
+  'HT':       { minEdge:0.05, minEV:0.07, minValueScore:55 },
+  'CORNERS':  { minEdge:0.06, minEV:0.08, minValueScore:58 },
+  'CARDS':    { minEdge:0.06, minEV:0.08, minValueScore:58 },
+  DEFAULT:    { minEdge:0.04, minEV:0.05, minValueScore:50 },
+};
+function getValueThresholds(marketType){
+  return VALUE_THRESHOLDS[marketType] || VALUE_THRESHOLDS.DEFAULT;
+}
+
+/* =====================================================================================
+   MARKET OPPORTUNITY ENGINE
+   Ogni mercato disponibile viene trasformato in un oggetto standardizzato e valutato in
+   modo indipendente. Il sistema NON cerca un numero prefissato di giocate: analizza tutto
+   il mercato e classifica ciascuna selezione. Puo' legittimamente concludere che non
+   esiste alcuna opportunita'.
+   ===================================================================================== */
+
+// Soglie di classificazione sul Value Score
+const OPP_THRESHOLDS = { STRONG:80, MODERATE:65, WATCH:50 };
+
+// Qualita' del mercato 0..1: quanto ci si puo' fidare del PREZZO, indipendentemente dal modello.
+// Un mercato quotato da un solo bookmaker, o con margine altissimo, o storicamente poco
+// modellabile, non va trattato come un mercato liquido e ben prezzato.
+const MARKET_MODELABILITY = {
+  '1X2':0.95, 'DC':0.90, 'OU25':0.95, 'OU15':0.85, 'OU35':0.85,
+  'BTTS':0.90, 'HT1X2':0.65, 'HTOU15':0.65, 'CORNERS':0.55, 'CARDS':0.50,
+  'CS':0.45, 'TEAMGOALS':0.60, DEFAULT:0.60,
+};
+function calculateMarketQuality(marketKey, bookmakersCount, overround, historicalN){
+  const modelability = MARKET_MODELABILITY[marketKey] ?? MARKET_MODELABILITY.DEFAULT;
+  const bookScore = bookmakersCount==null ? 0.25 : Math.max(0, Math.min(1, bookmakersCount/6));
+  const overroundScore = overround==null ? 0.4 : Math.max(0, Math.min(1, 1-(overround/0.10)));
+  const historyScore = Math.max(0, Math.min(1, (historicalN||0)/200));
+  return Math.max(0, Math.min(1,
+    0.35*modelability + 0.25*bookScore + 0.20*overroundScore + 0.20*historyScore));
+}
+
+// Performance storica del modello su QUESTO mercato, ricavata dal backtest walk-forward.
+// Se il mercato non e' mai stato validato, ritorna null: l'assenza di dati abbassa il punteggio
+// invece di essere trattata come performance neutra positiva.
+function getHistoricalPerformance(marketKey){
+  const records = state.backtestRecords||[];
+  if(!records.length) return null;
+  const mapped = { '1X2':'1X2', 'OU15':'OU15', 'OU25':'OU25', 'OU35':'OU35', 'BTTS':'BTTS' }[marketKey];
+  if(!mapped) return null;
+  const perf = calculateModelPerformance(records);
+  const best = MODEL_KEYS.map(k=> perf[k]?.[mapped]).filter(Boolean).sort((a,b)=> a.logLoss-b.logLoss)[0];
+  if(!best || best.n<20) return null;
+  const refLL = mapped==='1X2' ? Math.log(3) : Math.log(2);
+  return {
+    n: best.n,
+    logLoss: best.logLoss,
+    beatsBaseline: best.logLoss < refLL,
+    score: Math.max(0, Math.min(1, 1-(best.logLoss/(refLL*1.4)))),
+  };
+}
+
+// Rischio 0..100: quanto e' fragile la previsione, a prescindere da quanto sia appetibile la quota.
+function calculateRiskScore(o){
+  const risk =
+      0.30*(o.uncertainty ?? 0.5)
+    + 0.25*(1-(o.modelAgreement ?? 0.5))
+    + 0.20*(1-(o.dataQuality ?? 0.5))
+    + 0.15*(1-(o.marketQuality ?? 0.5))
+    + 0.10*(o.historicalPerformance ? (1-o.historicalPerformance.score) : 0.7);
+  return Math.max(0, Math.min(100, risk*100));
+}
+function riskLabel(riskScore){
+  if(riskScore<33) return 'BASSO';
+  if(riskScore<60) return 'MEDIO';
+  return 'ALTO';
+}
+
+// Value Score 0..100 esteso: include performance storica e qualita' del mercato, penalizza
+// incertezza e rischio. NON e' la probabilita': una selezione molto probabile ma prezzata
+// correttamente dal bookmaker ottiene uno score basso.
+function calculateOpportunityValueScore(c){
+  const edgeScore = Math.max(0, Math.min(1, (c.edge ?? 0)/0.10));
+  const evScore = Math.max(0, Math.min(1, (c.ev ?? 0)/0.20));
+  const histScore = c.historicalPerformance ? c.historicalPerformance.score : 0.35;
+  const raw =
+      0.25*edgeScore
+    + 0.25*evScore
+    + 0.15*(c.calibrationQuality ?? 0.5)
+    + 0.12*(c.confidence!=null ? c.confidence/100 : 0.5)
+    + 0.10*(c.modelAgreement ?? 0.5)
+    + 0.08*(c.dataQuality ?? 0.5)
+    + 0.05*histScore
+    - 0.12*(c.uncertainty ?? 0.5)
+    - 0.08*(1-(c.marketQuality ?? 0.5))
+    // modelli molto correlati = accordo apparente ma poca informazione indipendente
+    - 0.05*(c.modelCorrelation ?? 0);
+  return Math.max(0, Math.min(100, raw*100));
+}
+
+// DECISION ENGINE. Non basta EV>0 per dichiarare valore: servono simultaneamente vantaggio,
+// affidabilita' della stima e qualita' dei dati. Restituisce sempre il motivo della decisione.
+function evaluateMarketOpportunity(o){
+  const pros = [], cons = [];
+
+  if(o.bookmakerOdds==null){
+    return { status:'NO_BET', pros, cons:['quota non disponibile dal bookmaker per questo mercato'],
+             reason:'Nessuna quota disponibile: impossibile stabilire se esiste un disallineamento di prezzo.' };
+  }
+
+  if(o.edge!=null && o.edge>0.02) pros.push(`probabilità del modello superiore al mercato (edge ${(o.edge*100).toFixed(1)}%)`);
+  else cons.push(o.edge==null ? 'edge non calcolabile' : `edge troppo basso (${(o.edge*100).toFixed(1)}%)`);
+
+  if(o.ev!=null && o.ev>0.03) pros.push(`valore atteso positivo (${(o.ev*100).toFixed(1)}%)`);
+  else cons.push(o.ev==null ? 'EV non calcolabile' : `EV insufficiente (${(o.ev*100).toFixed(1)}%)`);
+
+  if(o.bookmakerOdds!=null && o.fairOdds!=null && o.bookmakerOdds>o.fairOdds) pros.push('quota offerta superiore alla quota equa');
+  if(o.calibrationQuality>=0.6) pros.push('probabilità ben calibrata sullo storico');
+  else cons.push('calibrazione debole: poche osservazioni storiche in questa fascia');
+
+  if(o.modelAgreement!=null && o.modelAgreement>=0.75) pros.push(`modelli concordi (${(o.modelAgreement*100).toFixed(0)}/100)`);
+  else if(o.modelAgreement!=null && o.modelAgreement<0.45) cons.push(`modelli discordanti (${(o.modelAgreement*100).toFixed(0)}/100)`);
+
+  if(o.dataQuality>=0.7) pros.push('storico squadre ampio');
+  else if(o.dataQuality<0.45) cons.push('storico squadre limitato');
+
+  if(o.uncertainty!=null && o.uncertainty>0.6) cons.push('incertezza elevata sulla stima');
+  if(o.marketQuality!=null && o.marketQuality<0.45) cons.push('mercato poco affidabile o poco quotato');
+  if(o.historicalPerformance && !o.historicalPerformance.beatsBaseline)
+    cons.push('su questo mercato il modello non batte ancora la baseline nel backtest');
+  if(!o.historicalPerformance) cons.push('mercato mai validato dal backtest');
+
+  const vs = o.valueScore ?? 0;
+  let status;
+  if(vs >= OPP_THRESHOLDS.STRONG) status = 'STRONG_VALUE';
+  else if(vs >= OPP_THRESHOLDS.MODERATE) status = 'MODERATE_VALUE';
+  else if(vs >= OPP_THRESHOLDS.WATCH) status = 'WATCHLIST';
+  else status = 'NO_BET';
+
+  // Vincoli di sicurezza: uno score alto non basta se la stima e' fragile.
+  // Value Score e Confidence restano grandezze separate — un value alto con confidence
+  // bassa significa "quota interessante ma stima poco affidabile", non "giocata forte".
+  if(status==='STRONG_VALUE' && (o.confidence<65 || o.riskScore>60)) status = 'MODERATE_VALUE';
+  if(status!=='NO_BET' && (o.ev==null || o.ev<=0)) status = 'NO_BET';
+  if(status!=='NO_BET' && o.modelAgreement!=null && o.modelAgreement<0.35) status = 'NO_BET';
+
+  const reason = status==='NO_BET'
+    ? (cons.length ? cons[0].charAt(0).toUpperCase()+cons[0].slice(1)+'.' : 'Nessun vantaggio statistico sufficientemente robusto.')
+    : (pros.length ? pros[0].charAt(0).toUpperCase()+pros[0].slice(1)+'.' : 'Disallineamento di prezzo rilevato.');
+  return { status, pros, cons, reason };
+}
+
+// Costruisce un singolo MarketOpportunity standardizzato.
+function buildMarketOpportunity(spec){
+  const { matchId, matchLabel, market, marketKey, selection, rawProb,
+          oddsSet, oddsIndex, bookmakerOdds, bookmakersCount,
+          modelProbSets, dataQuality, calibrationKey } = spec;
+
+  if(!isFiniteNum(rawProb) || rawProb<=0 || rawProb>=1) return null;
+
+  const calRes = calibrateProbabilities(rawProb, calibrationKey || '1X2');
+  const pCal = calRes.calibrated;
+  const mkt = (oddsSet && oddsSet.every(o=> isFiniteNum(o) && o>1)) ? calculateMarketProbability(oddsSet) : null;
+  const marketProbability = mkt ? mkt.probs[oddsIndex]
+                          : (isFiniteNum(bookmakerOdds) && bookmakerOdds>1 ? 1/bookmakerOdds : null);
+  const overround = mkt ? mkt.overround : null;
+
+  const edge = (marketProbability!=null) ? calculateEdge(pCal, marketProbability) : null;
+  const ev = (isFiniteNum(bookmakerOdds) && bookmakerOdds>1) ? calculateEV(pCal, bookmakerOdds) : null;
+  const fairOdds = calculateFairOdds(pCal);
+
+  const modelAgreement = spec.agreementOverride ?? (modelProbSets ? calculateModelAgreement(modelProbSets) : null);
+  // Incertezza dall'Uncertainty Engine quando disponibile (composizione in quadratura di fonti
+  // misurabili), altrimenti la sola incertezza di calibrazione.
+  const uncertainty = isFiniteNum(spec.uncertaintyOverride)
+    ? Math.max(0, Math.min(1, spec.uncertaintyOverride/0.30))
+    : Math.max(0, Math.min(1, calRes.uncertainty/0.30));
+  const calibrationQuality = calRes.method==='isotonic'
+      ? Math.max(0.5, Math.min(1, calRes.sample/150))
+      : (calRes.method==='bucket' ? 0.45 : 0.25);
+  const historicalPerformance = getHistoricalPerformance(marketKey);
+  const marketQuality = calculateMarketQuality(marketKey, bookmakersCount, overround, historicalPerformance?.n);
+
+  const confidence = Math.max(0, Math.min(100, 100*(
+      0.32*calibrationQuality
+    + 0.24*(modelAgreement ?? 0.5)
+    + 0.22*(dataQuality ?? 0.5)
+    + 0.12*(1-uncertainty)
+    + 0.10*(historicalPerformance ? historicalPerformance.score : 0.3)
+  )));
+
+  const opp = {
+    matchId, matchLabel, market, marketKey, selection,
+    modelProbability: rawProb,
+    calibratedProbability: pCal,
+    marketProbability,
+    fairOdds, bookmakerOdds: isFiniteNum(bookmakerOdds)&&bookmakerOdds>1 ? bookmakerOdds : null,
+    edge, ev,
+    confidence, uncertainty,
+    range: calRes.range,
+    calibrationMethod: calRes.method, calibrationSample: calRes.sample, calibrationQuality,
+    modelAgreement, dataQuality,
+    historicalPerformance,
+    marketQuality, overround, bookmakersCount,
+    modelCorrelation: spec.modelCorrelation ?? null,
+    uncertaintySources: spec.uncertaintySources ?? null,
+    lambdaSource: spec.lambdaSource ?? null,
+  };
+  // range coerente con l'incertezza effettivamente usata
+  const halfWidth = uncertainty*0.30;
+  opp.range = [Math.max(0, pCal-halfWidth), Math.min(1, pCal+halfWidth)];
+  opp.valueScore = calculateOpportunityValueScore(opp);
+  opp.riskScore = calculateRiskScore(opp);
+  const verdict = evaluateMarketOpportunity(opp);
+  opp.status = verdict.status;
+  opp.pros = verdict.pros;
+  opp.cons = verdict.cons;
+  opp.reason = verdict.reason;
+  return opp;
+}
+
+// Costruisce TUTTE le opportunita' di mercato per una partita. Un mercato senza dati o senza
+// modello affidabile viene semplicemente omesso: non si inventano probabilita'.
+function buildMarketOpportunities(ctx){
+  const { fx, matchLabel, ens1x2, markets, htMarkets, doubleChance, poissonHT,
+          cornersCards, realOdds, dataQuality, engineModelPreds,
+          uncertaintyOverride, uncertaintySources, agreementOverride,
+          avgCorrelation, lambdaSource } = ctx;
+  const out = [];
+  const ro = realOdds || null;
+  const bookCount = ro?.bookmakersCount ?? null;
+  const matchId = fx.fixture.id;
+  const homeName = fx.teams.home.name, awayName = fx.teams.away.name;
+
+  const sets1x2 = MODEL_KEYS.map(k=> engineModelPreds?.[k]?.probs1x2).filter(Boolean);
+  // parametri comuni a tutte le opportunita' di questa partita
+  const common = { uncertaintyOverride, uncertaintySources, agreementOverride,
+                   modelCorrelation: avgCorrelation, lambdaSource };
+  const add = (o)=> { if(o) out.push(o); };
+
+  // --- 1X2 ---
+  if(ens1x2){
+    const oddsSet = ro ? [ro.home, ro.draw, ro.away] : null;
+    const valid = oddsSet && oddsSet.every(o=> isFiniteNum(o) && o>1);
+    [[0,'1',homeName+' vince',ro?.home],[1,'X','Pareggio',ro?.draw],[2,'2',awayName+' vince',ro?.away]].forEach(([i,sym,label,odd])=>{
+      add(buildMarketOpportunity({ ...common, matchId, matchLabel, market:'1X2', marketKey:'1X2', selection:label,
+        rawProb: ens1x2.value[i], oddsSet: valid?oddsSet:null, oddsIndex:i, bookmakerOdds:odd,
+        bookmakersCount:bookCount, modelProbSets:sets1x2, dataQuality, calibrationKey:'1X2' }));
+    });
+  }
+
+  // --- Doppia chance (nessuna quota reale disponibile dall'endpoint corrente) ---
+  if(doubleChance){
+    [['1X',doubleChance.dc1X],['X2',doubleChance.dcX2],['12',doubleChance.dc12]].forEach(([sel,p])=>{
+      add(buildMarketOpportunity({ ...common, matchId, matchLabel, market:'Doppia chance', marketKey:'DC', selection:sel,
+        rawProb: p/100, oddsSet:null, oddsIndex:0, bookmakerOdds:null,
+        bookmakersCount:bookCount, modelProbSets:sets1x2, dataQuality, calibrationKey:'1X2' }));
+    });
+  }
+
+  // --- Over/Under gol ---
+  if(markets){
+    const lines = [
+      { key:'OU15', label:'Over/Under 1.5', over:markets.over15, under:markets.under15, oddOver:null, oddUnder:null },
+      { key:'OU25', label:'Over/Under 2.5', over:markets.over25, under:markets.under25, oddOver:ro?.over25, oddUnder:ro?.under25 },
+      { key:'OU35', label:'Over/Under 3.5', over:markets.over35, under:markets.under35, oddOver:null, oddUnder:null },
+    ];
+    lines.forEach(l=>{
+      const oddsSet = (isFiniteNum(l.oddOver)&&isFiniteNum(l.oddUnder)) ? [l.oddOver,l.oddUnder] : null;
+      const sets = MODEL_KEYS.map(k=>{
+        const p = engineModelPreds?.[k];
+        const f = l.key==='OU15'?'over15':(l.key==='OU25'?'over25':'over35');
+        return (p && isFiniteNum(p[f])) ? [p[f], 1-p[f]] : null;
+      }).filter(Boolean);
+      add(buildMarketOpportunity({ ...common, matchId, matchLabel, market:l.label, marketKey:l.key, selection:'Over',
+        rawProb:l.over/100, oddsSet, oddsIndex:0, bookmakerOdds:l.oddOver, bookmakersCount:bookCount,
+        modelProbSets:sets, dataQuality, calibrationKey: l.key==='OU25'?'OU25':'OU25' }));
+      add(buildMarketOpportunity({ ...common, matchId, matchLabel, market:l.label, marketKey:l.key, selection:'Under',
+        rawProb:l.under/100, oddsSet, oddsIndex:1, bookmakerOdds:l.oddUnder, bookmakersCount:bookCount,
+        modelProbSets:sets, dataQuality, calibrationKey:'OU25' }));
+    });
+
+    // --- BTTS ---
+    const bttsSet = (isFiniteNum(ro?.bttsYes)&&isFiniteNum(ro?.bttsNo)) ? [ro.bttsYes, ro.bttsNo] : null;
+    const bttsSets = MODEL_KEYS.map(k=>{
+      const p = engineModelPreds?.[k];
+      return (p && isFiniteNum(p.bttsYes)) ? [p.bttsYes, 1-p.bttsYes] : null;
+    }).filter(Boolean);
+    add(buildMarketOpportunity({ ...common, matchId, matchLabel, market:'Gol/NoGol', marketKey:'BTTS', selection:'Gol',
+      rawProb:markets.bttsYes/100, oddsSet:bttsSet, oddsIndex:0, bookmakerOdds:ro?.bttsYes,
+      bookmakersCount:bookCount, modelProbSets:bttsSets, dataQuality, calibrationKey:'BTTS' }));
+    add(buildMarketOpportunity({ ...common, matchId, matchLabel, market:'Gol/NoGol', marketKey:'BTTS', selection:'NoGol',
+      rawProb:markets.bttsNo/100, oddsSet:bttsSet, oddsIndex:1, bookmakerOdds:ro?.bttsNo,
+      bookmakersCount:bookCount, modelProbSets:bttsSets, dataQuality, calibrationKey:'BTTS' }));
+  }
+
+  // --- Primo tempo ---
+  if(poissonHT){
+    [['1',poissonHT.pHome],['X',poissonHT.pDraw],['2',poissonHT.pAway]].forEach(([sel,p])=>{
+      add(buildMarketOpportunity({ ...common, matchId, matchLabel, market:'1X2 primo tempo', marketKey:'HT1X2', selection:sel,
+        rawProb:p/100, oddsSet:null, oddsIndex:0, bookmakerOdds:null,
+        bookmakersCount:bookCount, modelProbSets:null, dataQuality, calibrationKey:'1X2' }));
+    });
+  }
+  if(htMarkets){
+    add(buildMarketOpportunity({ ...common, matchId, matchLabel, market:'Over/Under 1.5 primo tempo', marketKey:'HTOU15', selection:'Over',
+      rawProb:htMarkets.over15/100, oddsSet:null, oddsIndex:0, bookmakerOdds:null,
+      bookmakersCount:bookCount, modelProbSets:null, dataQuality, calibrationKey:'OU25' }));
+    add(buildMarketOpportunity({ ...common, matchId, matchLabel, market:'Over/Under 1.5 primo tempo', marketKey:'HTOU15', selection:'Under',
+      rawProb:htMarkets.under15/100, oddsSet:null, oddsIndex:0, bookmakerOdds:null,
+      bookmakersCount:bookCount, modelProbSets:null, dataQuality, calibrationKey:'OU25' }));
+  }
+
+  // --- Corner e cartellini (solo dove i dati statistici esistono) ---
+  if(cornersCards){
+    (cornersCards.corners||[]).forEach(l=>{
+      add(buildMarketOpportunity({ ...common, matchId, matchLabel, market:'Corner '+l.line, marketKey:'CORNERS', selection:l.side,
+        rawProb:l.prob/100, oddsSet:null, oddsIndex:0, bookmakerOdds:null,
+        bookmakersCount:bookCount, modelProbSets:null, dataQuality, calibrationKey:'OU25' }));
+    });
+    (cornersCards.cards||[]).forEach(l=>{
+      add(buildMarketOpportunity({ ...common, matchId, matchLabel, market:'Cartellini '+l.line, marketKey:'CARDS', selection:l.side,
+        rawProb:l.prob/100, oddsSet:null, oddsIndex:0, bookmakerOdds:null,
+        bookmakersCount:bookCount, modelProbSets:null, dataQuality, calibrationKey:'OU25' }));
+    });
+  }
+
+  // Ordinamento per VALUE SCORE, mai per probabilita'.
+  out.sort((a,b)=> b.valueScore - a.valueScore);
+  return out;
+}
+
+// Riepilogo per il Market Overview. Nessun conteggio e' forzato: puo' essere tutto NO BET.
+function summarizeOpportunities(opps){
+  return {
+    total: opps.length,
+    strong: opps.filter(o=> o.status==='STRONG_VALUE').length,
+    moderate: opps.filter(o=> o.status==='MODERATE_VALUE').length,
+    watchlist: opps.filter(o=> o.status==='WATCHLIST').length,
+    noBet: opps.filter(o=> o.status==='NO_BET').length,
+    withOdds: opps.filter(o=> o.bookmakerOdds!=null).length,
+  };
+}
+
+// Migliore opportunita': la piu' alta per Value Score, ma SOLO se supera la soglia minima.
+// Se nessuna la supera restituisce null e l'interfaccia dichiara "nessuna opportunita'".
+function selectBestOpportunity(opps){
+  const eligible = opps.filter(o=> o.status==='STRONG_VALUE' || o.status==='MODERATE_VALUE');
+  return eligible.length ? eligible[0] : null;
+}
+
+// ---------- TRACKING DELLE SEGNALAZIONI ----------
+// Ogni opportunita' non-NO_BET viene registrata con timestamp e quota del momento, cosi' da
+// poter verificare a posteriori: "quando il sistema ha segnalato VALUE FORTE, cosa e' successo?"
+const OPP_LOG_CAP = 500;
+function logOpportunities(opps){
+  if(!opps || !opps.length) return;
+  const signals = opps.filter(o=> o.status!=='NO_BET').map(o=>({
+    ts: Date.now(), matchId:o.matchId, matchLabel:o.matchLabel,
+    market:o.market, marketKey:o.marketKey, selection:o.selection,
+    modelProbability:o.modelProbability, calibratedProbability:o.calibratedProbability,
+    odds:o.bookmakerOdds, fairOdds:o.fairOdds, edge:o.edge, ev:o.ev,
+    confidence:o.confidence, valueScore:o.valueScore, status:o.status,
+    settled:false, won:null,
+  }));
+  if(!signals.length) return;
+  const existing = state.opportunityLog||[];
+  // niente doppioni per partita+mercato+selezione nella stessa sessione di quote
+  const key = s=> s.matchId+'|'+s.marketKey+'|'+s.selection+'|'+(s.odds??'-');
+  const seen = new Set(existing.map(key));
+  const fresh = signals.filter(s=> !seen.has(key(s)));
+  if(!fresh.length) return;
+  state.opportunityLog = existing.concat(fresh).slice(-OPP_LOG_CAP);
+  try{ localStorage.setItem('matchlab_opportunity_log', JSON.stringify(state.opportunityLog)); }catch(e){}
+}
+
+// Decide se una opportunita' e' giocabile o NO BET. Il sistema non e' mai obbligato a
+// produrre una giocata: se nessun criterio e' soddisfatto restituisce NO BET con il motivo.
+function evaluateBetOpportunity(opp){
+  const th = getValueThresholds(opp.marketType);
+  const reasons = [];
+  if(opp.edge==null || opp.edge < th.minEdge) reasons.push('edge insufficiente');
+  if(opp.ev==null || opp.ev < th.minEV) reasons.push('valore atteso insufficiente');
+  if(opp.valueScore==null || opp.valueScore < th.minValueScore) reasons.push('value score basso');
+  if(opp.confidence!=null && opp.confidence < 40) reasons.push('confidence bassa');
+  if(opp.dataQuality!=null && opp.dataQuality < 0.4) reasons.push('dati insufficienti');
+  if(opp.modelAgreement!=null && opp.modelAgreement < 0.35) reasons.push('modelli troppo discordanti');
+  return { status: reasons.length ? 'NO BET' : 'VALUE', reasons };
+}
+
+// ---------- PRODUZIONE PREVISIONI PER SINGOLO MODELLO ----------
+// Ogni modello e' un'entita' indipendente e misurabile: produce il proprio set completo di
+// mercati in scala 0..1, cosi' che il backtest possa valutarlo separatamente dagli altri.
+// I modelli basati sui gol (Poisson, Dixon-Coles, xG) derivano tutti i mercati dalla matrice
+// dei punteggi; Elo produce solo 1X2, perche' non stima i gol attesi — e questo e' dichiarato
+// esplicitamente con supportsGoals:false invece di inventare numeri.
+
+// Estrae i mercati derivati da una matrice di punteggio, in scala 0..1.
+function marketsFromMatrixUnit(matrix){
+  let p1=0, px=0, p2=0, btts=0, o15=0, o25=0, o35=0;
+  let expHome=0, expAway=0;
+  for(let i=0;i<matrix.length;i++){
+    for(let j=0;j<matrix[i].length;j++){
+      const p = matrix[i][j];
+      if(!isFiniteNum(p)) continue;
+      if(i>j) p1+=p; else if(i===j) px+=p; else p2+=p;
+      if(i>=1 && j>=1) btts+=p;
+      if(i+j>1) o15+=p;
+      if(i+j>2) o25+=p;
+      if(i+j>3) o35+=p;
+      expHome += i*p; expAway += j*p;
+    }
+  }
+  const norm1x2 = normalizeVector([p1,px,p2]);
+  if(!norm1x2) return null;
+  return {
+    probs1x2: norm1x2,
+    over15: clampProb(o15), under15: clampProb(1-o15),
+    over25: clampProb(o25), under25: clampProb(1-o25),
+    over35: clampProb(o35), under35: clampProb(1-o35),
+    bttsYes: clampProb(btts), bttsNo: clampProb(1-btts),
+    expectedHomeGoals: expHome, expectedAwayGoals: expAway,
+    supportsGoals: true,
+  };
+}
+
+// Costruisce le previsioni di TUTTI i modelli disponibili per una partita.
+// xgStats e' opzionale: se assente, il modello xG semplicemente non viene prodotto (null),
+// invece di essere sostituito silenziosamente da un altro modello.
+function produceModelPredictions(ctx){
+  const { hs, as, leagueId, h2h, homeId, awayId, xgHome, xgAway, eloHome, eloAway,
+          homeStrength, awayStrength, homeForm, awayForm } = ctx;
+  const out = {};
+  out._expectedGoals = null;
+
+  // Se il Team Strength Engine ha prodotto le forze, i gol attesi passano dalla funzione
+  // centralizzata (che integra SOS, forma e xG senza double counting). Altrimenti si ricade
+  // sul calcolo storico basato sulle sole medie: fallback dichiarato, non silenzioso.
+  let calibrated = null;
+  if(homeStrength && awayStrength){
+    const eg = calculateExpectedGoals({
+      homeStrength, awayStrength, homeForm, awayForm, leagueId,
+      h2hAdjustment: computeH2HAdjustment(h2h||[], homeId, awayId),
+    });
+    if(eg){
+      calibrated = { lambdaHome: eg.lambdaHome, lambdaAway: eg.lambdaAway, source:'strength-engine' };
+      out._expectedGoals = eg;
+    }
+  }
+  if(!calibrated){
+    const legacy = computeCalibratedLambdas(hs, as, leagueId, h2h||[], homeId, awayId);
+    if(legacy) calibrated = { ...legacy, source:'legacy-averages' };
+  }
+
+  if(calibrated){
+    const lh = calibrated.lambdaHome, la = calibrated.lambdaAway;
+    out._lambdaSource = calibrated.source;
+    out.poisson = marketsFromMatrixUnit(computePoisson(lh, la).matrix);
+    out.dixonColes = marketsFromMatrixUnit(computeDixonColes(lh, la).matrix);
+    if(out.poisson){ out.poisson.lambdaHome = lh; out.poisson.lambdaAway = la; }
+    if(out.dixonColes){ out.dixonColes.lambdaHome = lh; out.dixonColes.lambdaAway = la; }
+  } else {
+    out.poisson = null; out.dixonColes = null;
+  }
+
+  if(isFiniteNum(xgHome) && isFiniteNum(xgAway)){
+    const lhx = Math.min(LAMBDA_MAX, Math.max(LAMBDA_MIN, xgHome));
+    const lax = Math.min(LAMBDA_MAX, Math.max(LAMBDA_MIN, xgAway));
+    out.poissonXg = marketsFromMatrixUnit(computePoisson(lhx, lax).matrix);
+    if(out.poissonXg){ out.poissonXg.lambdaHome = lhx; out.poissonXg.lambdaAway = lax; }
+  } else {
+    out.poissonXg = null;
+  }
+
+  if(isFiniteNum(eloHome) && isFiniteNum(eloAway)){
+    const e = eloToProbabilities((eloHome+60)-eloAway); // 60 = vantaggio campo in punti Elo
+    const norm = normalizeVector([e.pHome/100, e.pDraw/100, e.pAway/100]);
+    out.elo = norm ? { probs1x2: norm, supportsGoals:false } : null;
+  } else {
+    out.elo = null;
+  }
+
+  return out;
+}
+
+const MODEL_KEYS = ['poisson','dixonColes','poissonXg','elo'];
+const MODEL_LABELS = { poisson:'Poisson', dixonColes:'Dixon-Coles', poissonXg:'Poisson xG', elo:'Elo' };
+
+// ---------- PESI DINAMICI ----------
+// Il peso di ciascun modello deriva dalla sua performance storica misurata dal backtest,
+// non da una scelta arbitraria. Log Loss e Brier vengono convertiti in punteggi 0..1
+// (piu' basso l'errore, piu' alto il punteggio), poi combinati con calibrazione e stabilita'.
+const WEIGHT_COMPONENTS = { logLoss:0.40, brier:0.25, calibration:0.20, stability:0.15 };
+
+// Campione minimo per ottimizzare i pesi su uno specifico mercato. Sotto questa soglia si
+// ricade sui pesi generali (1X2): ottimizzare su campioni piccoli e' overfitting.
+const MARKET_WEIGHTS_MIN_SAMPLE = 60;
+
+// Pesi specifici per mercato, con fallback esplicito ai pesi generali quando il campione
+// del mercato e' insufficiente. Il fallback viene dichiarato nel risultato.
+function calculateMarketSpecificWeights(perfByModel, marketKey, corr){
+  const sample = MODEL_KEYS.reduce((a,k)=> Math.max(a, perfByModel?.[k]?.[marketKey]?.n || 0), 0);
+  if(sample >= MARKET_WEIGHTS_MIN_SAMPLE){
+    const w = calculateDynamicWeights(perfByModel, marketKey, corr);
+    if(w) return { ...w, marketSpecific:true, sample };
+  }
+  const fallback = calculateDynamicWeights(perfByModel, '1X2', corr);
+  return fallback ? { ...fallback, marketSpecific:false, sample, fallbackFrom:'1X2' } : null;
+}
+
+function calculateDynamicWeights(perfByModel, marketKey, corr){
+  const scores = {};
+  let anyValid = false;
+  MODEL_KEYS.forEach(k=>{
+    const perf = perfByModel?.[k]?.[marketKey];
+    if(!perf || !perf.n || perf.n < 20){ scores[k] = null; return; }
+    // Log loss: riferimento 1.0986 = previsione uniforme su 3 esiti (log 3). Sotto = utile.
+    const refLogLoss = marketKey==='1X2' ? Math.log(3) : Math.log(2);
+    const logLossScore = Math.max(0, Math.min(1, 1 - (perf.logLoss/(refLogLoss*1.5))));
+    const refBrier = marketKey==='1X2' ? 0.6667 : 0.25;
+    const brierScore = Math.max(0, Math.min(1, 1 - (perf.brier/(refBrier*1.5))));
+    const calibScore = perf.ece!=null ? Math.max(0, Math.min(1, 1-(perf.ece/0.15))) : 0.5;
+    const stabilityScore = perf.stability!=null ? perf.stability : 0.5;
+    const s = WEIGHT_COMPONENTS.logLoss*logLossScore
+            + WEIGHT_COMPONENTS.brier*brierScore
+            + WEIGHT_COMPONENTS.calibration*calibScore
+            + WEIGHT_COMPONENTS.stability*stabilityScore;
+    scores[k] = Math.max(0.01, s); // mai zero puro: un modello resta sempre minimamente in gioco
+    anyValid = true;
+  });
+  if(!anyValid) return null;
+
+  const active = MODEL_KEYS.filter(k=> scores[k]!=null);
+  // CORRELATION-AWARE: un modello molto correlato con gli altri aggiunge poca informazione
+  // nuova, quindi il suo peso viene ridotto in proporzione alla ridondanza stimata.
+  const redundancy = calculateRedundancyFactors(corr, active);
+  const adjusted = {};
+  active.forEach(k=> adjusted[k] = Math.max(0.005, scores[k] * (redundancy[k] ?? 1)));
+  const sum = active.reduce((a,k)=> a+adjusted[k], 0);
+  const weights = {};
+  active.forEach(k=> weights[k] = adjusted[k]/sum);
+  return { weights, scores, redundancy, correlationApplied: !!corr, basedOn: marketKey };
+}
+
+// ---------- MATRICE DI CORRELAZIONE TRA MODELLI ----------
+// Poisson, Dixon-Coles e xG condividono gran parte dell'informazione: trattarli come quattro
+// fonti indipendenti gonfia artificialmente la confidenza dell'ensemble. La correlazione viene
+// STIMATA dai record di backtest (correlazione di Pearson tra le probabilita' prodotte sullo
+// stesso insieme di partite), non assunta a priori.
+function calculateModelCorrelationMatrix(records, marketKey='1X2'){
+  const rows = records||[];
+  if(rows.length < 30) return null;
+  const series = {};
+  MODEL_KEYS.forEach(k=> series[k] = []);
+  const mkt = BACKTEST_MARKETS.find(m=> m.key===marketKey);
+  if(!mkt) return null;
+
+  rows.forEach(r=>{
+    MODEL_KEYS.forEach(k=>{
+      const mp = r.models?.[k];
+      let v = null;
+      if(mp){
+        if(mkt.multiclass) v = Array.isArray(mp.probs1x2) ? mp.probs1x2[0] : null; // P(1) come proxy
+        else v = isFiniteNum(mp[mkt.field]) ? mp[mkt.field] : null;
+      }
+      series[k].push(isFiniteNum(v) ? v : null);
+    });
+  });
+
+  function pearson(a, b){
+    const pairs = a.map((v,i)=> [v, b[i]]).filter(([x,y])=> isFiniteNum(x) && isFiniteNum(y));
+    if(pairs.length < 20) return null;
+    const n = pairs.length;
+    const mx = pairs.reduce((s,p)=>s+p[0],0)/n;
+    const my = pairs.reduce((s,p)=>s+p[1],0)/n;
+    let num=0, dx=0, dy=0;
+    pairs.forEach(([x,y])=>{ num += (x-mx)*(y-my); dx += (x-mx)**2; dy += (y-my)**2; });
+    if(dx<=EPS || dy<=EPS) return null;
+    const r = num/Math.sqrt(dx*dy);
+    return isFiniteNum(r) ? Math.max(-1, Math.min(1, r)) : null;
+  }
+
+  const matrix = {};
+  MODEL_KEYS.forEach(a=>{
+    matrix[a] = {};
+    MODEL_KEYS.forEach(b=>{
+      matrix[a][b] = (a===b) ? 1 : pearson(series[a], series[b]);
+    });
+  });
+  return { matrix, sample: rows.length, marketKey };
+}
+
+// Fattore di ridondanza per modello: quanto un modello e' "gia' rappresentato" dagli altri.
+// Un modello mediamente correlato 0.9 con gli altri conta molto meno di uno correlato 0.3.
+function calculateRedundancyFactors(corr, activeKeys){
+  const factors = {};
+  activeKeys.forEach(k=> factors[k] = 1);
+  if(!corr || !corr.matrix) return factors;
+  activeKeys.forEach(k=>{
+    const others = activeKeys.filter(o=> o!==k);
+    const vals = others.map(o=> corr.matrix[k]?.[o]).filter(isFiniteNum).map(Math.abs);
+    if(!vals.length) return;
+    const meanCorr = vals.reduce((a,b)=>a+b,0)/vals.length;
+    // correlazione 0 -> fattore 1 (informazione tutta nuova); correlazione 1 -> fattore 0.35
+    factors[k] = Math.max(0.35, 1 - 0.65*meanCorr);
+  });
+  return factors;
+}
+
+// MODEL AGREEMENT MULTI-MERCATO. Confronta i modelli su piu' mercati (1X2, Over/Under, BTTS)
+// e non penalizza un modello che semplicemente non supporta un mercato: Elo non produce
+// Over/Under e questo non deve abbassare l'accordo sugli altri.
+function calculateMultiMarketAgreement(modelPreds){
+  const dims = [];
+  const sets1x2 = MODEL_KEYS.map(k=> modelPreds[k]?.probs1x2).filter(v=> Array.isArray(v) && v.every(isFiniteNum));
+  if(sets1x2.length>=2){
+    const a = calculateModelAgreement(sets1x2);
+    if(a!=null) dims.push({ market:'1X2', agreement:a, models:sets1x2.length });
+  }
+  [['over25','Over/Under 2.5'],['over15','Over/Under 1.5'],['bttsYes','Gol/NoGol']].forEach(([field,label])=>{
+    const vals = MODEL_KEYS.map(k=> modelPreds[k]?.[field]).filter(isFiniteNum);
+    if(vals.length<2) return; // mercato non supportato da abbastanza modelli: semplicemente escluso
+    const sets = vals.map(v=> [v, 1-v]);
+    const a = calculateModelAgreement(sets);
+    if(a!=null) dims.push({ market:label, agreement:a, models:vals.length });
+  });
+  if(!dims.length) return null;
+  // media pesata per numero di modelli che davvero supportano quel mercato
+  const tw = dims.reduce((s,d)=> s+d.models, 0);
+  const overall = dims.reduce((s,d)=> s + d.agreement*d.models, 0)/tw;
+  return { overall: Math.max(0, Math.min(1, overall)), dimensions: dims };
+}
+
+// ---------- UNCERTAINTY ENGINE ----------
+// L'incertezza NON e' un intervallo arbitrario: e' composta da fonti misurabili e distinte,
+// combinate in quadratura (radice della somma dei quadrati) perche' sono errori parzialmente
+// indipendenti — sommarle linearmente sovrastimerebbe l'incertezza totale.
+function calculateUncertainty(ctx){
+  const { sampleSize, dataQuality, modelAgreement, modelDispersion,
+          calibrationSample, historicalError, stability } = ctx;
+
+  const sources = [];
+  // 1. errore campionario: ~1/sqrt(n)
+  const n = Math.max(1, sampleSize||1);
+  sources.push({ k:'campione', v: Math.min(0.30, 1/Math.sqrt(n)) });
+  // 2. qualita' dei dati mancanti
+  sources.push({ k:'qualità dati', v: 0.20*(1-(dataQuality ?? 0.5)) });
+  // 3. disaccordo tra modelli
+  if(modelAgreement!=null) sources.push({ k:'accordo modelli', v: 0.22*(1-modelAgreement) });
+  // 4. dispersione diretta tra le previsioni (deviazione standard osservata)
+  if(isFiniteNum(modelDispersion)) sources.push({ k:'dispersione modelli', v: Math.min(0.25, modelDispersion*1.5) });
+  // 5. incertezza della calibrazione stessa
+  if(isFiniteNum(calibrationSample)) sources.push({ k:'calibrazione', v: Math.min(0.20, 1/Math.sqrt(Math.max(1,calibrationSample))) });
+  // 6. errore storico del modello (ECE)
+  if(isFiniteNum(historicalError)) sources.push({ k:'errore storico', v: Math.min(0.20, historicalError) });
+  // 7. instabilita' temporale
+  if(isFiniteNum(stability)) sources.push({ k:'stabilità', v: 0.15*(1-stability) });
+
+  const quad = Math.sqrt(sources.reduce((a,s)=> a + s.v*s.v, 0));
+  const total = Math.max(0.015, Math.min(0.30, quad));
+  return { total, sources: sources.sort((a,b)=> b.v-a.v) };
+}
+
+// Dispersione osservata tra le previsioni dei modelli su uno stesso esito.
+function calculateModelDispersion(values){
+  const v = (values||[]).filter(isFiniteNum);
+  if(v.length<2) return null;
+  const m = v.reduce((a,b)=>a+b,0)/v.length;
+  return Math.sqrt(v.reduce((a,b)=> a+(b-m)**2, 0)/v.length);
+}
+
+// ---------- MODEL DRIFT ----------
+// Confronta la performance recente con quella di lungo periodo. Se peggiora in modo
+// significativo, il sistema deve ridurre la fiducia invece di continuare come se nulla fosse.
+function calculateModelDrift(records, marketKey='1X2'){
+  const rows = (records||[]).slice().sort((a,b)=> new Date(a.date)-new Date(b.date));
+  if(rows.length < 80) return null;
+  const perfOn = subset=>{
+    const p = calculateModelPerformance(subset);
+    const best = MODEL_KEYS.map(k=> p[k]?.[marketKey]).filter(Boolean).sort((a,b)=> a.logLoss-b.logLoss)[0];
+    return best ? best.logLoss : null;
+  };
+  const longTerm = perfOn(rows);
+  const last100 = perfOn(rows.slice(-100));
+  const last50 = perfOn(rows.slice(-50));
+  if(longTerm==null) return null;
+  const worst = Math.max(last50 ?? longTerm, last100 ?? longTerm);
+  const delta = worst - longTerm;
+  return {
+    longTerm, last100, last50, delta,
+    drifting: delta > 0.05,
+    severity: delta>0.12 ? 'alto' : (delta>0.05 ? 'moderato' : 'nessuno'),
+  };
+}
+
+// Combina le previsioni dei modelli con i pesi dati. Se non ci sono pesi dal backtest,
+// ricade su una media semplice sui modelli disponibili — dichiarandolo nel risultato.
+function buildWeightedEnsemble(modelPreds, weights, field){
+  const contributions = [];
+  MODEL_KEYS.forEach(k=>{
+    const pred = modelPreds[k];
+    if(!pred) return;
+    const val = field==='probs1x2' ? pred.probs1x2 : pred[field];
+    if(field==='probs1x2'){
+      if(!Array.isArray(val) || !val.every(isFiniteNum)) return;
+    } else if(!isFiniteNum(val)) return;
+    const w = weights?.[k];
+    contributions.push({ k, val, w: (w!=null && isFiniteNum(w)) ? w : null });
+  });
+  if(!contributions.length) return null;
+
+  const usingBacktestWeights = contributions.some(c=> c.w!=null);
+  const totalW = contributions.reduce((a,c)=> a + (c.w!=null ? c.w : 0), 0);
+  const fallbackW = 1/contributions.length;
+
+  if(field==='probs1x2'){
+    const acc = [0,0,0];
+    contributions.forEach(c=>{
+      const w = (usingBacktestWeights && totalW>0) ? ((c.w!=null?c.w:0)/totalW) : fallbackW;
+      for(let i=0;i<3;i++) acc[i] += c.val[i]*w;
+    });
+    const norm = normalizeVector(acc);
+    return norm ? { value: norm, usingBacktestWeights, modelsUsed: contributions.map(c=>c.k) } : null;
+  }
+  let acc = 0;
+  contributions.forEach(c=>{
+    const w = (usingBacktestWeights && totalW>0) ? ((c.w!=null?c.w:0)/totalW) : fallbackW;
+    acc += c.val*w;
+  });
+  return { value: clampProb(acc), usingBacktestWeights, modelsUsed: contributions.map(c=>c.k) };
+}
+
+
 const state = {
-  apiKey: localStorage.getItem('matchlab_api_key') || '',
+  // la chiave salvata viene ripulita al caricamento: una chiave con caratteri invisibili
+  // farebbe fallire ogni fetch con un errore incomprensibile
+  apiKey: (function(){ const k=localStorage.getItem('matchlab_api_key')||''; return k.replace(/[^\x21-\x7E]/g,'').trim(); })(),
   bankroll: parseFloat(localStorage.getItem('matchlab_bankroll')) || null,
   kellyFraction: parseFloat(localStorage.getItem('matchlab_kelly_fraction')) || 0.25,
   cart: JSON.parse(localStorage.getItem('matchlab_cart') || '[]'),
   betHistory: JSON.parse(localStorage.getItem('matchlab_bet_history') || '[]'),
+  // Record walk-forward completi. I dati salvati con la versione precedente (formato
+  // {prob,won}) non contengono le previsioni per modello e vengono scartati alla migrazione.
+  backtestRecords: (JSON.parse(localStorage.getItem('matchlab_backtest_records') || '[]')).filter(r=> r && r.models),
+  opportunityLog: JSON.parse(localStorage.getItem('matchlab_opportunity_log') || '[]'),
   currentMatchCtx: null, // {label, fixtureId} della partita attualmente mostrata in analisi
   screen: 'setup',
   selectedLeague: null,     // {id, name, logo, country, seasons}
@@ -572,11 +1715,32 @@ const state = {
 };
 
 // ---------- API helper ----------
+// Ripulisce la chiave API da caratteri che fetch() non accetta negli header.
+// Il copia-incolla da PDF/mail introduce spesso spazi non-breaking (U+00A0), zero-width
+// (U+200B) o virgolette tipografiche: fetch rifiuta qualsiasi codepoint fuori da ISO-8859-1
+// con un errore poco comprensibile. Qui vengono rimossi prima che l'header venga costruito.
+function sanitizeApiKey(key){
+  if(key==null) return '';
+  return String(key)
+    .replace(/[\u00A0\u1680\u2000-\u200D\u202F\u205F\u3000\uFEFF]/g, '') // spazi invisibili
+    .replace(/[\u2018\u2019\u201C\u201D]/g, '')                              // virgolette tipografiche
+    .replace(/[^\x21-\x7E]/g, '')                                             // solo ASCII stampabile
+    .trim();
+}
+
+// Verifica che la chiave sia utilizzabile in un header HTTP, spiegando il problema in chiaro.
+function validateApiKey(raw){
+  const clean = sanitizeApiKey(raw);
+  if(!clean) return { ok:false, clean, reason:'La chiave risulta vuota dopo la pulizia dei caratteri non validi.' };
+  const removed = String(raw||'').length - clean.length;
+  return { ok:true, clean, removed };
+}
+
 async function apiGet(path, params){
   const url = new URL(API_BASE + path);
   Object.entries(params||{}).forEach(([k,v])=>{ if(v!==undefined && v!==null && v!=='') url.searchParams.set(k,v); });
   const res = await fetch(url.toString(), {
-    headers: { 'x-apisports-key': state.apiKey }
+    headers: { 'x-apisports-key': sanitizeApiKey(state.apiKey) }
   });
   if(!res.ok){
     throw new Error('Errore API (' + res.status + ') su ' + path);
@@ -606,11 +1770,19 @@ document.getElementById('stakeSettingsPill').addEventListener('click', ()=>{
 });
 
 document.getElementById('saveKeyBtn').addEventListener('click', ()=>{
-  const val = document.getElementById('apiKeyInput').value.trim();
+  const raw = document.getElementById('apiKeyInput').value;
   const errBox = document.getElementById('setupErr');
-  if(!val){ errBox.textContent = 'Inserisci una chiave valida.'; errBox.classList.remove('hidden'); return; }
-  state.apiKey = val;
-  localStorage.setItem('matchlab_api_key', val);
+  const v = validateApiKey(raw);
+  if(!v.ok){ errBox.textContent = v.reason; errBox.classList.remove('hidden'); return; }
+  state.apiKey = v.clean;
+  localStorage.setItem('matchlab_api_key', v.clean);
+  errBox.classList.remove('hidden');
+  if(v.removed>0){
+    errBox.style.color = 'var(--warn)';
+    errBox.textContent = 'Chiave salvata. Rimossi '+v.removed+' caratteri non validi (spazi invisibili o virgolette tipografiche dal copia-incolla).';
+    setTimeout(()=>{ errBox.classList.add('hidden'); errBox.style.color=''; showScreen('home'); }, 2200);
+    return;
+  }
   errBox.classList.add('hidden');
   showScreen('home');
 });
@@ -666,18 +1838,97 @@ const CALIBRATION_BUCKETS_DEF = [
 const CALIBRATION_MIN_SAMPLE = 5; // sotto questa soglia di osservazioni non si corregge, si resta sulla stima grezza
 const CALIBRATION_PRIOR_WEIGHT = 5; // quanto pesa la stima del modello rispetto ai dati osservati (piu' alto = piu' prudente)
 
+// Estrae le osservazioni (probabilita' prevista -> esito verificato) dai record di backtest,
+// per un mercato specifico e usando l'ensemble dei modelli disponibili in quel record.
+// Sono queste osservazioni ad alimentare sia la curva di calibrazione sia la regressione isotonica.
+function extractCalibrationObservations(marketKey, leagueId){
+  const obs = [];
+  (state.backtestRecords||[]).forEach(r=>{
+    if(leagueId!=null && r.leagueId!=leagueId) return;
+    const mkt = BACKTEST_MARKETS.find(m=> m.key===marketKey);
+    if(!mkt) return;
+    // ensemble semplice sui modelli presenti nel record (i pesi dinamici sono calcolati a valle)
+    if(mkt.multiclass){
+      const sets = MODEL_KEYS.map(k=> r.models?.[k]?.probs1x2).filter(v=> Array.isArray(v) && v.every(isFiniteNum));
+      if(!sets.length) return;
+      const avg = [0,1,2].map(i=> sets.reduce((a,s)=> a+s[i], 0)/sets.length);
+      const norm = normalizeVector(avg);
+      if(!norm) return;
+      const predIdx = norm.indexOf(Math.max(...norm));
+      obs.push({ p: norm[predIdx], occurred: predIdx===r.actualOutcome, ts:new Date(r.date).getTime() });
+    } else {
+      const vals = MODEL_KEYS.map(k=> r.models?.[k]?.[mkt.field]).filter(isFiniteNum);
+      if(!vals.length) return;
+      const avg = vals.reduce((a,b)=>a+b,0)/vals.length;
+      obs.push({ p: clampProb(avg), occurred: !!r[mkt.actual], ts:new Date(r.date).getTime() });
+    }
+  });
+  return obs;
+}
+
+// Costruisce (con cache) i modelli di calibrazione isotonica per mercato. Se il campione e'
+// insufficiente il modello non viene creato e il sistema ricade sulla calibrazione a fasce,
+// abbassando la confidence — non inventa una correzione su pochi dati.
+let _isotonicCache = { key:null, models:{} };
+function getIsotonicModels(){
+  const cacheKey = (state.backtestRecords||[]).length + '-' + (state.betHistory||[]).length;
+  if(_isotonicCache.key === cacheKey) return _isotonicCache.models;
+  const models = {};
+  BACKTEST_MARKETS.forEach(mkt=>{
+    models[mkt.key] = fitIsotonic(extractCalibrationObservations(mkt.key), 30);
+  });
+  _isotonicCache = { key: cacheKey, models };
+  return models;
+}
+
 function getCalibrationBuckets(){
-  const buckets = CALIBRATION_BUCKETS_DEF.map(b=>({...b, n:0, wins:0}));
+  const buckets = CALIBRATION_BUCKETS_DEF.map(b=>({...b, n:0, wins:0, nBets:0, winsBets:0, nBacktest:0, winsBacktest:0}));
   state.betHistory
     .filter(b=> b.type==='single' && (b.status==='won' || b.status==='lost') && b.legs?.[0])
     .forEach(bet=>{
       const p = bet.legs[0].prob;
       const bucket = buckets.find(b=> p>=b.min && p<b.max);
       if(!bucket) return;
-      bucket.n++;
-      if(bet.status==='won') bucket.wins++;
+      bucket.n++; bucket.nBets++;
+      if(bet.status==='won'){ bucket.wins++; bucket.winsBets++; }
     });
+  // I record di backtest contribuiscono con la previsione 1X2 dell'ensemble
+  extractCalibrationObservations('1X2').forEach(o=>{
+    const pPct = o.p*100;
+    const bucket = buckets.find(b=> pPct>=b.min && pPct<b.max);
+    if(!bucket) return;
+    bucket.n++; bucket.nBacktest++;
+    if(o.occurred){ bucket.wins++; bucket.winsBacktest++; }
+  });
   return buckets.map(b=> ({...b, actualRate: b.n ? (b.wins/b.n*100) : null}));
+}
+
+// Calibrazione completa di una probabilita' grezza per uno specifico mercato.
+// Prova prima la regressione isotonica (piu' accurata, richiede campione ampio), poi
+// ricade sullo shrinkage a fasce, infine lascia la probabilita' grezza. Restituisce sempre
+// il metodo usato e una stima di incertezza, cosi' l'interfaccia non finge falsa precisione.
+function calibrateProbabilities(rawP, marketKey='1X2'){
+  const raw = clampProb(rawP);
+  const iso = getIsotonicModels()[marketKey];
+  if(iso && iso.n>=30){
+    const cal = applyIsotonic(iso, raw);
+    if(isFiniteNum(cal)){
+      // incertezza inversamente proporzionale al campione disponibile
+      const uncertainty = Math.max(0.02, Math.min(0.25, 1/Math.sqrt(iso.n)));
+      return { calibrated: cal, raw, method:'isotonic', sample: iso.n, uncertainty,
+               range: [Math.max(0,cal-uncertainty), Math.min(1,cal+uncertainty)] };
+    }
+  }
+  // fallback: shrinkage bayesiano a fasce (metodo storico dell'app)
+  const legacy = calibrateProb(raw*100);
+  if(legacy.applied){
+    const cal = clampProb(legacy.calibrated/100);
+    const uncertainty = Math.max(0.04, Math.min(0.30, 1/Math.sqrt(legacy.bucket.n)));
+    return { calibrated: cal, raw, method:'bucket', sample: legacy.bucket.n, uncertainty,
+             range: [Math.max(0,cal-uncertainty), Math.min(1,cal+uncertainty)] };
+  }
+  return { calibrated: raw, raw, method:'none', sample:0, uncertainty:0.30,
+           range:[Math.max(0,raw-0.30), Math.min(1,raw+0.30)] };
 }
 
 // Corregge una probabilita' grezza del modello verso il tasso di successo osservato nella stessa
@@ -695,7 +1946,7 @@ let currentPickProb = null;
 let currentPickLabel = null;
 let currentStakeCalc = null; // ultimo risultato calcolato, usato per il carrello
 
-function openStakeCalculator(label, probPercent){
+function openStakeCalculator(label, probPercent, prefilledOdds){
   const cal = calibrateProb(probPercent);
   currentPickProb = cal.calibrated;
   currentPickLabel = label;
@@ -709,11 +1960,18 @@ function openStakeCalculator(label, probPercent){
   } else {
     calibNote.innerHTML = '';
   }
-  document.getElementById('stakeOddsInput').value = '';
-  document.getElementById('stakeResult').innerHTML = '';
+  const oddsInput = document.getElementById('stakeOddsInput');
   document.getElementById('addToCartBtn').disabled = true;
+  if(prefilledOdds!=null && !isNaN(prefilledOdds)){
+    oddsInput.value = prefilledOdds.toFixed(2);
+    document.getElementById('stakeModal').classList.remove('hidden');
+    computeStake();
+    return;
+  }
+  oddsInput.value = '';
+  document.getElementById('stakeResult').innerHTML = '';
   document.getElementById('stakeModal').classList.remove('hidden');
-  setTimeout(()=> document.getElementById('stakeOddsInput').focus(), 50);
+  setTimeout(()=> oddsInput.focus(), 50);
 }
 
 function closeStakeCalculator(){
@@ -799,7 +2057,8 @@ document.addEventListener('click', e=>{
   if(!el) return;
   const label = el.dataset.pickLabel;
   const prob = parseFloat(el.dataset.pickProb);
-  if(label && !isNaN(prob)) openStakeCalculator(label, prob);
+  const realOdds = el.dataset.realOdds!=null ? parseFloat(el.dataset.realOdds) : null;
+  if(label && !isNaN(prob)) openStakeCalculator(label, prob, realOdds);
 });
 
 // ---------- Carrello / schedina ----------
@@ -931,7 +2190,7 @@ function placeBetFromCart(mode){
       placedAt: now,
       status: 'pending',
       type: 'multipla',
-      legs: state.cart.map(it=>({ matchLabel: it.matchLabel, pickLabel: it.pickLabel, prob: it.prob, odds: it.odds })),
+      legs: state.cart.map(it=>({ fixtureId: it.fixtureId, matchLabel: it.matchLabel, pickLabel: it.pickLabel, prob: it.prob, odds: it.odds })),
       combinedOdds: m.combinedOdds,
       stakeAmount: m.stakeAmount,
       stakePct: m.stakePct,
@@ -943,7 +2202,7 @@ function placeBetFromCart(mode){
         placedAt: now,
         status: 'pending',
         type: 'single',
-        legs: [{ matchLabel: it.matchLabel, pickLabel: it.pickLabel, prob: it.prob, odds: it.odds }],
+        legs: [{ fixtureId: it.fixtureId, matchLabel: it.matchLabel, pickLabel: it.pickLabel, prob: it.prob, odds: it.odds }],
         combinedOdds: it.odds,
         stakeAmount: it.stakeAmount,
         stakePct: it.stakePct,
@@ -1006,6 +2265,43 @@ document.getElementById('historyModal').addEventListener('click', e=>{
   if(e.target.id === 'historyModal') closeHistory();
 });
 
+// Riconosce se una selezione e' gia' presente nello storico giocate o nel carrello, cosi' da
+// non riproporla tra le opportunita'. Il confronto usa fixtureId + etichetta della giocata:
+// le giocate salvate prima di questo aggiornamento non hanno fixtureId e ricadono sul solo
+// confronto per etichetta di partita, meno preciso ma comunque utile.
+function isSelectionAlreadyTaken(fixtureId, label){
+  if(label==null) return false;
+  const norm = s=> String(s||'').trim().toLowerCase();
+  const target = norm(label);
+  const inHistory = (state.betHistory||[]).some(bet=>
+    (bet.legs||[]).some(l=>
+      norm(l.pickLabel)===target &&
+      (l.fixtureId!=null && fixtureId!=null ? l.fixtureId===fixtureId : true)
+    ));
+  const inCart = (state.cart||[]).some(it=>
+    norm(it.pickLabel)===target &&
+    (it.fixtureId!=null && fixtureId!=null ? it.fixtureId===fixtureId : true));
+  return inHistory || inCart;
+}
+
+// Cancella una singola giocata dallo storico. Non tocca il bankroll: se la giocata era gia'
+// stata chiusa il suo effetto economico e' gia' stato applicato e resta valido.
+function deleteBet(id){
+  state.betHistory = (state.betHistory||[]).filter(b=> b.id!==id);
+  saveBetHistory();
+  renderHistory();
+}
+
+// Cancella in blocco tutte le giocate gia' concluse (vinte o perse), lasciando quelle in corso.
+function clearSettledBets(){
+  const settled = (state.betHistory||[]).filter(b=> b.status!=='pending').length;
+  if(!settled) return;
+  if(!confirm('Cancellare le '+settled+' giocate già concluse? Le giocate in corso restano.')) return;
+  state.betHistory = (state.betHistory||[]).filter(b=> b.status==='pending');
+  saveBetHistory();
+  renderHistory();
+}
+
 function settleBet(id, result){
   const bet = state.betHistory.find(b=>b.id===id);
   if(!bet || bet.status!=='pending') return;
@@ -1029,24 +2325,24 @@ function settleBet(id, result){
 function renderCalibrationCard(){
   const buckets = getCalibrationBuckets().filter(b=> b.n>0);
   if(!buckets.length){
-    return `<div class="stat-card" style="margin-bottom:18px;"><h3>Autocalibrazione</h3><div class="empty-state">Nessuna giocata singola ancora chiusa: il sistema calibrerà le probabilità man mano che segni vinte/perse le giocate singole.</div></div>`;
+    return `<div class="stat-card" style="margin-bottom:18px;"><h3>Autocalibrazione</h3><div class="empty-state">Nessun dato ancora disponibile: chiudi qualche giocata singola, oppure lancia un backtest automatico (🧠 in alto) su una stagione conclusa.</div></div>`;
   }
   const rows = buckets.map(b=>{
     const active = b.n >= CALIBRATION_MIN_SAMPLE;
     return `<tr>
       <td>${b.min}-${b.max>100?100:b.max}%</td>
-      <td class="mono">${b.n}</td>
+      <td class="mono">${b.n}<span style="color:var(--text-dim);font-size:10px;"> (${b.nBets} reali · ${b.nBacktest} backtest)</span></td>
       <td class="mono">${b.actualRate.toFixed(0)}%</td>
       <td>${active ? '<span style="color:var(--pitch);">attiva</span>' : '<span style="color:var(--text-dim);">servono '+CALIBRATION_MIN_SAMPLE+'+</span>'}</td>
     </tr>`;
   }).join('');
   return `<div class="stat-card" style="margin-bottom:18px;">
-    <h3>Autocalibrazione — dal tuo storico giocate singole</h3>
+    <h3>Autocalibrazione — giocate reali + backtest automatico</h3>
     <div class="model-table-wrap"><table class="model-table">
       <thead><tr><th>Fascia stimata</th><th>N</th><th>Esito reale</th><th>Stato</th></tr></thead>
       <tbody>${rows}</tbody>
     </table></div>
-    <div class="note" style="margin-top:12px;">Quando una fascia raggiunge almeno ${CALIBRATION_MIN_SAMPLE} giocate singole chiuse, le prossime stime del modello in quella fascia vengono corrette verso il tasso di successo osservato invece di restare sulla stima grezza. Solo le giocate singole (non le multiple) contribuiscono, perché in una multipla non si può isolare quale singola stima si sia rivelata sbagliata.</div>
+    <div class="note" style="margin-top:12px;">Quando una fascia raggiunge almeno ${CALIBRATION_MIN_SAMPLE} osservazioni (giocate singole reali + partite di backtest automatico), le prossime stime del modello in quella fascia vengono corrette verso il tasso di successo osservato invece di restare sulla stima grezza. Il backtest usa l'esito 1X2 più probabile secondo il modello su stagioni concluse; le giocate reali coprono anche gli altri mercati.</div>
   </div>`;
 }
 
@@ -1085,7 +2381,10 @@ function renderHistory(){
           <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;">${bet.type==='multipla' ? 'Multipla · '+bet.legs.length+' selezioni' : 'Singola'}</div>
           ${legsHtml}
         </div>
-        <div class="bet-badge ${badgeClass}">${badgeLabel}</div>
+        <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
+          <div class="bet-badge ${badgeClass}">${badgeLabel}</div>
+          <div class="bet-delete" data-delete-bet="${bet.id}" title="Elimina questa giocata">✕</div>
+        </div>
       </div>
       <div class="meta">piazzata il ${dateStr} · quota combinata ${bet.combinedOdds.toFixed(2)} · stake ${bet.stakeAmount!=null ? bet.stakeAmount.toFixed(2)+'€' : bet.stakePct.toFixed(1)+'% bankroll'}</div>
       ${bet.status==='pending' ? `
@@ -1096,8 +2395,23 @@ function renderHistory(){
     </div>`;
   }).join('');
 
+  // Pulsante per svuotare in blocco le giocate concluse, mantenendo quelle in corso
+  const settledCount = state.betHistory.filter(b=> b.status!=='pending').length;
+  if(settledCount){
+    const clearWrap = document.createElement('div');
+    clearWrap.innerHTML = `<button class="btn secondary" id="clearSettledBtn" style="width:100%;margin-top:12px;">🗑 Cancella le ${settledCount} giocate già concluse</button>`;
+    listBox.appendChild(clearWrap);
+    const cb = clearWrap.querySelector('#clearSettledBtn');
+    if(cb) cb.addEventListener('click', clearSettledBets);
+  }
+
   listBox.querySelectorAll('[data-settle-won]').forEach(el=> el.addEventListener('click', ()=> settleBet(el.dataset.settleWon,'won')));
   listBox.querySelectorAll('[data-settle-lost]').forEach(el=> el.addEventListener('click', ()=> settleBet(el.dataset.settleLost,'lost')));
+  listBox.querySelectorAll('[data-delete-bet]').forEach(el=> el.addEventListener('click', ()=>{
+    const bet = state.betHistory.find(b=> b.id===el.dataset.deleteBet);
+    const label = bet && bet.status==='pending' ? 'Questa giocata è ancora in corso. Eliminarla comunque?' : 'Eliminare questa giocata dallo storico?';
+    if(confirm(label)) deleteBet(el.dataset.deleteBet);
+  }));
 }
 
 
@@ -1234,6 +2548,85 @@ function toggleFixture(fx){
   updateQueueUI();
 }
 
+// ---------- Coda partite: elenco cliccabile delle partite selezionate ----------
+function openQueue(){
+  renderQueueModal();
+  document.getElementById('queueModal').classList.remove('hidden');
+}
+function closeQueue(){ document.getElementById('queueModal').classList.add('hidden'); }
+document.getElementById('queuePill').addEventListener('click', openQueue);
+document.getElementById('queueModalClose').addEventListener('click', closeQueue);
+document.getElementById('queueModal').addEventListener('click', e=>{
+  if(e.target.id === 'queueModal') closeQueue();
+});
+
+function renderQueueModal(){
+  const box = document.getElementById('queueContent');
+  const list = state.selectedFixturesData || [];
+  if(!list.length){
+    box.innerHTML = '<div class="empty-state">Nessuna partita in coda. Torna alla schermata di selezione e scegli le partite da studiare.</div>';
+    return;
+  }
+  const analysing = state.screen === 'analysis';
+  box.innerHTML = `
+    <div class="note" style="margin-bottom:12px;">${list.length} partit${list.length===1?'a selezionata':'e selezionate'}. Clicca su una partita per aprirne l'analisi${analysing?'':' (l\'analisi verrà avviata)'}.</div>
+    ${list.map((fx,i)=>{
+      const d = new Date(fx.fixture.date);
+      const dateStr = d.toLocaleDateString('it-IT',{weekday:'short',day:'2-digit',month:'short'}) + ' · ' + d.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+      const isCurrent = analysing && i===state.analysisIndex;
+      const cached = !!state.analysisCache[fx.fixture.id];
+      return `<div class="queue-row${isCurrent?' queue-current':''}" data-queue-idx="${i}">
+        <div class="queue-num">${i+1}</div>
+        <div style="flex:1;min-width:0;">
+          <div class="queue-teams">
+            <img src="${fx.teams.home.logo}" onerror="this.style.visibility='hidden'">
+            <span>${escapeHtml(fx.teams.home.name)}</span>
+            <span class="fixture-vs">vs</span>
+            <img src="${fx.teams.away.logo}" onerror="this.style.visibility='hidden'">
+            <span>${escapeHtml(fx.teams.away.name)}</span>
+          </div>
+          <div class="queue-meta">${dateStr}${cached?' · già analizzata':''}${isCurrent?' · <b style="color:var(--pitch);">in visualizzazione</b>':''}</div>
+        </div>
+        <div class="queue-remove" data-queue-remove="${i}" title="Togli dalla coda">✕</div>
+      </div>`;
+    }).join('')}`;
+
+  box.querySelectorAll('[data-queue-idx]').forEach(el=>{
+    el.addEventListener('click', e=>{
+      if(e.target.closest('[data-queue-remove]')) return; // il click sulla ✕ non apre l'analisi
+      const idx = parseInt(el.dataset.queueIdx, 10);
+      if(isNaN(idx) || !state.selectedFixturesData[idx]) return;
+      closeQueue();
+      showScreen('analysis');
+      updateQueueUI();
+      runAnalysis(idx);
+    });
+  });
+  box.querySelectorAll('[data-queue-remove]').forEach(el=>{
+    el.addEventListener('click', e=>{
+      e.stopPropagation();
+      const idx = parseInt(el.dataset.queueRemove, 10);
+      const fx = state.selectedFixturesData[idx];
+      if(!fx) return;
+      state.selectedFixtureIds.delete(fx.fixture.id);
+      state.selectedFixturesData.splice(idx, 1);
+      // se stavamo guardando una partita dopo quella rimossa, l'indice va riallineato
+      if(state.analysisIndex >= state.selectedFixturesData.length){
+        state.analysisIndex = Math.max(0, state.selectedFixturesData.length-1);
+      }
+      updateQueueUI();
+      if(state.screen==='home') renderFixtures();
+      if(!state.selectedFixturesData.length){
+        closeQueue();
+        showScreen('home');
+        return;
+      }
+      if(state.screen==='analysis') runAnalysis(state.analysisIndex);
+      renderQueueModal();
+    });
+  });
+}
+
 function updateQueueUI(){
   const n = state.selectedFixtureIds.size;
   document.getElementById('queuePill').textContent = n + (n===1?' partita in coda':' partite in coda');
@@ -1241,106 +2634,581 @@ function updateQueueUI(){
   document.getElementById('floatingBar').classList.toggle('hidden', n===0 || state.screen!=='home');
 }
 
-// ---------- Migliori giocate della giornata: risultato esatto più probabile ----------
+// ---------- Scansione opportunità di mercato su più partite ----------
 // Scansiona tutte le partite attualmente in elenco (max 15, per contenere le chiamate API), calcola
 // per ciascuna il modello Dixon-Coles sui gol reali e ne estrae il punteggio esatto più probabile.
 // Le 5 partite mostrate sono quelle il cui punteggio esatto ha la probabilità più alta in assoluto —
 // cioè le partite che il sistema riesce a "leggere" con più sicurezza, non semplici scommesse 1X2/O-U.
-const BEST_BETS_SAMPLE_LIMIT = 15;
+// ---------- SCANSIONE OPPORTUNITA' SU PIU' PARTITE ----------
+// Nessun numero prefissato di risultati: si analizzano tutti i mercati di tutte le partite
+// in elenco e si restituisce quello che il modello trova davvero, che puo' essere nulla.
+const OPP_SCAN_SAMPLE_LIMIT = 15;
 
-async function computeMatchScorePrediction(fx){
+async function computeMatchOpportunities(fx){
   const homeId = fx.teams.home.id, awayId = fx.teams.away.id;
-  const [homeFixturesRaw, awayFixturesRaw] = await Promise.all([
+  const [homeFixturesRaw, awayFixturesRaw, h2hRaw, oddsRaw] = await Promise.all([
     fetchTeamRecentFixtures(homeId),
     fetchTeamRecentFixtures(awayId),
+    apiGet('/fixtures/headtohead', { h2h: homeId+'-'+awayId, last: 15 }).catch(()=>[]),
+    apiGet('/odds', { fixture: fx.fixture.id }).catch(()=>[]),
   ]);
   const hs = computeFormStats(homeFixturesRaw, homeId);
   const as = computeFormStats(awayFixturesRaw, awayId);
-  const homeAvgFor = (hs.homePlayed>=3) ? hs.avgHomeGf : hs.avgGf;
-  const homeAvgAgainst = (hs.homePlayed>=3) ? hs.avgHomeGa : hs.avgGa;
-  const awayAvgFor = (as.awayPlayed>=3) ? as.avgAwayGf : as.avgGf;
-  const awayAvgAgainst = (as.awayPlayed>=3) ? as.avgAwayGa : as.avgGa;
-  if(homeAvgFor==null || homeAvgAgainst==null || awayAvgFor==null || awayAvgAgainst==null) return null;
 
-  const lambdaHome = (homeAvgFor + awayAvgAgainst) / 2;
-  const lambdaAway = (awayAvgFor + homeAvgAgainst) / 2;
-  const dixonColes = computeDixonColes(lambdaHome, lambdaAway);
+  const twoYearsAgo = new Date();
+  twoYearsAgo.setFullYear(twoYearsAgo.getFullYear()-2);
+  const h2h = (h2hRaw||[]).filter(m=> new Date(m.fixture.date) >= twoYearsAgo);
 
-  let best = { i:0, j:0, p:0 };
-  for(let i=0;i<dixonColes.matrix.length;i++){
-    for(let j=0;j<dixonColes.matrix[i].length;j++){
-      if(dixonColes.matrix[i][j] > best.p) best = { i, j, p: dixonColes.matrix[i][j] };
-    }
-  }
+  const eloHome = homeFixturesRaw.length ? computeSimpleElo(homeFixturesRaw, homeId) : null;
+  const eloAway = awayFixturesRaw.length ? computeSimpleElo(awayFixturesRaw, awayId) : null;
 
+  const preds = produceModelPredictions({ hs, as, leagueId: fx.league.id, h2h, homeId, awayId,
+    xgHome:null, xgAway:null, eloHome, eloAway });
+  const perf = (state.backtestRecords||[]).length ? calculateModelPerformance(state.backtestRecords) : null;
+  const weights = perf ? calculateDynamicWeights(perf, '1X2') : null;
+  const ens1x2 = buildWeightedEnsemble(preds, weights?.weights, 'probs1x2');
+  if(!ens1x2) return [];
+
+  // mercati derivati dal modello con il miglior supporto sui gol
+  const goalModel = preds.dixonColes || preds.poisson;
+  const markets = goalModel ? {
+    over15: goalModel.over15*100, under15: goalModel.under15*100,
+    over25: goalModel.over25*100, under25: goalModel.under25*100,
+    over35: goalModel.over35*100, under35: goalModel.under35*100,
+    bttsYes: goalModel.bttsYes*100, bttsNo: goalModel.bttsNo*100,
+  } : null;
+  const doubleChance = doubleChanceFromProbs({
+    pHome: ens1x2.value[0]*100, pDraw: ens1x2.value[1]*100, pAway: ens1x2.value[2]*100 });
+
+  const reliability = computeReliabilityScore(hs, as);
   const dateStr = new Date(fx.fixture.date).toLocaleDateString('it-IT',{day:'2-digit',month:'short'});
-  return {
-    matchLabel: fx.teams.home.name + ' - ' + fx.teams.away.name + ' (' + dateStr + ')',
-    fixtureId: fx.fixture.id,
-    pickLabel: 'Risultato esatto ' + best.i + '-' + best.j,
-    prob: best.p*100,
-  };
+
+  return buildMarketOpportunities({
+    fx, matchLabel: fx.teams.home.name+' — '+fx.teams.away.name+' ('+dateStr+')',
+    ens1x2, markets, htMarkets:null, doubleChance, poissonHT:null, cornersCards:null,
+    realOdds: parseRealOdds(oddsRaw),
+    dataQuality: Math.max(0, Math.min(1, reliability.score/100)),
+    engineModelPreds: preds,
+  });
 }
 
-let lastBestBets = [];
+let lastScannedOpportunities = [];
 
-async function scanBestBets(){
-  const content = document.getElementById('bestBetsContent');
-  document.getElementById('bestBetsModal').classList.remove('hidden');
+async function scanMarketOpportunities(){
+  const content = document.getElementById('oppScanContent');
+  document.getElementById('oppScanModal').classList.remove('hidden');
   if(!state.fixtures.length){
     content.innerHTML = '<div class="empty-state">Nessuna partita in elenco: prima cerca una competizione e carica il calendario.</div>';
     return;
   }
-  const sample = state.fixtures.slice(0, BEST_BETS_SAMPLE_LIMIT);
-  content.innerHTML = `<div class="loading">Analizzo ${sample.length} partite (modello Dixon-Coles su gol reali)…</div>`;
+  const sample = state.fixtures.slice(0, OPP_SCAN_SAMPLE_LIMIT);
+  content.innerHTML = `<div class="loading">Analizzo tutti i mercati di ${sample.length} partite e recupero le quote…</div>`;
 
   try{
-    const results = await Promise.all(sample.map(fx => computeMatchScorePrediction(fx).catch(()=>null)));
-    const all = results.filter(Boolean).sort((a,b)=> b.prob - a.prob);
-    const top = all.slice(0, 5);
-    lastBestBets = top;
-    renderBestBets(top, sample.length);
+    const results = await Promise.all(sample.map(fx=> computeMatchOpportunities(fx).catch(()=>[])));
+    const all = results.flat();
+    all.sort((a,b)=> b.valueScore - a.valueScore);
+    lastScannedOpportunities = all;
+    logOpportunities(all);
+    renderScanResults(all, sample.length);
   }catch(err){
     content.innerHTML = '<div class="err">Errore durante l\'analisi: '+escapeHtml(err.message)+'</div>';
   }
 }
 
-function renderBestBets(top, scannedCount){
-  const content = document.getElementById('bestBetsContent');
-  if(!top.length){
-    content.innerHTML = '<div class="empty-state">Storico insufficiente sulle partite in elenco per calcolare pronostici affidabili.</div>';
+function renderScanResults(allOpps, scannedCount){
+  const content = document.getElementById('oppScanContent');
+  if(!allOpps.length){
+    content.innerHTML = '<div class="empty-state">Nessun mercato analizzabile: storico squadre insufficiente sulle partite in elenco.</div>';
     return;
   }
-  content.innerHTML = `
-    <div class="note" style="margin-bottom:14px;">Su ${scannedCount} partite analizzate: le 5 il cui risultato esatto più probabile (modello Dixon-Coles su gol reali) ha la probabilità più alta — cioè le partite che il sistema legge con più sicurezza in questa giornata.</div>
-    ${top.map((c,i)=>`
-      <div class="bestbet-item" data-bestbet-idx="${i}">
-        <div class="bestbet-rank">${i+1}</div>
-        <div style="flex:1;">
-          <div class="match">${escapeHtml(c.matchLabel)}</div>
-          <div class="pick">${escapeHtml(c.pickLabel)}</div>
+  const takenCount = allOpps.filter(o=> isSelectionAlreadyTaken(o.matchId, o.market+' — '+o.selection)).length;
+  const opps = allOpps.filter(o=> !isSelectionAlreadyTaken(o.matchId, o.market+' — '+o.selection));
+  if(!opps.length){
+    content.innerHTML = '<div class="empty-state">Hai già preso posizione su tutte le opportunità individuate su queste partite.</div>';
+    return;
+  }
+  const summary = summarizeOpportunities(opps);
+  const strong = opps.filter(o=> o.status==='STRONG_VALUE');
+  const moderate = opps.filter(o=> o.status==='MODERATE_VALUE');
+  const watch = opps.filter(o=> o.status==='WATCHLIST');
+
+  const card = o=>`
+    <div class="opp-scan-row ${OPP_STATUS_META[o.status].cls}" data-opp-idx="${opps.indexOf(o)}">
+      <div style="flex:1;">
+        <div class="opp-market" style="font-size:10.5px;">${escapeHtml(o.matchLabel)}</div>
+        <div class="opp-selection" style="font-size:14px;">${escapeHtml(o.market)} — ${escapeHtml(o.selection)}</div>
+        <div class="watch-nums" style="margin-top:5px;">
+          <span>Prob. ${pctOf(o.calibratedProbability)}</span>
+          <span>Quota ${o.bookmakerOdds!=null?o.bookmakerOdds.toFixed(2):'—'}</span>
+          <span>Edge ${signedPct(o.edge)}</span>
+          <span>EV ${signedPct(o.ev)}</span>
+          <span>Conf. ${o.confidence.toFixed(0)}</span>
+          <span>Rischio ${riskLabel(o.riskScore)}</span>
         </div>
-        <div class="pct">${c.prob.toFixed(1)}%</div>
-      </div>`).join('')}
-    <div class="note" style="margin-top:6px;">Clicca su una partita per inserire la quota e calcolare lo stake — puoi aggiungerle tutte al carrello e giocarle anche in combo/multipla.</div>`;
-  content.querySelectorAll('[data-bestbet-idx]').forEach(el=>{
+      </div>
+      <div style="text-align:right;flex-shrink:0;">
+        <div class="watch-score" style="color:var(--pitch);">${o.valueScore.toFixed(0)}</div>
+        <span class="opp-badge ${OPP_STATUS_META[o.status].cls}">${OPP_STATUS_META[o.status].label}</span>
+      </div>
+    </div>`;
+
+  content.innerHTML = `
+    <div class="opp-overview">
+      <div class="ov-cell"><div class="ov-n">${summary.total}</div><div class="ov-l">mercati analizzati</div></div>
+      <div class="ov-cell ov-strong"><div class="ov-n">${summary.strong}</div><div class="ov-l">value forte</div></div>
+      <div class="ov-cell ov-moderate"><div class="ov-n">${summary.moderate}</div><div class="ov-l">value moderato</div></div>
+      <div class="ov-cell ov-watch"><div class="ov-n">${summary.watchlist}</div><div class="ov-l">watchlist</div></div>
+      <div class="ov-cell ov-nobet"><div class="ov-n">${summary.noBet}</div><div class="ov-l">no bet</div></div>
+    </div>
+    <div class="note" style="margin-top:8px;">Su ${scannedCount} partite. Ordinamento per <b>Value Score</b>, non per probabilità. Il numero di opportunità non è prefissato: può essere zero.${takenCount?` ${takenCount} selezioni già giocate o in carrello sono state escluse.`:''}</div>
+
+    <div class="section-title" style="margin-top:20px;">Value forte</div>
+    ${strong.length ? strong.map(card).join('') : `<div class="opp-empty"><div class="opp-empty-title">NESSUN VALUE FORTE</div><div>Il modello non ha individuato opportunità con sufficiente vantaggio statistico e affidabilità.</div></div>`}
+
+    ${moderate.length ? `<div class="section-title" style="margin-top:20px;">Value moderato</div>${moderate.map(card).join('')}` : ''}
+
+    ${watch.length ? `<div class="section-title" style="margin-top:20px;">Watchlist</div>
+      <div class="note" style="margin:-4px 0 10px;">Da monitorare: potrebbero diventare interessanti se la quota si muove.</div>
+      ${watch.slice(0,10).map(card).join('')}` : ''}
+
+    ${(!strong.length && !moderate.length && !watch.length) ? `
+      <div class="section-title" style="margin-top:20px;">No bet</div>
+      <div class="opp-empty"><div class="opp-empty-title">NESSUNA OPPORTUNITÀ DI VALORE</div><div>La maggior parte dei mercati non presenta un vantaggio statistico sufficientemente robusto rispetto ai prezzi offerti.</div></div>` : ''}
+  `;
+
+  content.querySelectorAll('[data-opp-idx]').forEach(el=>{
     el.addEventListener('click', ()=>{
-      const item = lastBestBets[parseInt(el.dataset.bestbetIdx,10)];
-      if(!item) return;
-      state.currentMatchCtx = { label: item.matchLabel, fixtureId: item.fixtureId };
-      document.getElementById('bestBetsModal').classList.add('hidden');
-      openStakeCalculator(item.pickLabel, item.prob);
+      const o = opps[parseInt(el.dataset.oppIdx,10)];
+      if(!o || o.bookmakerOdds==null) return;
+      state.currentMatchCtx = { label:o.matchLabel, fixtureId:o.matchId };
+      document.getElementById('oppScanModal').classList.add('hidden');
+      openStakeCalculator(o.market+' — '+o.selection, o.calibratedProbability*100, o.bookmakerOdds);
     });
   });
 }
 
-document.getElementById('bestBetsBtn').addEventListener('click', scanBestBets);
-document.getElementById('bestBetsModalClose').addEventListener('click', ()=>{
-  document.getElementById('bestBetsModal').classList.add('hidden');
+document.getElementById('oppScanBtn').addEventListener('click', scanMarketOpportunities);
+document.getElementById('oppScanModalClose').addEventListener('click', ()=>{
+  document.getElementById('oppScanModal').classList.add('hidden');
 });
-document.getElementById('bestBetsModal').addEventListener('click', e=>{
-  if(e.target.id === 'bestBetsModal') document.getElementById('bestBetsModal').classList.add('hidden');
+document.getElementById('oppScanModal').addEventListener('click', e=>{
+  if(e.target.id === 'oppScanModal') document.getElementById('oppScanModal').classList.add('hidden');
 });
+
+// ---------- Autoapprendimento: backtest automatico su stagioni concluse ----------
+// Per un campionato + stagione, UNA SOLA chiamata API recupera tutte le partite. Poi, in locale,
+// per ogni partita (dalla giornata in cui c'e' storico sufficiente in poi) si simula cosa avrebbe
+// previsto il modello usando SOLO le partite di quella stagione precedenti a quella data, si
+// confronta l'esito piu' probabile con il risultato vero, e si registra vinta/persa nella stessa
+// fascia di probabilita' usata per l'autocalibrazione — esattamente come una giocata singola reale,
+// ma senza dover aspettare che l'utente scommetta davvero. Nessuna chiamata H2H o infortuni: e'
+// una simulazione retrospettiva, non un'analisi completa, quindi resta rapida anche su una stagione
+// intera con una sola chiamata API.
+// ---------- WALK-FORWARD BACKTESTING ----------
+// Regola assoluta: NESSUN DATA LEAKAGE. Per prevedere la partita N il sistema usa
+// esclusivamente le partite con data STRETTAMENTE ANTERIORE alla data di N. Non si usano
+// split casuali, non si usa il risultato della partita in esame, non si usano dati futuri.
+// Ogni record salva predictionTimestamp e dataCutoff per rendere il processo verificabile.
+let BACKTEST_MIN_PRIOR_MATCHES = 8; // warm-up configurabile: partite minime per squadra prima di prevedere
+const BACKTEST_WARMUP_OPTIONS = [8, 10, 15, 20, 30];
+
+// Esito reale come indice: 0 = 1 (casa), 1 = X, 2 = 2 (trasferta)
+function actualOutcomeIndex(goalsHome, goalsAway){
+  if(goalsHome > goalsAway) return 0;
+  if(goalsHome === goalsAway) return 1;
+  return 2;
+}
+
+async function runBacktestForSeason(leagueId, season, onProgress){
+  const fixtures = await apiGet('/fixtures', { league: leagueId, season }).catch(()=>[]);
+  const finished = (fixtures||[])
+    .filter(f=> f.fixture.status?.short==='FT' && f.goals.home!=null && f.goals.away!=null)
+    .sort((a,b)=> new Date(a.fixture.date) - new Date(b.fixture.date));
+
+  const records = [];
+  for(let idx=0; idx<finished.length; idx++){
+    const match = finished[idx];
+    const homeId = match.teams.home.id, awayId = match.teams.away.id;
+    const matchDate = new Date(match.fixture.date);
+
+    // dataCutoff: la finestra di dati ammessa termina all'istante di inizio della partita.
+    // Filtriamo per DATA (non per indice) cosi' il vincolo e' esplicito e verificabile.
+    const priorAll = finished.filter(f=> new Date(f.fixture.date) < matchDate);
+    const priorHome = priorAll.filter(f=> f.teams.home.id===homeId || f.teams.away.id===homeId).reverse();
+    const priorAway = priorAll.filter(f=> f.teams.home.id===awayId || f.teams.away.id===awayId).reverse();
+    if(priorHome.length < BACKTEST_MIN_PRIOR_MATCHES || priorAway.length < BACKTEST_MIN_PRIOR_MATCHES) continue;
+
+    const hs = computeFormStats(priorHome, homeId);
+    const as = computeFormStats(priorAway, awayId);
+
+    // Elo calcolato solo sulle partite precedenti al cutoff
+    const eloHome = priorHome.length ? computeSimpleElo(priorHome.slice().reverse(), homeId) : null;
+    const eloAway = priorAway.length ? computeSimpleElo(priorAway.slice().reverse(), awayId) : null;
+
+    // H2H: solo scontri diretti anteriori al cutoff
+    const priorH2H = priorAll.filter(f=>
+      (f.teams.home.id===homeId && f.teams.away.id===awayId) ||
+      (f.teams.home.id===awayId && f.teams.away.id===homeId));
+
+    // Team Strength + SoS + forma calcolati SOLO sulle partite anteriori al cutoff.
+    // priorAll contiene per costruzione solo gare con data < matchDate: nessun leakage.
+    const btSchedule = computeScheduleStrength(priorAll, [homeId, awayId]);
+    const btHomeStrength = computeTeamStrength(priorHome, homeId, leagueId, btSchedule);
+    const btAwayStrength = computeTeamStrength(priorAway, awayId, leagueId, btSchedule);
+    const btHomeForm = computeDynamicForm(priorHome, homeId);
+    const btAwayForm = computeDynamicForm(priorAway, awayId);
+
+    const modelPreds = produceModelPredictions({
+      hs, as, leagueId, h2h: priorH2H, homeId, awayId,
+      eloHome, eloAway,
+      homeStrength: btHomeStrength, awayStrength: btAwayStrength,
+      homeForm: btHomeForm, awayForm: btAwayForm,
+      // xG non disponibile in backtest: richiederebbe una chiamata /fixtures/statistics per
+      // ogni partita storica, insostenibile in termini di quota API. Dichiarato, non simulato.
+      xgHome: null, xgAway: null,
+    });
+    if(!MODEL_KEYS.some(k=> modelPreds[k])) continue;
+
+    const gh = match.goals.home, ga = match.goals.away;
+    const totalGoals = gh + ga;
+    const record = {
+      fixtureId: match.fixture.id,
+      date: match.fixture.date,
+      leagueId, season,
+      homeTeam: match.teams.home.name, awayTeam: match.teams.away.name,
+      predictionTimestamp: Date.now(),
+      dataCutoff: match.fixture.date,
+      priorMatchesHome: priorHome.length, priorMatchesAway: priorAway.length,
+      actualHomeGoals: gh, actualAwayGoals: ga,
+      actualOutcome: actualOutcomeIndex(gh, ga),
+      actualOver15: totalGoals>1, actualOver25: totalGoals>2, actualOver35: totalGoals>3,
+      actualBtts: gh>=1 && ga>=1,
+      // tracciabilita': i fattori strutturali usati per questa previsione
+      teamStrength: {
+        home: btHomeStrength ? { atkH:btHomeStrength.attackHome, defH:btHomeStrength.defenceHome, overall:btHomeStrength.overall, sos:btHomeStrength.scheduleStrength } : null,
+        away: btAwayStrength ? { atkA:btAwayStrength.attackAway, defA:btAwayStrength.defenceAway, overall:btAwayStrength.overall, sos:btAwayStrength.scheduleStrength } : null,
+      },
+      form: { home: btHomeForm?.overall ?? null, away: btAwayForm?.overall ?? null },
+      lambdaSource: modelPreds?._lambdaSource ?? null,
+      expectedGoals: modelPreds?._expectedGoals
+        ? { lambdaHome: modelPreds._expectedGoals.lambdaHome, lambdaAway: modelPreds._expectedGoals.lambdaAway, usedXg: modelPreds._expectedGoals.usedXg }
+        : null,
+      models: {},
+    };
+    MODEL_KEYS.forEach(k=>{
+      const p = modelPreds[k];
+      if(!p) return;
+      record.models[k] = {
+        probs1x2: p.probs1x2,
+        over15: p.over15 ?? null, over25: p.over25 ?? null, over35: p.over35 ?? null,
+        bttsYes: p.bttsYes ?? null,
+        expectedHomeGoals: p.expectedHomeGoals ?? null,
+        expectedAwayGoals: p.expectedAwayGoals ?? null,
+      };
+    });
+    records.push(record);
+    if(onProgress && records.length % 20 === 0) onProgress(records.length, finished.length);
+  }
+  return records;
+}
+
+// ---------- CALCOLO PERFORMANCE PER MODELLO / MERCATO ----------
+// Ogni combinazione modello x mercato ottiene metriche indipendenti: accuracy (secondaria),
+// Brier, Log Loss (primarie) ed errore di calibrazione. La stabilita' confronta la
+// performance recente con quella complessiva: un modello che peggiora nel tempo viene penalizzato.
+const BACKTEST_MARKETS = [
+  { key:'1X2', type:'1X2', multiclass:true },
+  { key:'OU15', type:'OU', field:'over15', actual:'actualOver15' },
+  { key:'OU25', type:'OU', field:'over25', actual:'actualOver25' },
+  { key:'OU35', type:'OU', field:'over35', actual:'actualOver35' },
+  { key:'BTTS', type:'BTTS', field:'bttsYes', actual:'actualBtts' },
+];
+
+function calculateModelPerformance(records, filterFn){
+  const rows = (records||[]).filter(r=> filterFn ? filterFn(r) : true);
+  const perf = {};
+  MODEL_KEYS.forEach(mk=>{
+    perf[mk] = {};
+    BACKTEST_MARKETS.forEach(mkt=>{
+      const obs = [];
+      let brierSum=0, logLossSum=0, correct=0, n=0;
+      rows.forEach(r=>{
+        const mp = r.models?.[mk];
+        if(!mp) return;
+        if(mkt.multiclass){
+          if(!Array.isArray(mp.probs1x2) || !mp.probs1x2.every(isFiniteNum)) return;
+          const ai = r.actualOutcome;
+          brierSum += multiclassBrier(mp.probs1x2, ai);
+          logLossSum += logLossMulti(mp.probs1x2, ai);
+          const predIdx = mp.probs1x2.indexOf(Math.max(...mp.probs1x2));
+          if(predIdx===ai) correct++;
+          obs.push({ p: mp.probs1x2[predIdx], occurred: predIdx===ai, ts: new Date(r.date).getTime() });
+          n++;
+        } else {
+          const p = mp[mkt.field];
+          if(!isFiniteNum(p)) return;
+          const occurred = !!r[mkt.actual];
+          brierSum += binaryBrier(p, occurred);
+          logLossSum += logLossBinary(p, occurred);
+          if((p>=0.5) === occurred) correct++;
+          obs.push({ p, occurred, ts: new Date(r.date).getTime() });
+          n++;
+        }
+      });
+      if(!n){ perf[mk][mkt.key] = null; return; }
+      // Stabilita': confronto tra log loss recente (ultimo terzo) e complessivo
+      const sorted = obs.slice().sort((a,b)=> a.ts-b.ts);
+      const recentSlice = sorted.slice(Math.floor(sorted.length*2/3));
+      let stability = 0.5;
+      if(recentSlice.length >= 10){
+        const recentLL = recentSlice.reduce((a,o)=> a + logLossBinary(o.p, o.occurred), 0)/recentSlice.length;
+        const overallLL = sorted.reduce((a,o)=> a + logLossBinary(o.p, o.occurred), 0)/sorted.length;
+        // se il recente e' uguale o migliore -> stabilita' alta
+        stability = Math.max(0, Math.min(1, 1 - Math.max(0, (recentLL-overallLL))/0.3));
+      }
+      perf[mk][mkt.key] = {
+        n,
+        accuracy: correct/n,
+        brier: brierSum/n,
+        logLoss: logLossSum/n,
+        ece: expectedCalibrationError(obs),
+        stability,
+        observations: obs,
+      };
+    });
+  });
+  return perf;
+}
+
+// Salute complessiva del modello 0..100: sintesi di calibrazione, log loss, stabilita'
+// e ampiezza del campione. Serve a segnalare un degrado prima che si traduca in perdite.
+function calculateModelHealth(perfByModel, records){
+  const ref = [];
+  MODEL_KEYS.forEach(k=>{
+    const p = perfByModel?.[k]?.['1X2'];
+    if(p && p.n>=20) ref.push(p);
+  });
+  if(!ref.length) return null;
+  const best = ref.reduce((a,b)=> (a.logLoss<=b.logLoss ? a : b));
+  const logLossScore = Math.max(0, Math.min(1, 1-(best.logLoss/(Math.log(3)*1.5))));
+  const calibScore = best.ece!=null ? Math.max(0, Math.min(1, 1-(best.ece/0.15))) : 0.5;
+  const stabilityScore = best.stability!=null ? best.stability : 0.5;
+  const sampleScore = Math.max(0, Math.min(1, (records?.length||0)/500));
+  const health = 100*(0.35*logLossScore + 0.25*calibScore + 0.20*stabilityScore + 0.20*sampleScore);
+  return {
+    score: health,
+    degraded: health < 55,
+    bestLogLoss: best.logLoss,
+    bestEce: best.ece,
+    sampleSize: records?.length||0,
+  };
+}
+
+function saveBacktestData(){
+  localStorage.setItem('matchlab_backtest_records', JSON.stringify(state.backtestRecords));
+  _isotonicCache = { key:null, models:{} }; // invalida la cache di calibrazione
+  updateBacktestPill();
+}
+function updateBacktestPill(){
+  document.getElementById('backtestPill').textContent = '🧠 autoapprendimento (' + state.backtestRecords.length + ')';
+}
+
+function openBacktest(){
+  renderBacktestModal();
+  document.getElementById('backtestModal').classList.remove('hidden');
+}
+function closeBacktest(){
+  document.getElementById('backtestModal').classList.add('hidden');
+}
+document.getElementById('backtestPill').addEventListener('click', openBacktest);
+document.getElementById('backtestModalClose').addEventListener('click', closeBacktest);
+document.getElementById('backtestModal').addEventListener('click', e=>{
+  if(e.target.id === 'backtestModal') closeBacktest();
+});
+
+function renderModelPerformanceTable(perf, marketKey, weights){
+  const rows = MODEL_KEYS.map(k=>{
+    const p = perf?.[k]?.[marketKey];
+    if(!p) return `<tr><td>${MODEL_LABELS[k]}</td><td colspan="6" style="text-align:center;font-family:'Inter',sans-serif;font-size:11px;color:var(--text-dim);">nessun dato</td></tr>`;
+    const w = weights?.weights?.[k];
+    return `<tr>
+      <td>${MODEL_LABELS[k]}</td>
+      <td class="mono">${p.n}</td>
+      <td class="mono">${(p.accuracy*100).toFixed(1)}%</td>
+      <td class="mono">${p.brier.toFixed(4)}</td>
+      <td class="mono" style="color:var(--pitch);">${p.logLoss.toFixed(4)}</td>
+      <td class="mono">${p.ece!=null?(p.ece*100).toFixed(1)+'%':'—'}</td>
+      <td class="mono">${w!=null?(w*100).toFixed(0)+'%':'—'}</td>
+    </tr>`;
+  }).join('');
+  // Riga di riferimento: previsione uniforme (nessuna informazione). Un modello che non batte
+  // questa riga non sta aggiungendo valore predittivo, per quanto alta sia la sua accuratezza.
+  const k = marketKey==='1X2' ? 3 : 2;
+  const baseLogLoss = Math.log(k);
+  const baseBrier = marketKey==='1X2' ? (2*(1-1/3)/3 + 0) : 0.25;
+  const baselineBrier = marketKey==='1X2' ? (2/3) : 0.25;
+  const anyBeats = MODEL_KEYS.some(mk=>{
+    const p = perf?.[mk]?.[marketKey];
+    return p && p.logLoss < baseLogLoss;
+  });
+  const baselineRow = `<tr style="opacity:.75;border-top:2px solid var(--line);">
+      <td><i>Baseline uniforme</i></td>
+      <td class="mono">—</td>
+      <td class="mono">${((1/k)*100).toFixed(1)}%</td>
+      <td class="mono">${baselineBrier.toFixed(4)}</td>
+      <td class="mono">${baseLogLoss.toFixed(4)}</td>
+      <td class="mono">0.0%</td>
+      <td class="mono">—</td>
+    </tr>`;
+
+  return `<div class="model-table-wrap"><table class="model-table">
+    <thead><tr><th>Modello</th><th>N</th><th>Acc.</th><th>Brier</th><th>LogLoss</th><th>Calib.</th><th>Peso</th></tr></thead>
+    <tbody>${rows}${baselineRow}</tbody>
+  </table></div>
+  <div class="note" style="margin-top:8px;">${anyBeats
+    ? '✅ Almeno un modello batte la baseline uniforme: sta aggiungendo informazione predittiva reale.'
+    : '⚠ <b>Nessun modello batte la baseline uniforme</b> su questo campione. Le previsioni non stanno aggiungendo valore predittivo misurabile: allarga il campione con altre stagioni prima di fidarti delle stime, e considera che su questo mercato il modello potrebbe essere sovra-confidente.'}</div>`;
+}
+
+function renderCalibrationCurveTable(marketKey){
+  const obs = extractCalibrationObservations(marketKey);
+  if(obs.length < 20) return '<div class="empty-state">Campione troppo piccolo per una curva di calibrazione affidabile.</div>';
+  const curve = calibrationCurve(obs, 10).filter(b=> b.n>0);
+  const rows = curve.map(b=>`<tr>
+    <td>${(b.lo*100).toFixed(0)}-${(b.hi*100).toFixed(0)}%</td>
+    <td class="mono">${(b.predicted*100).toFixed(1)}%</td>
+    <td class="mono">${(b.observed*100).toFixed(1)}%</td>
+    <td class="mono" style="color:${Math.abs(b.diff)<0.05?'var(--pitch)':(Math.abs(b.diff)<0.12?'var(--warn)':'#e05c5c')};">${b.diff>=0?'+':''}${(b.diff*100).toFixed(1)}%</td>
+    <td class="mono">${b.n}</td>
+  </tr>`).join('');
+  const ece = expectedCalibrationError(obs);
+  return `<div class="model-table-wrap"><table class="model-table">
+    <thead><tr><th>Fascia</th><th>Previsto</th><th>Osservato</th><th>Diff.</th><th>N</th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table></div>
+  <div class="note" style="margin-top:8px;">Errore di calibrazione medio (ECE): <b class="mono" style="color:var(--text);">${(ece*100).toFixed(2)}%</b> — quanto in media la probabilità dichiarata si discosta dalla frequenza reale. Sotto il 5% è considerato buono.</div>`;
+}
+
+function renderBacktestModal(){
+  const content = document.getElementById('backtestContent');
+  const records = state.backtestRecords;
+  const totalTested = records.length;
+
+  const byLeagueSeason = {};
+  records.forEach(e=>{
+    const key = e.leagueId+'-'+e.season;
+    byLeagueSeason[key] = (byLeagueSeason[key]||0) + 1;
+  });
+  const summaryRows = Object.entries(byLeagueSeason).map(([key,n])=>{
+    const [leagueId, season] = key.split('-');
+    const name = TOP_COMPETITIONS[leagueId] || ('Lega #'+leagueId);
+    return `<div class="stat-row"><div class="lbl" style="width:auto;flex:1;">${escapeHtml(name)} ${escapeHtml(season)}</div><div class="mono">${n} partite</div></div>`;
+  }).join('');
+
+  const perf = totalTested ? calculateModelPerformance(records) : null;
+  const weights1x2 = perf ? calculateDynamicWeights(perf, '1X2') : null;
+  const health = perf ? calculateModelHealth(perf, records) : null;
+
+  content.innerHTML = `
+    <div class="note" style="margin-bottom:14px;">Validazione <b>walk-forward</b>: per ogni partita storica il sistema usa esclusivamente i dati con data anteriore al calcio d'inizio, poi confronta la previsione con il risultato vero. Nessun dato futuro entra nel training. Ogni stagione costa <b>una sola chiamata API</b>.</div>
+
+    ${health ? `
+    <div class="stat-card" style="margin-bottom:14px;">
+      <h3>Model Health</h3>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div class="mono" style="font-size:30px;font-weight:700;color:${health.degraded?'#e05c5c':'var(--pitch)'};">${health.score.toFixed(0)}<span style="font-size:14px;color:var(--text-dim);">/100</span></div>
+        <div style="flex:1;">
+          <div class="reliability-bar-track"><div class="reliability-bar-fill" style="width:${health.score.toFixed(0)}%;background:${health.degraded?'#e05c5c':'var(--pitch)'};"></div></div>
+          <div class="note" style="margin-top:6px;">${health.degraded?'⚠ Performance degradata: le stime vanno usate con cautela.':'Basata su log loss, calibrazione, stabilità e ampiezza del campione.'}</div>
+        </div>
+      </div>
+    </div>` : ''}
+
+    ${perf ? `
+    <div class="section-title">Performance dei modelli — 1X2</div>
+    <div class="stat-card" style="margin-bottom:14px;">
+      ${renderModelPerformanceTable(perf, '1X2', weights1x2)}
+      <div class="note" style="margin-top:10px;">Le metriche primarie sono <b>Log Loss</b> e <b>Brier</b> (più bassi = meglio): valutano la qualità dell'intera distribuzione di probabilità, non solo se il pronostico secco era giusto. L'accuratezza è una metrica secondaria. La colonna <b>Peso</b> è il peso assegnato automaticamente al modello nell'ensemble, derivato da queste performance.</div>
+    </div>
+
+    <div class="section-title">Performance dei modelli — Over/Under 2.5</div>
+    <div class="stat-card" style="margin-bottom:14px;">
+      ${renderModelPerformanceTable(perf, 'OU25', calculateDynamicWeights(perf, 'OU25'))}
+    </div>
+
+    <div class="section-title">Curva di calibrazione (1X2)</div>
+    <div class="stat-card" style="margin-bottom:14px;">
+      ${renderCalibrationCurveTable('1X2')}
+    </div>
+    ` : ''}
+
+    ${totalTested ? `<div class="stat-card" style="margin-bottom:14px;"><h3>Campione accumulato (${totalTested} partite)</h3>${summaryRows}</div>` : ''}
+
+    ${state.selectedLeague ? `
+      <div class="section-title">Nuovo backtest</div>
+      <div class="selected-league-bar" style="margin-bottom:12px;">
+        <img src="${state.selectedLeague.logo||''}" onerror="this.style.visibility='hidden'">
+        <div>
+          <div class="name">${escapeHtml(state.selectedLeague.name)}</div>
+          <div class="meta">${escapeHtml(state.selectedLeague.country||'')}</div>
+        </div>
+        <select id="backtestSeasonSelect" style="margin-left:auto;">
+          ${state.selectedLeague.seasons.map(y=>`<option value="${y}">Stagione ${y}/${(y+1).toString().slice(2)}</option>`).join('')}
+        </select>
+      </div>
+      <div class="field">
+        <label>Warm-up (partite minime per squadra prima di prevedere)</label>
+        <select id="backtestWarmupSelect">
+          ${BACKTEST_WARMUP_OPTIONS.map(v=>`<option value="${v}" ${v===BACKTEST_MIN_PRIOR_MATCHES?'selected':''}>${v} partite</option>`).join('')}
+        </select>
+      </div>
+      <button class="btn" id="runBacktestBtn" style="width:100%;">Avvia backtest walk-forward</button>
+      <div id="backtestProgress" style="margin-top:12px;"></div>
+    ` : `<div class="empty-state">Prima cerca e seleziona una competizione nella schermata principale, poi torna qui per avviare il backtest.</div>`}
+
+    <button class="btn secondary" id="clearBacktestBtn" style="width:100%;margin-top:14px;" ${totalTested?'':'disabled'}>Cancella tutti i dati di backtest</button>
+  `;
+
+  const runBtn = document.getElementById('runBacktestBtn');
+  if(runBtn){
+    runBtn.addEventListener('click', async ()=>{
+      const season = parseInt(document.getElementById('backtestSeasonSelect').value, 10);
+      BACKTEST_MIN_PRIOR_MATCHES = parseInt(document.getElementById('backtestWarmupSelect').value, 10) || 8;
+      const leagueId = state.selectedLeague.id;
+      const progressBox = document.getElementById('backtestProgress');
+      runBtn.disabled = true;
+      progressBox.innerHTML = '<div class="loading">Recupero il calendario della stagione…</div>';
+      try{
+        const newRecords = await runBacktestForSeason(leagueId, season, (done)=>{
+          progressBox.innerHTML = `<div class="loading">Walk-forward in corso: ${done} partite valutate…</div>`;
+        });
+        // Evita doppioni se la stessa stagione viene ri-analizzata
+        const existingIds = new Set(state.backtestRecords.map(r=> r.fixtureId));
+        const fresh = newRecords.filter(r=> !existingIds.has(r.fixtureId));
+        state.backtestRecords = state.backtestRecords.concat(fresh);
+        saveBacktestData();
+        const p = calculateModelPerformance(fresh);
+        const best = MODEL_KEYS.map(k=> ({k, m:p[k]?.['1X2']})).filter(x=> x.m).sort((a,b)=> a.m.logLoss-b.m.logLoss)[0];
+        progressBox.innerHTML = `<div class="note">Fatto: ${fresh.length} nuove partite valutate${newRecords.length!==fresh.length?` (${newRecords.length-fresh.length} già presenti, ignorate)`:''}.${best?` Miglior modello su questa stagione: <b>${MODEL_LABELS[best.k]}</b> (log loss ${best.m.logLoss.toFixed(4)}).`:''}</div>`;
+        renderBacktestModal();
+      }catch(err){
+        progressBox.innerHTML = '<div class="err">Errore durante il backtest: '+escapeHtml(err.message)+'</div>';
+        runBtn.disabled = false;
+      }
+    });
+  }
+
+  const clearBtn = document.getElementById('clearBacktestBtn');
+  if(clearBtn && totalTested){
+    clearBtn.addEventListener('click', ()=>{
+      if(!confirm('Cancellare tutti i dati di backtest accumulati?')) return;
+      state.backtestRecords = [];
+      saveBacktestData();
+      renderBacktestModal();
+    });
+  }
+}
 
 document.getElementById('analyzeBtn').addEventListener('click', ()=>{
   if(!state.selectedFixturesData.length) return;
@@ -1384,11 +3252,12 @@ async function runAnalysis(index){
   try{
     const homeId = fx.teams.home.id, awayId = fx.teams.away.id;
 
-    const [homeFixturesRaw, awayFixturesRaw, h2hRaw, injuries] = await Promise.all([
+    const [homeFixturesRaw, awayFixturesRaw, h2hRaw, injuries, oddsRaw] = await Promise.all([
       fetchTeamRecentFixtures(homeId),
       fetchTeamRecentFixtures(awayId),
       apiGet('/fixtures/headtohead', { h2h: homeId+'-'+awayId, last: 15 }).catch(()=>[]),
       apiGet('/injuries', { fixture: fixtureId }).catch(()=>[]),
+      apiGet('/odds', { fixture: fixtureId }).catch(()=>[]),
     ]);
 
     const twoYearsAgo = new Date();
@@ -1407,8 +3276,11 @@ async function runAnalysis(index){
       awayElo: awayFixturesRaw.length ? computeSimpleElo(awayFixturesRaw, awayId) : null,
       homeHtFtSplit: computeHtFtSplit(homeFixturesRaw, homeId),
       awayHtFtSplit: computeHtFtSplit(awayFixturesRaw, awayId),
+      // storici grezzi: servono al Team Strength Engine e alla forma dinamica
+      homeFixturesRaw, awayFixturesRaw,
       h2h,
       injuries,
+      realOdds: parseRealOdds(oddsRaw),
     };
 
     // xG, cartellini e corner: solo per top 5 campionati + Champions League, per non sprecare quota API
@@ -1427,6 +3299,59 @@ async function runAnalysis(index){
   }catch(err){
     content.innerHTML = '<div class="err">Errore nel recupero dati: '+escapeHtml(err.message)+'</div>';
   }
+}
+
+// ----- Quote reali dei bookmaker (endpoint /odds) -----
+// Media tra tutti i bookmaker restituiti dall'API per i mercati piu' standard e piu' ampiamente
+// coperti: 1X2 ("Match Winner"), Over/Under 2.5 gol ("Goals Over/Under") e Gol/NoGol
+// ("Both Teams Score"). La copertura varia per competizione: se l'API non ha quote per questa
+// partita, la funzione ritorna null e l'app ricade sulla quota equa stimata dal modello.
+function parseRealOdds(oddsResponse){
+  if(!oddsResponse || !oddsResponse.length) return null;
+  const entry = oddsResponse[0];
+  const bookmakers = entry?.bookmakers || [];
+  if(!bookmakers.length) return null;
+
+  const acc = { home:[], draw:[], away:[], over25:[], under25:[], bttsYes:[], bttsNo:[] };
+  bookmakers.forEach(bk=>{
+    (bk.bets||[]).forEach(bet=>{
+      const name = (bet.name||'').toLowerCase();
+      const values = bet.values||[];
+      if(name==='match winner'){
+        values.forEach(v=>{
+          const odd = parseFloat(v.odd);
+          if(!odd) return;
+          if(v.value==='Home') acc.home.push(odd);
+          else if(v.value==='Draw') acc.draw.push(odd);
+          else if(v.value==='Away') acc.away.push(odd);
+        });
+      } else if(name==='goals over/under'){
+        values.forEach(v=>{
+          const odd = parseFloat(v.odd);
+          if(!odd) return;
+          if(v.value==='Over 2.5') acc.over25.push(odd);
+          else if(v.value==='Under 2.5') acc.under25.push(odd);
+        });
+      } else if(name==='both teams score'){
+        values.forEach(v=>{
+          const odd = parseFloat(v.odd);
+          if(!odd) return;
+          if(v.value==='Yes') acc.bttsYes.push(odd);
+          else if(v.value==='No') acc.bttsNo.push(odd);
+        });
+      }
+    });
+  });
+
+  const avg = arr => arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : null;
+  const result = {
+    home: avg(acc.home), draw: avg(acc.draw), away: avg(acc.away),
+    over25: avg(acc.over25), under25: avg(acc.under25),
+    bttsYes: avg(acc.bttsYes), bttsNo: avg(acc.bttsNo),
+    bookmakersCount: bookmakers.length,
+  };
+  const hasAny = [result.home,result.draw,result.away,result.over25,result.under25,result.bttsYes,result.bttsNo].some(v=>v!=null);
+  return hasAny ? result : null;
 }
 
 const TOP_COMPETITIONS = {
@@ -1505,7 +3430,10 @@ function computeFormStats(fixtures, teamId){
   let homeGf=0,homeGa=0,homePlayed=0;
   let awayGf=0,awayGa=0,awayPlayed=0;
   let htGf=0,htGa=0,htPlayed=0;
+  let formWeightedSum=0, formWeightTotal=0, playedIdx=0;
   const formArr=[];
+  // fixtures e' gia' ordinato dal piu' recente al piu' vecchio (fetchTeamRecentFixtures):
+  // playedIdx=0 e' quindi l'ultima partita giocata, il decadimento pesa via via meno le piu' vecchie.
   fixtures.forEach(f=>{
     const isHome = f.teams.home.id === teamId;
     const gFor = isHome ? f.goals.home : f.goals.away;
@@ -1514,9 +3442,14 @@ function computeFormStats(fixtures, teamId){
     played++;
     gf+=gFor; ga+=gAgainst;
     if(gAgainst===0) cs++;
-    if(gFor>gAgainst){ wins++; formArr.push('V'); }
-    else if(gFor===gAgainst){ draws++; formArr.push('P'); }
-    else { loses++; formArr.push('S'); }
+    let points;
+    if(gFor>gAgainst){ wins++; formArr.push('V'); points=1; }
+    else if(gFor===gAgainst){ draws++; formArr.push('P'); points=0.5; }
+    else { loses++; formArr.push('S'); points=0; }
+    const w = Math.pow(FORM_DECAY, playedIdx);
+    formWeightedSum += points*w;
+    formWeightTotal += w;
+    playedIdx++;
     if(isHome){ homeGf+=gFor; homeGa+=gAgainst; homePlayed++; }
     else { awayGf+=gFor; awayGa+=gAgainst; awayPlayed++; }
 
@@ -1538,6 +3471,7 @@ function computeFormStats(fixtures, teamId){
     avgHtGf: htPlayed ? (htGf/htPlayed) : null,
     avgHtGa: htPlayed ? (htGa/htPlayed) : null,
     htPlayed,
+    weightedForm: formWeightTotal ? (formWeightedSum/formWeightTotal) : null, // 0..1, 0.5 = forma neutra
     form: formArr.slice(0,5).join(''),
   };
 }
@@ -1607,27 +3541,27 @@ function renderAnalysis(fx, bundle){
   const homeForm = bundle.homeStats?.form || '';
   const awayForm = bundle.awayStats?.form || '';
 
-  // ----- modello 1: Poisson su gol reali, tutte le competizioni (max 2 anni) -----
+  // ----- modello 1: Poisson su gol reali, con tutti i correttivi (shrinkage, normalizzazione su -----
+  // media di lega, limiti min/max, forma pesata con decadimento, correttivo H2H limitato)
   const hs = bundle.homeStats, as = bundle.awayStats;
-  const homeAvgFor = (hs?.homePlayed>=3) ? hs.avgHomeGf : hs?.avgGf;
-  const homeAvgAgainst = (hs?.homePlayed>=3) ? hs.avgHomeGa : hs?.avgGa;
-  const awayAvgFor = (as?.awayPlayed>=3) ? as.avgAwayGf : as?.avgGf;
-  const awayAvgAgainst = (as?.awayPlayed>=3) ? as.avgAwayGa : as?.avgGa;
+  const calibrated = computeCalibratedLambdas(hs, as, fx.league.id, bundle.h2h, fx.teams.home.id, fx.teams.away.id);
 
   let poisson = null, lambdaHomeGoals = null, lambdaAwayGoals = null;
-  if(homeAvgFor!=null && homeAvgAgainst!=null && awayAvgFor!=null && awayAvgAgainst!=null){
-    lambdaHomeGoals = (homeAvgFor + awayAvgAgainst) / 2;
-    lambdaAwayGoals = (awayAvgFor + homeAvgAgainst) / 2;
+  if(calibrated){
+    lambdaHomeGoals = calibrated.lambdaHome;
+    lambdaAwayGoals = calibrated.lambdaAway;
     poisson = computePoisson(lambdaHomeGoals, lambdaAwayGoals);
   }
+
+  const reliability = computeReliabilityScore(hs, as);
 
   // ----- modello 2: Poisson su xG -----
   const hms = bundle.matchStats?.home, ams = bundle.matchStats?.away;
   let poissonXg = null, lambdaHomeXg = null, lambdaAwayXg = null;
   if(hms?.avgXgFor!=null && hms?.avgXgAgainst!=null && ams?.avgXgFor!=null && ams?.avgXgAgainst!=null){
-    lambdaHomeXg = (hms.avgXgFor + ams.avgXgAgainst) / 2;
-    lambdaAwayXg = (ams.avgXgFor + hms.avgXgAgainst) / 2;
-    poissonXg = computePoisson(Math.max(lambdaHomeXg,0.1), Math.max(lambdaAwayXg,0.1));
+    lambdaHomeXg = Math.min(LAMBDA_MAX, Math.max(LAMBDA_MIN, (hms.avgXgFor + ams.avgXgAgainst) / 2));
+    lambdaAwayXg = Math.min(LAMBDA_MAX, Math.max(LAMBDA_MIN, (ams.avgXgFor + hms.avgXgAgainst) / 2));
+    poissonXg = computePoisson(lambdaHomeXg, lambdaAwayXg);
   }
 
   // ----- modello 3: Dixon-Coles (correzione bassi punteggi sugli stessi lambda del modello 1) -----
@@ -1640,15 +3574,77 @@ function renderAnalysis(fx, bundle){
     eloProbs = eloToProbabilities((bundle.homeElo + homeAdvantageElo) - bundle.awayElo);
   }
 
-  // ----- stima combinata: media di tutti i modelli 1X2 disponibili -----
-  const modelsFor1x2 = [poisson, poissonXg, dixonColes, eloProbs].filter(Boolean);
+  // ----- ENSEMBLE A PESI DINAMICI -----
+  // I pesi NON sono piu' una media aritmetica: derivano dalla performance storica di ciascun
+  // modello misurata dal backtest walk-forward. Se il backtest non e' ancora stato eseguito
+  // (o ha campione insufficiente) si ricade sulla media semplice, e lo si dichiara nell'interfaccia.
+  // --- Team Strength Engine + Strength of Schedule + Forma dinamica ---
+  // Tutte le stime partono dagli storici gia' filtrati per data dal bundle: nessun dato futuro.
+  const homeFixturesForStrength = bundle.homeFixturesRaw || [];
+  const awayFixturesForStrength = bundle.awayFixturesRaw || [];
+  const scheduleInfo = computeScheduleStrength(
+    homeFixturesForStrength.concat(awayFixturesForStrength),
+    [fx.teams.home.id, fx.teams.away.id]
+  );
+  const homeStrength = homeFixturesForStrength.length
+    ? computeTeamStrength(homeFixturesForStrength, fx.teams.home.id, fx.league.id, scheduleInfo) : null;
+  const awayStrength = awayFixturesForStrength.length
+    ? computeTeamStrength(awayFixturesForStrength, fx.teams.away.id, fx.league.id, scheduleInfo) : null;
+  const homeFormDyn = homeFixturesForStrength.length ? computeDynamicForm(homeFixturesForStrength, fx.teams.home.id) : null;
+  const awayFormDyn = awayFixturesForStrength.length ? computeDynamicForm(awayFixturesForStrength, fx.teams.away.id) : null;
+
+  const engineModelPreds = produceModelPredictions({
+    hs, as, leagueId: fx.league.id, h2h: bundle.h2h, homeId: fx.teams.home.id, awayId: fx.teams.away.id,
+    xgHome: lambdaHomeXg, xgAway: lambdaAwayXg,
+    eloHome: bundle.homeElo, eloAway: bundle.awayElo,
+    homeStrength, awayStrength, homeForm: homeFormDyn, awayForm: awayFormDyn,
+  });
+
+  const backtestPerf = (state.backtestRecords||[]).length ? calculateModelPerformance(state.backtestRecords) : null;
+  const modelCorrelation = calculateModelCorrelationMatrix(state.backtestRecords, '1X2');
+  const weights1x2 = backtestPerf ? calculateDynamicWeights(backtestPerf, '1X2', modelCorrelation) : null;
+  const ens1x2 = buildWeightedEnsemble(engineModelPreds, weights1x2?.weights, 'probs1x2');
+
+  const agreementDetail = calculateMultiMarketAgreement(engineModelPreds);
+  const modelAgreement = agreementDetail ? agreementDetail.overall : calculateModelAgreement(
+    MODEL_KEYS.map(k=> engineModelPreds[k]?.probs1x2).filter(Boolean)
+  );
+
+  // --- Data Quality Engine ---
+  const dqDetail = calculateDataQuality({
+    homeStrength, awayStrength, homeForm: homeFormDyn, awayForm: awayFormDyn,
+    hasXg: !!(engineModelPreds._expectedGoals?.usedXg || (lambdaHomeXg!=null && lambdaAwayXg!=null)),
+    hasOdds: !!bundle.realOdds,
+    h2hCount: (bundle.h2h||[]).length,
+    hasInjuries: Array.isArray(bundle.injuries),
+    hasElo: bundle.homeElo!=null && bundle.awayElo!=null,
+    scheduleSample: homeStrength?.scheduleSample || 0,
+  });
+
+  // --- Uncertainty Engine ---
+  const dispersion1x2 = calculateModelDispersion(
+    MODEL_KEYS.map(k=> engineModelPreds[k]?.probs1x2?.[0]).filter(isFiniteNum));
+  const bestPerf1x2 = backtestPerf
+    ? MODEL_KEYS.map(k=> backtestPerf[k]?.['1X2']).filter(Boolean).sort((a,b)=> a.logLoss-b.logLoss)[0] : null;
+  const uncertaintyDetail = calculateUncertainty({
+    sampleSize: Math.min(homeStrength?.matches||0, awayStrength?.matches||0),
+    dataQuality: dqDetail.score,
+    modelAgreement,
+    modelDispersion: dispersion1x2,
+    calibrationSample: (state.backtestRecords||[]).length,
+    historicalError: bestPerf1x2?.ece ?? null,
+    stability: bestPerf1x2?.stability ?? null,
+  });
+  const modelDrift = calculateModelDrift(state.backtestRecords, '1X2');
+
   let ensemble = null;
-  if(modelsFor1x2.length>=2){
+  if(ens1x2){
     ensemble = {
-      pHome: modelsFor1x2.reduce((s,m)=>s+m.pHome,0)/modelsFor1x2.length,
-      pDraw: modelsFor1x2.reduce((s,m)=>s+m.pDraw,0)/modelsFor1x2.length,
-      pAway: modelsFor1x2.reduce((s,m)=>s+m.pAway,0)/modelsFor1x2.length,
+      pHome: ens1x2.value[0]*100,
+      pDraw: ens1x2.value[1]*100,
+      pAway: ens1x2.value[2]*100,
       pOver25: poisson ? poisson.pOver25 : null,
+      usingBacktestWeights: ens1x2.usingBacktestWeights,
     };
   }
 
@@ -1691,6 +3687,120 @@ function renderAnalysis(fx, bundle){
   // (media di tutti i modelli), altrimenti il modello singolo più affidabile disponibile.
   const finalPick = ensemble || dixonColes || poisson || poissonXg || eloProbs || null;
 
+  // ----- Scommessa consigliata per questa partita: se abbiamo quote reali dal bookmaker (endpoint -----
+  // /odds), scegliamo il mercato con il miglior valore atteso reale (probabilità del modello vs
+  // probabilità implicita dalla quota vera). Se non ci sono quote reali per nessun mercato con edge
+  // positivo, ricadiamo sulla quota EQUA stimata dal modello (100/probabilità) con soglia 1.70.
+  const ro = bundle.realOdds;
+  const matchCandidates = [];
+  const addCand = (label, prob, realOdds) => {
+    if(prob!=null && !isNaN(prob) && prob>0 && prob<100){
+      matchCandidates.push({label, prob, realOdds: (realOdds!=null && !isNaN(realOdds)) ? realOdds : null});
+    }
+  };
+  if(finalPick){
+    addCand(homeName+' vince (1X2)', finalPick.pHome, ro?.home);
+    addCand('Pareggio (1X2)', finalPick.pDraw, ro?.draw);
+    addCand(awayName+' vince (1X2)', finalPick.pAway, ro?.away);
+  }
+  if(doubleChance){
+    addCand('Doppia chance 1X', doubleChance.dc1X);
+    addCand('Doppia chance X2', doubleChance.dcX2);
+    addCand('Doppia chance 12', doubleChance.dc12);
+  }
+  if(markets){
+    addCand('Gol (entrambe segnano)', markets.bttsYes, ro?.bttsYes);
+    addCand('NoGol', markets.bttsNo, ro?.bttsNo);
+    addCand('Over 1.5 gol', markets.over15);
+    addCand('Under 1.5 gol', markets.under15);
+    addCand('Over 2.5 gol', markets.over25, ro?.over25);
+    addCand('Under 2.5 gol', markets.under25, ro?.under25);
+    addCand('Over 3.5 gol', markets.over35);
+    addCand('Under 3.5 gol', markets.under35);
+  }
+  if(poissonHT){
+    addCand(homeName+' avanti al 45\' (1X2 1° tempo)', poissonHT.pHome);
+    addCand('Pareggio al 45\' (1X2 1° tempo)', poissonHT.pDraw);
+    addCand(awayName+' avanti al 45\' (1X2 1° tempo)', poissonHT.pAway);
+  }
+  if(htMarkets){
+    addCand('Over 1.5 gol (1° tempo)', htMarkets.over15);
+    addCand('Under 1.5 gol (1° tempo)', htMarkets.under15);
+  }
+  if(bundle.matchStats?.home?.matches && bundle.matchStats?.away?.matches){
+    const h = bundle.matchStats.home, a = bundle.matchStats.away;
+    const expCorners = (h.avgCorners||0) + (a.avgCorners||0);
+    const expCards = (h.avgYellow||0) + (a.avgYellow||0) + (h.avgRed||0) + (a.avgRed||0);
+    const cornersLine = Math.floor(expCorners)+0.5, cardsLine = Math.floor(expCards)+0.5;
+    const cornersOU = poissonOverUnder(expCorners, cornersLine);
+    const cardsOU = poissonOverUnder(expCards, cardsLine);
+    addCand('Over '+cornersLine+' corner', cornersOU.over);
+    addCand('Under '+cornersLine+' corner', cornersOU.under);
+    addCand('Over '+cardsLine+' cartellini', cardsOU.over);
+    addCand('Under '+cardsLine+' cartellini', cardsOU.under);
+  }
+
+  // ----- Pannello a tre livelli: per ciascuna soglia di quota, la giocata più probabile che la supera. -----
+  // Usa la quota reale del bookmaker quando disponibile, altrimenti la quota equa stimata dal modello
+  // (100/probabilità) — in quel caso la quota reale che troverai sarà quasi sempre un po' più bassa.
+  function pickBestForTier(candidates, minOdds){
+    const withOdds = candidates
+      .map(c=> ({...c, effOdds: c.realOdds!=null ? c.realOdds : (100/c.prob), usingRealOdds: c.realOdds!=null}))
+      .filter(c=> c.effOdds >= minOdds)
+      .sort((a,b)=> b.prob - a.prob);
+    return withOdds[0] || null;
+  }
+  const easyPick = pickBestForTier(matchCandidates, 1.50);
+  const mediumPick = pickBestForTier(matchCandidates, 1.70);
+  const crazyPick = pickBestForTier(matchCandidates, 2.50);
+
+  // ================= MARKET OPPORTUNITY ENGINE =================
+  // Nessuna ricerca della "migliore giocata": si analizzano TUTTI i mercati disponibili e
+  // ciascuno viene classificato in modo indipendente. Il risultato puo' essere zero opportunita'.
+  // Data Quality dal nuovo engine (non piu' la sola reliability): riflette i dati realmente presenti
+  const dataQuality = dqDetail.score;
+
+  // Corner e cartellini: linee costruite dai dati statistici reali, solo se disponibili
+  let cornersCards = null;
+  if(bundle.matchStats?.home?.matches && bundle.matchStats?.away?.matches){
+    const h = bundle.matchStats.home, a = bundle.matchStats.away;
+    const expCorners = (h.avgCorners||0) + (a.avgCorners||0);
+    const expCards = (h.avgYellow||0) + (a.avgYellow||0) + (h.avgRed||0) + (a.avgRed||0);
+    const cLine = Math.floor(expCorners)+0.5, kLine = Math.floor(expCards)+0.5;
+    const cOU = poissonOverUnder(expCorners, cLine);
+    const kOU = poissonOverUnder(expCards, kLine);
+    cornersCards = {
+      corners: [ {line:cLine, side:'Over', prob:cOU.over}, {line:cLine, side:'Under', prob:cOU.under} ],
+      cards:   [ {line:kLine, side:'Over', prob:kOU.over}, {line:kLine, side:'Under', prob:kOU.under} ],
+    };
+  }
+
+  // correlazione media tra i modelli attivi: penalizza l'ensemble quando le fonti sono ridondanti
+  const activeModelKeys = MODEL_KEYS.filter(k=> engineModelPreds[k]);
+  let avgCorrelation = null;
+  if(modelCorrelation && activeModelKeys.length>=2){
+    const vals = [];
+    activeModelKeys.forEach((a,i)=> activeModelKeys.slice(i+1).forEach(b=>{
+      const r = modelCorrelation.matrix?.[a]?.[b];
+      if(isFiniteNum(r)) vals.push(Math.abs(r));
+    }));
+    if(vals.length) avgCorrelation = vals.reduce((x,y)=>x+y,0)/vals.length;
+  }
+
+  const opportunities = buildMarketOpportunities({
+    fx, matchLabel: homeName+' — '+awayName,
+    ens1x2, markets, htMarkets, doubleChance, poissonHT, cornersCards,
+    realOdds: bundle.realOdds, dataQuality, engineModelPreds,
+    uncertaintyOverride: uncertaintyDetail.total,
+    uncertaintySources: uncertaintyDetail.sources,
+    agreementOverride: modelAgreement,
+    avgCorrelation,
+    lambdaSource: engineModelPreds._lambdaSource || null,
+  });
+  const oppSummary = summarizeOpportunities(opportunities);
+  const bestOpportunity = selectBestOpportunity(opportunities);
+  logOpportunities(opportunities);
+
   content.innerHTML = `
     <div class="scoreboard">
       <div class="sb-team">
@@ -1712,30 +3822,50 @@ function renderAnalysis(fx, bundle){
       </div>
     </div>
 
+    <div class="reliability-badge reliability-${reliability.label==='Dati insufficienti'?'insufficient':(reliability.label==='Bassa'?'low':(reliability.label==='Media'?'medium':(reliability.label==='Buona'?'good':'excellent')))}">
+      <div class="reliability-label">Affidabilità: ${reliability.label}</div>
+      <div class="reliability-bar-track"><div class="reliability-bar-fill" style="width:${reliability.score.toFixed(0)}%;"></div></div>
+      <div class="reliability-note">${reliability.score.toFixed(0)}/100 — basata su almeno ${reliability.minMatches} partite di storico per entrambe le squadre (piena affidabilità a partire da ${RELIABILITY_FULL_MATCHES})</div>
+    </div>
+
+    <div class="section-title">Forza squadre e forma</div>
+    ${renderTeamStrengthPanel(homeStrength, awayStrength, homeFormDyn, awayFormDyn, homeName, awayName, engineModelPreds._expectedGoals)}
+
+    ${modelDrift && modelDrift.drifting ? `<div class="drift-warning">⚠ <b>MODEL DRIFT ${escapeHtml(modelDrift.severity.toUpperCase())}</b> — la performance recente del modello è peggiore di quella di lungo periodo (log loss ${modelDrift.longTerm.toFixed(3)} → ${(modelDrift.last50 ?? modelDrift.last100).toFixed(3)}). Considera le stime attuali meno affidabili e valuta un nuovo backtest.</div>` : ''}
+
+    <div class="section-title">Opportunità di mercato</div>
+    <div class="note" style="margin:-4px 0 12px;">Analisi quantitativa dei mercati disponibili — dove esiste un disallineamento tra probabilità calibrata del modello e prezzo del mercato.</div>
+    ${renderMarketOpportunitiesPanel(opportunities, oppSummary, bestOpportunity, ens1x2?.usingBacktestWeights)}
+
+    ${renderModelDiagnostics({
+      preds: engineModelPreds, weights: weights1x2, correlation: modelCorrelation,
+      uncertainty: uncertaintyDetail, dataQuality: dqDetail, agreement: agreementDetail,
+      drift: modelDrift, lambdaSource: engineModelPreds._lambdaSource,
+      expectedGoals: engineModelPreds._expectedGoals,
+    })}
+
+    <div class="section-title">Le tue giocate — facile · media · pazza</div>
+    ${renderRiskTiersPanel(easyPick, mediumPick, crazyPick)}
+
     <div class="section-title">Confronto modelli 1X2</div>
     <div class="stat-card">
       ${modelRows.length ? renderModelsComparisonTable(modelRows) : '<div class="empty-state">Storico insufficiente per calcolare i modelli 1X2.</div>'}
       ${(lambdaHomeXg!=null && lambdaAwayXg!=null) ? `<div class="note" style="margin-top:14px;text-align:center;">xG totale stimato per la partita: <b class="mono" style="color:var(--text);">${(lambdaHomeXg+lambdaAwayXg).toFixed(2)}</b> (${escapeHtml(homeName)} ${lambdaHomeXg.toFixed(2)} + ${escapeHtml(awayName)} ${lambdaAwayXg.toFixed(2)})</div>` : ''}
-      ${finalPick ? renderFinalPickButtons(finalPick, homeName, awayName) : ''}
+      ${finalPick ? renderFinalPickButtons(finalPick, homeName, awayName, bundle.realOdds) : ''}
     </div>
 
     <div class="section-title">Doppia chance</div>
     ${doubleChance ? renderDoubleChance(doubleChance, homeName, awayName) : '<div class="empty-state">Non disponibile.</div>'}
 
     <div class="section-title">Gol / NoGol (entrambe le squadre segnano)</div>
-    ${markets ? renderBtts(markets) : '<div class="empty-state">Non disponibile.</div>'}
+    ${markets ? renderBtts(markets, bundle.realOdds) : '<div class="empty-state">Non disponibile.</div>'}
 
     <div class="section-title">Over / Under gol (1.5 · 2.5 · 3.5)</div>
-    ${markets ? renderOverUnderLines(markets) : '<div class="empty-state">Non disponibile.</div>'}
+    ${markets ? renderOverUnderLines(markets, bundle.realOdds) : '<div class="empty-state">Non disponibile.</div>'}
 
     ${primaryMatrix ? `
     <div class="section-title">Risultato esatto più probabile${dixonColes ? ' (modello Dixon-Coles)' : ''}</div>
     ${renderExactScores(primaryMatrix, homeName, awayName)}
-    ` : ''}
-
-    ${goalDiff ? `
-    <div class="section-title">Margine di vittoria (scarto reti)</div>
-    ${renderGoalDifference(goalDiff, homeName, awayName)}
     ` : ''}
 
     <div class="section-title">Risultato primo tempo</div>
@@ -1791,21 +3921,333 @@ function renderModelsComparisonTable(models){
 // Usano la stima finale (combinata se disponibile) e sono pick-target a tutti gli effetti,
 // quindi si aprono nel calcolatore di stake e possono finire nel carrello per una giocata
 // singola o in combo/multipla insieme ad altre selezioni.
-function renderFinalPickButtons(p, homeName, awayName){
-  const mk = (name,val)=> `data-pick-label="${escapeHtml('1X2 — '+name)}" data-pick-prob="${val}"`;
+// Pannello con le tre giocate per fascia di rischio: facile (quota > 1.50), media (> 1.70),
+// pazza (> 2.50) — in ciascuna fascia, la giocata più probabile che rispetta quella soglia.
+// Pannello Value Engine: mostra l'opportunita' con il miglior Value Score e la scomposizione
+// completa (probabilita' grezza / calibrata / di mercato, fair odds, edge, EV, confidence).
+// Se nessuna opportunita' supera le soglie del proprio mercato, dichiara NO BET con i motivi.
+// Pannello Team Strength: mostra forza d'attacco/difesa, forma multi-orizzonte e strength
+// of schedule. I valori sono normalizzati sulla media di lega: 1.00 = squadra media.
+function renderTeamStrengthPanel(hs, as, hf, af, homeName, awayName, eg){
+  if(!hs && !as) return '';
+  const f2 = v=> isFiniteNum(v) ? v.toFixed(2) : '—';
+  const pctF = v=> isFiniteNum(v) ? (v*100).toFixed(0)+'/100' : '—';
+  const col = (s, form, name, isHome)=> `
+    <div class="ts-col">
+      <div class="ts-name">${escapeHtml(name)}</div>
+      ${s ? `
+      <div class="ts-row"><span>Attacco ${isHome?'casa':'trasferta'}</span><b class="mono">${f2(isHome?s.attackHome:s.attackAway)}</b></div>
+      <div class="ts-row"><span>Difesa ${isHome?'casa':'trasferta'}</span><b class="mono">${f2(isHome?s.defenceHome:s.defenceAway)}</b></div>
+      <div class="ts-row"><span>Attacco (xG)</span><b class="mono">${f2(s.attackXg)}</b></div>
+      <div class="ts-row"><span>Forza generale</span><b class="mono">${f2(s.overall)}</b></div>
+      <div class="ts-row"><span>Calendario (SoS)</span><b class="mono">${f2(s.scheduleStrength)}</b></div>
+      <div class="ts-row"><span>Partite usate</span><b class="mono">${s.matches} (${s.matchesHome}C/${s.matchesAway}T)</b></div>
+      ` : '<div class="empty-state" style="padding:8px 0;">dati insufficienti</div>'}
+      ${form ? `
+      <div class="ts-sep">Forma</div>
+      <div class="ts-row"><span>Recente (${FORM_HORIZONS.recent})</span><b class="mono">${pctF(form.recent)}</b></div>
+      <div class="ts-row"><span>Medio (${FORM_HORIZONS.medium})</span><b class="mono">${pctF(form.medium)}</b></div>
+      <div class="ts-row"><span>Lungo (${FORM_HORIZONS.long})</span><b class="mono">${pctF(form.long)}</b></div>
+      <div class="ts-row"><span>Combinata</span><b class="mono" style="color:var(--pitch);">${pctF(form.overall)}</b></div>
+      ` : ''}
+    </div>`;
+  return `<div class="ts-grid">${col(hs,hf,homeName,true)}${col(as,af,awayName,false)}</div>
+    ${eg ? `<div class="note" style="margin-top:10px;">Gol attesi: <b class="mono" style="color:var(--text);">${eg.lambdaHome.toFixed(2)} – ${eg.lambdaAway.toFixed(2)}</b> · fonte <b>${eg.usedXg?'gol reali + xG fusi':'solo gol reali (xG non disponibile)'}</b>. Valori 1.00 = media del campionato; sopra 1 = più forte della media.</div>` : ''}`;
+}
+
+// Sezione diagnostica espandibile: permette di verificare esattamente cosa ha usato il modello.
+function renderModelDiagnostics(d){
+  const corrRows = d.correlation ? MODEL_KEYS.filter(k=> d.correlation.matrix[k]).map(a=>`
+    <tr><td style="text-align:left;">${MODEL_LABELS[a]}</td>${MODEL_KEYS.map(b=>{
+      const v = d.correlation.matrix[a]?.[b];
+      return `<td class="mono">${isFiniteNum(v)?v.toFixed(2):'—'}</td>`;
+    }).join('')}</tr>`).join('') : '';
+
+  const weightRows = MODEL_KEYS.map(k=>{
+    const w = d.weights?.weights?.[k];
+    const red = d.weights?.redundancy?.[k];
+    const pred = d.preds?.[k];
+    return `<tr>
+      <td style="text-align:left;">${MODEL_LABELS[k]}</td>
+      <td class="mono">${pred?'sì':'no'}</td>
+      <td class="mono">${w!=null?(w*100).toFixed(1)+'%':'—'}</td>
+      <td class="mono">${red!=null?red.toFixed(2):'—'}</td>
+    </tr>`;
+  }).join('');
+
+  const uncRows = (d.uncertainty?.sources||[]).map(s=>
+    `<div class="ts-row"><span>${escapeHtml(s.k)}</span><b class="mono">±${(s.v*100).toFixed(1)}%</b></div>`).join('');
+
+  const dqRows = (d.dataQuality?.components||[]).filter(x=>x.w>0).map(x=>
+    `<div class="ts-row"><span>${escapeHtml(x.k)}</span><b class="mono" style="color:${x.v>=0.7?'var(--pitch)':(x.v>=0.34?'var(--warn)':'#e05c5c')};">${(x.v*100).toFixed(0)}%</b></div>`).join('');
+
+  return `<details class="diagnostics">
+    <summary>Diagnostica del modello</summary>
+    <div class="diag-body">
+      <div class="diag-block">
+        <h4>Contributo dei modelli</h4>
+        <div class="model-table-wrap"><table class="model-table">
+          <thead><tr><th style="text-align:left;">Modello</th><th>Attivo</th><th>Peso</th><th>Fattore indip.</th></tr></thead>
+          <tbody>${weightRows}</tbody>
+        </table></div>
+        <div class="note" style="margin-top:6px;">Il <b>fattore di indipendenza</b> riduce il peso dei modelli molto correlati fra loro: 1.00 = informazione tutta nuova, valori bassi = ridondante. ${d.weights?.correlationApplied?'Correlazione stimata dal backtest.':'<b>Correlazione non ancora stimabile</b> (servono almeno 30 record di backtest): i modelli sono trattati come indipendenti.'}</div>
+      </div>
+
+      ${d.correlation ? `<div class="diag-block">
+        <h4>Matrice di correlazione (su ${d.correlation.sample} partite)</h4>
+        <div class="model-table-wrap"><table class="model-table">
+          <thead><tr><th style="text-align:left;">—</th>${MODEL_KEYS.map(k=>`<th>${MODEL_LABELS[k].slice(0,8)}</th>`).join('')}</tr></thead>
+          <tbody>${corrRows}</tbody>
+        </table></div>
+      </div>` : ''}
+
+      <div class="diag-block">
+        <h4>Composizione dell'incertezza (totale ±${((d.uncertainty?.total||0)*100).toFixed(1)}%)</h4>
+        ${uncRows || '<div class="empty-state" style="padding:8px 0;">non calcolabile</div>'}
+        <div class="note" style="margin-top:6px;">Le fonti sono combinate in quadratura, non sommate: sono errori parzialmente indipendenti.</div>
+      </div>
+
+      <div class="diag-block">
+        <h4>Qualità dei dati (${((d.dataQuality?.score||0)*100).toFixed(0)}/100)</h4>
+        ${dqRows}
+        ${(d.dataQuality?.missing||[]).length ? `<div class="note" style="margin-top:6px;color:var(--warn);">Dati mancanti o scarsi: ${escapeHtml(d.dataQuality.missing.join(', '))}.</div>` : ''}
+      </div>
+
+      ${d.agreement ? `<div class="diag-block">
+        <h4>Accordo tra modelli per mercato</h4>
+        ${d.agreement.dimensions.map(x=>`<div class="ts-row"><span>${escapeHtml(x.market)} (${x.models} modelli)</span><b class="mono">${(x.agreement*100).toFixed(0)}/100</b></div>`).join('')}
+        <div class="note" style="margin-top:6px;">Un modello che non supporta un mercato viene escluso da quel confronto, non penalizzato.</div>
+      </div>` : ''}
+
+      ${d.drift ? `<div class="diag-block">
+        <h4>Deriva del modello</h4>
+        <div class="ts-row"><span>Log loss lungo periodo</span><b class="mono">${d.drift.longTerm.toFixed(4)}</b></div>
+        <div class="ts-row"><span>Ultime 100</span><b class="mono">${d.drift.last100!=null?d.drift.last100.toFixed(4):'—'}</b></div>
+        <div class="ts-row"><span>Ultime 50</span><b class="mono">${d.drift.last50!=null?d.drift.last50.toFixed(4):'—'}</b></div>
+        ${d.drift.drifting?`<div class="note" style="margin-top:6px;color:#e05c5c;">⚠ <b>MODEL DRIFT ${d.drift.severity.toUpperCase()}</b>: la performance recente è peggiore di quella storica. Le stime attuali vanno considerate meno affidabili.</div>`:'<div class="note" style="margin-top:6px;">Nessuna deriva significativa rilevata.</div>'}
+      </div>` : ''}
+
+      <div class="diag-block">
+        <h4>Origine dei gol attesi</h4>
+        <div class="ts-row"><span>Metodo</span><b class="mono">${d.lambdaSource==='strength-engine'?'Team Strength Engine':'Medie storiche (fallback)'}</b></div>
+        ${d.expectedGoals ? `<div class="ts-row"><span>λ casa / trasferta</span><b class="mono">${d.expectedGoals.lambdaHome.toFixed(2)} / ${d.expectedGoals.lambdaAway.toFixed(2)}</b></div>` : ''}
+      </div>
+    </div>
+  </details>`;
+}
+
+// ---------- RENDERING DELLE OPPORTUNITA' DI MERCATO ----------
+const OPP_STATUS_META = {
+  STRONG_VALUE:   { label:'VALUE FORTE',    cls:'os-strong'   },
+  MODERATE_VALUE: { label:'VALUE MODERATO', cls:'os-moderate' },
+  WATCHLIST:      { label:'WATCHLIST',      cls:'os-watch'    },
+  NO_BET:         { label:'NO BET',         cls:'os-nobet'    },
+};
+const pctOf = v=> (v!=null && isFiniteNum(v)) ? (v*100).toFixed(1)+'%' : '—';
+const signedPct = v=> (v!=null && isFiniteNum(v)) ? ((v>=0?'+':'')+(v*100).toFixed(1)+'%') : '—';
+
+// Spiegazione generata dai valori realmente calcolati, non da testo generico.
+function renderOpportunityExplanation(o){
+  const pros = (o.pros||[]).map(p=>`<li class="exp-pro">✓ ${escapeHtml(p)}</li>`).join('');
+  const cons = (o.cons||[]).map(p=>`<li class="exp-con">✕ ${escapeHtml(p)}</li>`).join('');
+  const isBet = o.status!=='NO_BET';
+  return `<div class="opp-explain">
+    <div class="opp-explain-title">${isBet?'Perché è interessante?':'Perché NO BET?'}</div>
+    <ul>${pros}${cons}</ul>
+    <div class="opp-explain-conc">${escapeHtml(o.reason)}</div>
+  </div>`;
+}
+
+function renderOpportunityDetail(o){
+  const meta = OPP_STATUS_META[o.status];
+  return `
+    <div class="opp-card ${meta.cls}">
+      <div class="opp-card-head">
+        <div>
+          <div class="opp-market">${escapeHtml(o.market)}</div>
+          <div class="opp-selection">${escapeHtml(o.selection)}</div>
+        </div>
+        <span class="opp-badge ${meta.cls}">${meta.label}</span>
+      </div>
+      <div class="value-grid">
+        <div><span>Prob. modello</span><b class="mono">${pctOf(o.modelProbability)}</b></div>
+        <div><span>Prob. calibrata</span><b class="mono">${pctOf(o.calibratedProbability)}</b></div>
+        <div><span>Prob. mercato</span><b class="mono">${pctOf(o.marketProbability)}</b></div>
+        <div><span>Range stimato</span><b class="mono">${pctOf(o.range[0])} – ${pctOf(o.range[1])}</b></div>
+        <div><span>Quota bookmaker</span><b class="mono">${o.bookmakerOdds!=null?o.bookmakerOdds.toFixed(2):'—'}</b></div>
+        <div><span>Quota equa</span><b class="mono">${o.fairOdds!=null?o.fairOdds.toFixed(2):'—'}</b></div>
+        <div><span>Edge</span><b class="mono" style="color:${(o.edge??0)>0?'var(--pitch)':'#e05c5c'};">${signedPct(o.edge)}</b></div>
+        <div><span>EV</span><b class="mono" style="color:${(o.ev??0)>0?'var(--pitch)':'#e05c5c'};">${signedPct(o.ev)}</b></div>
+        <div><span>Confidence</span><b class="mono">${o.confidence.toFixed(0)}/100</b></div>
+        <div><span>Accordo modelli</span><b class="mono">${o.modelAgreement!=null?(o.modelAgreement*100).toFixed(0)+'/100':'—'}</b></div>
+        <div><span>Qualità dati</span><b class="mono">${(o.dataQuality*100).toFixed(0)}/100</b></div>
+        <div><span>Qualità mercato</span><b class="mono">${(o.marketQuality*100).toFixed(0)}/100</b></div>
+        <div><span>Value Score</span><b class="mono" style="color:var(--pitch);font-size:16px;">${o.valueScore.toFixed(0)}/100</b></div>
+        <div><span>Rischio</span><b class="mono">${riskLabel(o.riskScore)} (${o.riskScore.toFixed(0)})</b></div>
+        <div><span>Margine book</span><b class="mono">${o.overround!=null?(o.overround*100).toFixed(1)+'%':'—'}</b></div>
+      </div>
+      ${renderOpportunityExplanation(o)}
+      ${o.bookmakerOdds!=null && o.status!=='NO_BET' ? `<div class="value-hero-action pick-target" data-pick-label="${escapeHtml(o.market+' — '+o.selection)}" data-pick-prob="${o.calibratedProbability*100}" data-real-odds="${o.bookmakerOdds}">Calcola lo stake →</div>` : ''}
+    </div>`;
+}
+
+// Heatmap tabellare: valori sempre numerici, il colore e' solo un supporto secondario.
+function renderMarketHeatmap(opps){
+  if(!opps.length) return '';
+  const rows = opps.slice(0,20).map(o=>{
+    const meta = OPP_STATUS_META[o.status];
+    return `<tr>
+      <td style="text-align:left;">${escapeHtml(o.market)}</td>
+      <td style="text-align:left;">${escapeHtml(o.selection)}</td>
+      <td class="mono">${pctOf(o.calibratedProbability)}</td>
+      <td class="mono">${o.bookmakerOdds!=null?o.bookmakerOdds.toFixed(2):'—'}</td>
+      <td class="mono" style="color:${(o.edge??0)>0?'var(--pitch)':'var(--text-dim)'};">${signedPct(o.edge)}</td>
+      <td class="mono" style="color:${(o.ev??0)>0?'var(--pitch)':'var(--text-dim)'};">${signedPct(o.ev)}</td>
+      <td class="mono">${o.confidence.toFixed(0)}</td>
+      <td class="mono"><b>${o.valueScore.toFixed(0)}</b></td>
+      <td><span class="opp-badge ${meta.cls}">${meta.label}</span></td>
+    </tr>`;
+  }).join('');
+  return `<div class="model-table-wrap"><table class="model-table">
+    <thead><tr><th style="text-align:left;">Mercato</th><th style="text-align:left;">Selezione</th><th>Prob.</th><th>Quota</th><th>Edge</th><th>EV</th><th>Conf.</th><th>Value</th><th>Stato</th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table></div>`;
+}
+
+function renderMarketOpportunitiesPanel(allOpps, summary, bestIgnored, usingBacktestWeights){
+  if(!allOpps.length){
+    return `<div class="empty-state">Nessun mercato analizzabile per questa partita: storico squadre insufficiente per produrre probabilità affidabili.</div>`;
+  }
+  // Le selezioni gia' giocate (o gia' nel carrello) vengono escluse: non ha senso riproporre
+  // un'opportunita' su cui hai gia' preso posizione.
+  const taken = allOpps.filter(o=> isSelectionAlreadyTaken(o.matchId, o.market+' — '+o.selection));
+  const opps = allOpps.filter(o=> !taken.includes(o));
+  if(!opps.length){
+    return `<div class="empty-state">Hai già preso posizione su tutti i mercati con valore di questa partita (${taken.length} selezioni già giocate o in carrello).</div>`;
+  }
+  summary = summarizeOpportunities(opps);
+  const best = selectBestOpportunity(opps);
+  const takenNote = taken.length ? `<div class="note" style="margin-top:8px;">${taken.length} selezion${taken.length===1?'e già giocata o in carrello è stata esclusa':'i già giocate o in carrello sono state escluse'} da questa analisi.</div>` : '';
+  const strong = opps.filter(o=> o.status==='STRONG_VALUE');
+  const moderate = opps.filter(o=> o.status==='MODERATE_VALUE');
+  const watch = opps.filter(o=> o.status==='WATCHLIST');
+  const noBetWithOdds = opps.filter(o=> o.status==='NO_BET' && o.bookmakerOdds!=null);
+  const noOdds = opps.filter(o=> o.bookmakerOdds==null).length;
+
+  const overview = `
+    <div class="opp-overview">
+      <div class="ov-cell"><div class="ov-n">${summary.total}</div><div class="ov-l">mercati analizzati</div></div>
+      <div class="ov-cell ov-strong"><div class="ov-n">${summary.strong}</div><div class="ov-l">value forte</div></div>
+      <div class="ov-cell ov-moderate"><div class="ov-n">${summary.moderate}</div><div class="ov-l">value moderato</div></div>
+      <div class="ov-cell ov-watch"><div class="ov-n">${summary.watchlist}</div><div class="ov-l">watchlist</div></div>
+      <div class="ov-cell ov-nobet"><div class="ov-n">${summary.noBet}</div><div class="ov-l">no bet</div></div>
+    </div>
+    <div class="note" style="margin-top:8px;">${summary.withOdds} mercati su ${summary.total} hanno una quota reale dal bookmaker${noOdds?`; per gli altri ${noOdds} non è possibile calcolare edge ed EV, quindi restano NO BET per assenza di prezzo, non per giudizio negativo sul modello`:''}. Pesi dell'ensemble ${usingBacktestWeights?'<b>derivati dal backtest</b>':'<b>media semplice</b> (backtest non ancora eseguito)'}.</div>${takenNote}`;
+
+  const bestSection = best ? `
+    <div class="section-title" style="margin-top:22px;">Migliore opportunità</div>
+    <div class="note" style="margin:-4px 0 10px;">L'opportunità quantitativamente più interessante secondo il modello — non un consiglio di giocata.</div>
+    ${renderOpportunityDetail(best)}` : `
+    <div class="section-title" style="margin-top:22px;">Migliore opportunità</div>
+    <div class="opp-empty">
+      <div class="opp-empty-title">NESSUNA OPPORTUNITÀ DI VALORE</div>
+      <div>Il modello non ha individuato mercati con vantaggio statistico e affidabilità sufficienti su questa partita.</div>
+    </div>`;
+
+  const others = strong.concat(moderate).filter(o=> o!==best);
+  const otherValueSection = others.length ? `
+    <div class="section-title" style="margin-top:22px;">Altre opportunità di valore</div>
+    ${others.map(renderOpportunityDetail).join('')}` : '';
+
+  const watchSection = watch.length ? `
+    <div class="section-title" style="margin-top:22px;">Watchlist — da monitorare</div>
+    <div class="note" style="margin:-4px 0 10px;">Non abbastanza forti per essere considerate value bet, ma potrebbero diventarlo se la quota si muove.</div>
+    ${watch.map(o=>`
+      <div class="watch-row">
+        <div style="flex:1;">
+          <div class="opp-market" style="font-size:11px;">${escapeHtml(o.market)}</div>
+          <div class="opp-selection" style="font-size:13.5px;">${escapeHtml(o.selection)}</div>
+        </div>
+        <div class="watch-nums">
+          <span>Prob. ${pctOf(o.calibratedProbability)}</span>
+          <span>Quota ${o.bookmakerOdds!=null?o.bookmakerOdds.toFixed(2):'—'}</span>
+          <span>Edge ${signedPct(o.edge)}</span>
+          <span>EV ${signedPct(o.ev)}</span>
+          <span>Conf. ${o.confidence.toFixed(0)}</span>
+        </div>
+        <div class="watch-score">${o.valueScore.toFixed(0)}</div>
+      </div>`).join('')}` : '';
+
+  const noBetSection = `
+    <div class="section-title" style="margin-top:22px;">No bet — mercati da evitare</div>
+    ${noBetWithOdds.length ? noBetWithOdds.slice(0,6).map(o=>`
+      <div class="nobet-row">
+        <div style="flex:1;">
+          <div class="opp-market" style="font-size:11px;">${escapeHtml(o.market)} · ${escapeHtml(o.selection)}</div>
+          <div style="font-size:12px;color:var(--text-dim);margin-top:3px;">${escapeHtml(o.reason)}</div>
+        </div>
+        <div class="watch-nums" style="text-align:right;">
+          <span>Edge ${signedPct(o.edge)}</span>
+          <span>EV ${signedPct(o.ev)}</span>
+          <span>Value ${o.valueScore.toFixed(0)}</span>
+        </div>
+      </div>`).join('')
+    : `<div class="note">Nessun mercato quotato è stato classificato NO BET su questa partita.</div>`}
+    ${noBetWithOdds.length>6 ? `<div class="note" style="margin-top:8px;">…e altri ${noBetWithOdds.length-6} mercati quotati senza vantaggio statistico sufficiente.</div>` : ''}`;
+
+  const heatmap = `
+    <div class="section-title" style="margin-top:22px;">Confronto tra tutti i mercati</div>
+    ${renderMarketHeatmap(opps)}
+    <div class="note" style="margin-top:8px;">Ordinati per <b>Value Score</b>, mai per probabilità: una selezione al 75% quotata 1.25 può valere meno di una al 57% quotata 2.05. Value Score e Confidence sono grandezze separate — un value alto con confidence bassa significa "quota interessante ma stima poco affidabile".</div>`;
+
+  return overview + bestSection + otherValueSection + watchSection + noBetSection + heatmap;
+}
+
+function renderRiskTiersPanel(easyPick, mediumPick, crazyPick){
+  const tiers = [
+    { key:'easy', emoji:'🟢', label:'Giocata facile', sub:'quota > 1.50', pick: easyPick },
+    { key:'medium', emoji:'🟡', label:'Giocata media', sub:'quota > 1.70', pick: mediumPick },
+    { key:'crazy', emoji:'🔴', label:'Giocata pazza', sub:'quota > 2.50', pick: crazyPick },
+  ];
+  return `<div class="risk-tiers">
+    ${tiers.map(t=>{
+      if(!t.pick){
+        return `<div class="risk-tier-card risk-${t.key}">
+          <div class="risk-tier-head"><span>${t.emoji}</span><div><div class="risk-tier-label">${t.label}</div><div class="risk-tier-sub">${t.sub}</div></div></div>
+          <div class="empty-state" style="padding:10px 0;">Nessuna giocata disponibile in questa fascia.</div>
+        </div>`;
+      }
+      const p = t.pick;
+      return `<div class="risk-tier-card risk-${t.key}">
+        <div class="risk-tier-head"><span>${t.emoji}</span><div><div class="risk-tier-label">${t.label}</div><div class="risk-tier-sub">${t.sub}</div></div></div>
+        <div class="risk-tier-row pick-target" data-pick-label="${escapeHtml(p.label)}" data-pick-prob="${p.prob}" ${p.usingRealOdds?`data-real-odds="${p.realOdds}"`:''}>
+          <div class="risk-tier-name">${escapeHtml(p.label)}</div>
+          <div class="risk-tier-nums">
+            <span class="risk-tier-prob">${p.prob.toFixed(1)}%</span>
+            <span class="risk-tier-odds">${p.usingRealOdds?'quota reale':'quota equa'} ${p.effOdds.toFixed(2)}</span>
+          </div>
+        </div>
+      </div>`;
+    }).join('')}
+  </div>`;
+}
+
+function renderFinalPickButtons(p, homeName, awayName, realOdds){
+  const mk = (name,val,odd)=> `data-pick-label="${escapeHtml('1X2 — '+name)}" data-pick-prob="${val}"${odd!=null?` data-real-odds="${odd}"`:''}`;
   return `
     <div class="final-pick-label">Scegli l'esito da giocare</div>
     <div class="final-pick-row">
-      <button class="final-pick-btn pick-target" ${mk(homeName+' vince (1)', p.pHome)}>
+      <button class="final-pick-btn pick-target" ${mk(homeName+' vince (1)', p.pHome, realOdds?.home)}>
         <span class="fp-sym">1</span><span class="fp-name">${escapeHtml(homeName)}</span><span class="fp-pct">${p.pHome.toFixed(0)}%</span>
       </button>
-      <button class="final-pick-btn pick-target" ${mk('Pareggio (X)', p.pDraw)}>
+      <button class="final-pick-btn pick-target" ${mk('Pareggio (X)', p.pDraw, realOdds?.draw)}>
         <span class="fp-sym">X</span><span class="fp-name">Pareggio</span><span class="fp-pct">${p.pDraw.toFixed(0)}%</span>
       </button>
-      <button class="final-pick-btn pick-target" ${mk(awayName+' vince (2)', p.pAway)}>
+      <button class="final-pick-btn pick-target" ${mk(awayName+' vince (2)', p.pAway, realOdds?.away)}>
         <span class="fp-sym">2</span><span class="fp-name">${escapeHtml(awayName)}</span><span class="fp-pct">${p.pAway.toFixed(0)}%</span>
       </button>
-    </div>`;
+    </div>
+    ${realOdds ? `<div class="note" style="margin-top:8px;text-align:center;">Quote reali medie tra ${realOdds.bookmakersCount} bookmaker già precompilate nel calcolatore di stake.</div>` : ''}`;
 }
 
 function renderDoubleChance(dc, homeName, awayName){
@@ -1819,17 +4261,18 @@ function renderDoubleChance(dc, homeName, awayName){
   </div>`;
 }
 
-function renderBtts(m){
+function renderBtts(m, realOdds){
+  const oddYes = realOdds?.bttsYes, oddNo = realOdds?.bttsNo;
   return `<div class="poisson-grid" style="grid-template-columns:repeat(2,1fr);">
-    <div class="poisson-cell pick-target" data-pick-label="Gol (entrambe segnano)" data-pick-prob="${m.bttsYes}"><div class="n mono">${m.bttsYes.toFixed(0)}%</div><div class="l">Gol (GG)</div></div>
-    <div class="poisson-cell pick-target" data-pick-label="NoGol (almeno una non segna)" data-pick-prob="${m.bttsNo}"><div class="n mono">${m.bttsNo.toFixed(0)}%</div><div class="l">NoGol (NG)</div></div>
+    <div class="poisson-cell pick-target" data-pick-label="Gol (entrambe segnano)" data-pick-prob="${m.bttsYes}"${oddYes!=null?` data-real-odds="${oddYes}"`:''}><div class="n mono">${m.bttsYes.toFixed(0)}%</div><div class="l">Gol (GG)${oddYes!=null?' · '+oddYes.toFixed(2):''}</div></div>
+    <div class="poisson-cell pick-target" data-pick-label="NoGol (almeno una non segna)" data-pick-prob="${m.bttsNo}"${oddNo!=null?` data-real-odds="${oddNo}"`:''}><div class="n mono">${m.bttsNo.toFixed(0)}%</div><div class="l">NoGol (NG)${oddNo!=null?' · '+oddNo.toFixed(2):''}</div></div>
   </div>`;
 }
 
-function renderOverUnderLines(m){
+function renderOverUnderLines(m, realOdds){
   const lines = [
     { label:'1.5', over:m.over15, under:m.under15 },
-    { label:'2.5', over:m.over25, under:m.under25 },
+    { label:'2.5', over:m.over25, under:m.under25, oddOver: realOdds?.over25, oddUnder: realOdds?.under25 },
     { label:'3.5', over:m.over35, under:m.under35 },
   ];
   return `<div class="ou-lines">
@@ -1837,8 +4280,8 @@ function renderOverUnderLines(m){
     <div class="ou-line-row">
       <div class="ou-line-label">${l.label} gol</div>
       <div class="ou-line-bar">
-        <div class="pick-target" data-pick-label="${escapeHtml('Over '+l.label+' gol')}" data-pick-prob="${l.over}" style="flex:${Math.max(l.over,4)};background:var(--home);">${l.over.toFixed(0)}%</div>
-        <div class="pick-target" data-pick-label="${escapeHtml('Under '+l.label+' gol')}" data-pick-prob="${l.under}" style="flex:${Math.max(l.under,4)};background:var(--away);">${l.under.toFixed(0)}%</div>
+        <div class="pick-target" data-pick-label="${escapeHtml('Over '+l.label+' gol')}" data-pick-prob="${l.over}"${l.oddOver!=null?` data-real-odds="${l.oddOver}"`:''} style="flex:${Math.max(l.over,4)};background:var(--home);">${l.over.toFixed(0)}%</div>
+        <div class="pick-target" data-pick-label="${escapeHtml('Under '+l.label+' gol')}" data-pick-prob="${l.under}"${l.oddUnder!=null?` data-real-odds="${l.oddUnder}"`:''} style="flex:${Math.max(l.under,4)};background:var(--away);">${l.under.toFixed(0)}%</div>
       </div>
     </div>`).join('')}
   </div>`;
@@ -1975,6 +4418,376 @@ function poissonOverUnder(lambda, line){
 // ----- Modello Dixon-Coles: correzione della doppia Poisson indipendente sui punteggi bassi -----
 // (0-0, 1-0, 0-1, 1-1), dove la correlazione reale tra i gol delle due squadre e' piu' marcata.
 // rho stimato in letteratura tipicamente tra -0.05 e -0.13; qui fisso a -0.08 come valore prudente.
+/* =====================================================================================
+   TEAM STRENGTH ENGINE + STRENGTH OF SCHEDULE + FORM DINAMICA
+   Tutte le stime sono TEMPORALMENTE CORRETTE: ricevono in ingresso solo partite gia' filtrate
+   per data dal chiamante. Nessuna funzione di questo blocco accede a dati globali di stagione
+   o a risultati successivi al cutoff.
+   ===================================================================================== */
+
+const FORM_HORIZONS = { recent:5, medium:12, long:30 };
+// Pesi di partenza dei tre orizzonti. Configurabili e verificabili tramite backtest:
+// non sono valori "veri", sono un punto di partenza ragionevole.
+let FORM_WEIGHTS = { recent:0.20, medium:0.30, long:0.50 };
+const SOS_ITERATIONS = 3;      // iterazioni di raffinamento della forza avversari
+const SOS_DAMPING = 0.5;       // smorzamento per evitare l'oscillazione del sistema circolare
+const STRENGTH_PRIOR_MATCHES = 10; // shrinkage: sotto questa soglia la stima tende alla media di lega
+
+// Estrae le metriche di una partita dal punto di vista di una squadra.
+// Restituisce null per i campi non presenti: un dato mancante NON diventa zero.
+function extractMatchMetrics(f, teamId){
+  const isHome = f.teams.home.id === teamId;
+  const gFor = isHome ? f.goals.home : f.goals.away;
+  const gAgainst = isHome ? f.goals.away : f.goals.home;
+  if(gFor==null || gAgainst==null) return null;
+  return {
+    isHome,
+    opponentId: isHome ? f.teams.away.id : f.teams.home.id,
+    date: new Date(f.fixture.date).getTime(),
+    goalsFor: gFor, goalsAgainst: gAgainst,
+    goalDiff: gFor - gAgainst,
+    points: gFor>gAgainst ? 1 : (gFor===gAgainst ? 0.5 : 0),
+    // xG/tiri: presenti solo se qualcuno li ha allegati alla fixture (fetchTeamMatchStats).
+    // Non vengono stimati: se mancano restano null e il modello lo dichiara.
+    xgFor: isFiniteNum(f._xgFor) ? f._xgFor : null,
+    xgAgainst: isFiniteNum(f._xgAgainst) ? f._xgAgainst : null,
+  };
+}
+
+// Media pesata per decadimento temporale su un orizzonte di N partite piu' recenti.
+function weightedMean(values, decay=FORM_DECAY){
+  let num=0, den=0;
+  values.forEach((v,i)=>{
+    if(!isFiniteNum(v)) return;
+    const w = Math.pow(decay, i);
+    num += v*w; den += w;
+  });
+  return den>0 ? num/den : null;
+}
+
+// FORM DINAMICA su tre orizzonti temporali. Usa il rendimento in gol (differenza reti e xG
+// quando disponibile), non il solo W/D/L, e restituisce un indice 0..1 centrato su 0.5.
+// La forma e' un CORRETTIVO: non sostituisce la forza strutturale della squadra.
+function computeDynamicForm(fixtures, teamId){
+  // Ordinamento esplicito dal piu' recente: gli orizzonti temporali e il decadimento
+  // dipendono da questo ordine.
+  const metrics = fixtures.map(f=> extractMatchMetrics(f, teamId)).filter(Boolean)
+    .sort((a,b)=> b.date - a.date);
+  if(!metrics.length) return null;
+
+  function horizonScore(list){
+    if(!list.length) return null;
+    // combina punti (esito) e differenza reti normalizzata: due segnali correlati ma non identici
+    const pts = weightedMean(list.map(m=> m.points));
+    const gd = weightedMean(list.map(m=> Math.max(-3, Math.min(3, m.goalDiff))/6 + 0.5));
+    const xgd = weightedMean(list.map(m=>
+      (m.xgFor!=null && m.xgAgainst!=null) ? Math.max(-3, Math.min(3, m.xgFor-m.xgAgainst))/6 + 0.5 : null));
+    const parts = [];
+    if(pts!=null) parts.push({v:pts, w:0.45});
+    if(gd!=null) parts.push({v:gd, w: xgd!=null ? 0.25 : 0.55});
+    if(xgd!=null) parts.push({v:xgd, w:0.30});
+    const tw = parts.reduce((a,p)=>a+p.w,0);
+    return tw>0 ? parts.reduce((a,p)=> a + p.v*p.w, 0)/tw : null;
+  }
+
+  const recent = horizonScore(metrics.slice(0, FORM_HORIZONS.recent));
+  const medium = horizonScore(metrics.slice(0, FORM_HORIZONS.medium));
+  const long   = horizonScore(metrics.slice(0, FORM_HORIZONS.long));
+  const homeForm = horizonScore(metrics.filter(m=> m.isHome).slice(0, FORM_HORIZONS.medium));
+  const awayForm = horizonScore(metrics.filter(m=> !m.isHome).slice(0, FORM_HORIZONS.medium));
+
+  const parts = [];
+  if(recent!=null) parts.push({v:recent, w:FORM_WEIGHTS.recent});
+  if(medium!=null) parts.push({v:medium, w:FORM_WEIGHTS.medium});
+  if(long!=null)   parts.push({v:long,   w:FORM_WEIGHTS.long});
+  const tw = parts.reduce((a,p)=>a+p.w,0);
+  const overall = tw>0 ? parts.reduce((a,p)=> a+p.v*p.w, 0)/tw : null;
+
+  return {
+    overall, recent, medium, long, homeForm, awayForm,
+    sampleSize: metrics.length,
+    hasXg: metrics.some(m=> m.xgFor!=null),
+  };
+}
+
+// STRENGTH OF SCHEDULE: quanto erano forti gli avversari affrontati.
+// Il problema circolare (A forte perche' ha battuto B, B forte perche' ha perso con A) viene
+// gestito con un raffinamento iterativo smorzato: si parte da una forza neutra per tutti,
+// si aggiorna piu' volte, e ogni aggiornamento e' mediato con il valore precedente (damping).
+// Il sistema converge invece di oscillare.
+function computeScheduleStrength(allPriorFixtures, teamIds){
+  if(!allPriorFixtures || !allPriorFixtures.length) return null;
+  const ratings = {};   // forza stimata di ogni squadra, scala centrata su 1.0
+  const played = {};
+  allPriorFixtures.forEach(f=>{
+    [f.teams.home.id, f.teams.away.id].forEach(id=>{ if(ratings[id]==null){ ratings[id]=1.0; played[id]=0; } });
+  });
+
+  for(let it=0; it<SOS_ITERATIONS; it++){
+    const next = {}, counts = {};
+    allPriorFixtures.forEach(f=>{
+      const gh=f.goals.home, ga=f.goals.away;
+      if(gh==null || ga==null) return;
+      const h=f.teams.home.id, a=f.teams.away.id;
+      // performance della partita, pesata per la forza dell'avversario corrente
+      const hPerf = (gh>ga?1:(gh===ga?0.5:0)) * (ratings[a] ?? 1.0) * 2;
+      const aPerf = (ga>gh?1:(gh===ga?0.5:0)) * (ratings[h] ?? 1.0) * 2;
+      next[h] = (next[h]||0) + hPerf; counts[h] = (counts[h]||0)+1;
+      next[a] = (next[a]||0) + aPerf; counts[a] = (counts[a]||0)+1;
+      played[h] = (played[h]||0)+1; played[a] = (played[a]||0)+1;
+    });
+    Object.keys(next).forEach(id=>{
+      if(!counts[id]) return;
+      const fresh = next[id]/counts[id];
+      // damping: media tra vecchio e nuovo valore, evita oscillazioni
+      ratings[id] = SOS_DAMPING*ratings[id] + (1-SOS_DAMPING)*Math.max(0.3, Math.min(2.2, fresh));
+    });
+  }
+
+  // Strength of schedule di una squadra = forza media degli avversari che ha incontrato
+  const sos = {};
+  (teamIds||Object.keys(ratings)).forEach(tid=>{
+    const opps = [];
+    allPriorFixtures.forEach(f=>{
+      if(f.teams.home.id==tid) opps.push(ratings[f.teams.away.id] ?? 1.0);
+      else if(f.teams.away.id==tid) opps.push(ratings[f.teams.home.id] ?? 1.0);
+    });
+    sos[tid] = opps.length ? { score: opps.reduce((a,b)=>a+b,0)/opps.length, n: opps.length }
+                           : { score: 1.0, n: 0 };
+  });
+  return { ratings, sos };
+}
+
+// TEAM STRENGTH ENGINE: forza d'attacco e di difesa separate per casa e trasferta, normalizzate
+// sulla media di lega e SMORZATE verso 1.0 quando il campione e' piccolo (shrinkage bayesiano).
+// Restituisce anche la stima basata su xG quando il dato esiste — mai inventata.
+function computeTeamStrength(fixtures, teamId, leagueId, scheduleInfo){
+  const lg = getLeagueAverages(leagueId);
+  // Ordinamento esplicito dal piu' recente: il decadimento temporale dipende da questo ordine,
+  // quindi non si assume che il chiamante l'abbia gia' fatto.
+  const metrics = fixtures.map(f=> extractMatchMetrics(f, teamId)).filter(Boolean)
+    .sort((a,b)=> b.date - a.date);
+  if(!metrics.length) return null;
+
+  const homeM = metrics.filter(m=> m.isHome);
+  const awayM = metrics.filter(m=> !m.isHome);
+
+  // shrinkage: con pochi dati la stima tende a 1.0 (squadra media di quel campionato)
+  const shrink = (raw, n)=>{
+    if(raw==null || !isFiniteNum(raw)) return null;
+    const w = n/(n+STRENGTH_PRIOR_MATCHES);
+    return w*raw + (1-w)*1.0;
+  };
+
+  const meanOf = (list, sel)=> list.length ? weightedMean(list.map(sel)) : null;
+
+  const rawAtkHome = homeM.length ? (meanOf(homeM, m=>m.goalsFor) / lg.home) : null;
+  const rawDefHome = homeM.length ? (meanOf(homeM, m=>m.goalsAgainst) / lg.away) : null;
+  const rawAtkAway = awayM.length ? (meanOf(awayM, m=>m.goalsFor) / lg.away) : null;
+  const rawDefAway = awayM.length ? (meanOf(awayM, m=>m.goalsAgainst) / lg.home) : null;
+
+  // correzione per qualita' degli avversari: chi ha giocato contro squadre forti viene premiato
+  const sosEntry = scheduleInfo?.sos?.[teamId] || null;
+  const sosScore = sosEntry && sosEntry.n>=5 ? sosEntry.score : 1.0;
+  const sosAdj = Math.max(0.85, Math.min(1.15, Math.pow(sosScore, 0.5)));
+
+  const xgM = metrics.filter(m=> m.xgFor!=null && m.xgAgainst!=null);
+  const rawAtkXg = xgM.length>=5 ? (weightedMean(xgM.map(m=>m.xgFor)) / ((lg.home+lg.away)/2)) : null;
+  const rawDefXg = xgM.length>=5 ? (weightedMean(xgM.map(m=>m.xgAgainst)) / ((lg.home+lg.away)/2)) : null;
+
+  return {
+    attackHome: shrink(rawAtkHome!=null ? rawAtkHome*sosAdj : null, homeM.length),
+    defenceHome: shrink(rawDefHome!=null ? rawDefHome/sosAdj : null, homeM.length),
+    attackAway: shrink(rawAtkAway!=null ? rawAtkAway*sosAdj : null, awayM.length),
+    defenceAway: shrink(rawDefAway!=null ? rawDefAway/sosAdj : null, awayM.length),
+    attackXg: shrink(rawAtkXg, xgM.length),
+    defenceXg: shrink(rawDefXg, xgM.length),
+    // Forza generale = attacco medio / difesa media, LIMITATA a un intervallo sensato:
+    // essendo un rapporto puo' esplodere quando la difesa stimata e' vicina a zero.
+    overall: shrink(
+      (rawAtkHome!=null||rawAtkAway!=null)
+        ? Math.max(0.25, Math.min(3.0,
+            (((rawAtkHome??1)+(rawAtkAway??1))/2) / Math.max(0.25, ((rawDefHome??1)+(rawDefAway??1))/2)))
+        : null, metrics.length),
+    scheduleStrength: sosEntry ? sosEntry.score : null,
+    scheduleSample: sosEntry ? sosEntry.n : 0,
+    matchesHome: homeM.length, matchesAway: awayM.length, matches: metrics.length,
+    xgMatches: xgM.length,
+  };
+}
+
+// ---------- DATA QUALITY ENGINE ----------
+// Punteggio 0..1 sulla qualita' dei dati DAVVERO disponibili per questa previsione.
+// Ogni componente e' verificabile: non e' un numero decorativo.
+function calculateDataQuality(ctx){
+  const { homeStrength, awayStrength, homeForm, awayForm, hasXg, hasOdds,
+          h2hCount, hasInjuries, hasElo, scheduleSample } = ctx;
+  const comp = [];
+  const sampleScore = s=> s ? Math.max(0, Math.min(1, s.matches/20)) : 0;
+  comp.push({ v:(sampleScore(homeStrength)+sampleScore(awayStrength))/2, w:0.30, k:'campione partite' });
+  const splitScore = s=> s ? Math.max(0, Math.min(1, Math.min(s.matchesHome, s.matchesAway)/8)) : 0;
+  comp.push({ v:(splitScore(homeStrength)+splitScore(awayStrength))/2, w:0.15, k:'split casa/trasferta' });
+  comp.push({ v: hasXg?1:0, w:0.15, k:'dati xG' });
+  comp.push({ v: hasOdds?1:0, w:0.12, k:'quote di mercato' });
+  comp.push({ v:(homeForm&&awayForm)?1:0, w:0.10, k:'forma calcolabile' });
+  comp.push({ v: Math.max(0, Math.min(1, (scheduleSample||0)/10)), w:0.08, k:'strength of schedule' });
+  comp.push({ v: Math.max(0, Math.min(1, (h2hCount||0)/4)), w:0.05, k:'scontri diretti' });
+  comp.push({ v: hasElo?1:0, w:0.05, k:'rating Elo' });
+  // lineup/infortuni: presenti solo come conteggio infortuni, non come impatto stimato
+  comp.push({ v: hasInjuries?1:0.5, w:0.00, k:'infortuni' });
+
+  const tw = comp.reduce((a,x)=>a+x.w,0);
+  const score = comp.reduce((a,x)=> a + x.v*x.w, 0)/tw;
+  const missing = comp.filter(x=> x.w>0 && x.v<0.34).map(x=> x.k);
+  return { score: Math.max(0, Math.min(1, score)), components: comp, missing };
+}
+
+// ---------- FUNZIONE CENTRALIZZATA DEI GOL ATTESI ----------
+// Punto unico da cui passano tutti i modelli basati sulla distribuzione dei gol.
+// Combina forza d'attacco/difesa (gia' corrette per SOS), vantaggio campo e forma, evitando
+// il double counting: xG NON viene sommato ai gol, viene FUSO con essi come stima alternativa
+// della stessa quantita' (media pesata), perche' misurano la stessa cosa con rumore diverso.
+const XG_BLEND_WEIGHT = 0.40;   // quanto pesa la stima xG rispetto a quella sui gol reali
+const FORM_LAMBDA_IMPACT = 0.18; // impatto massimo della forma sui gol attesi (correttivo, non driver)
+
+function calculateExpectedGoals(ctx){
+  const { homeStrength, awayStrength, homeForm, awayForm, leagueId, h2hAdjustment } = ctx;
+  if(!homeStrength || !awayStrength) return null;
+  const lg = getLeagueAverages(leagueId);
+
+  const hAtk = homeStrength.attackHome ?? homeStrength.overall ?? 1;
+  const hDef = homeStrength.defenceHome ?? 1;
+  const aAtk = awayStrength.attackAway ?? awayStrength.overall ?? 1;
+  const aDef = awayStrength.defenceAway ?? 1;
+  if(![hAtk,hDef,aAtk,aDef].every(isFiniteNum)) return null;
+
+  // base moltiplicativa: attacco x debolezza difensiva avversaria x media di lega
+  let lambdaHome = hAtk * aDef * lg.home;
+  let lambdaAway = aAtk * hDef * lg.away;
+
+  // fusione con la stima xG (stessa quantita', misura diversa) — solo se il dato esiste
+  let usedXg = false;
+  if(isFiniteNum(homeStrength.attackXg) && isFiniteNum(awayStrength.defenceXg)){
+    const xgLambdaHome = homeStrength.attackXg * awayStrength.defenceXg * lg.home;
+    lambdaHome = (1-XG_BLEND_WEIGHT)*lambdaHome + XG_BLEND_WEIGHT*xgLambdaHome;
+    usedXg = true;
+  }
+  if(isFiniteNum(awayStrength.attackXg) && isFiniteNum(homeStrength.defenceXg)){
+    const xgLambdaAway = awayStrength.attackXg * homeStrength.defenceXg * lg.away;
+    lambdaAway = (1-XG_BLEND_WEIGHT)*lambdaAway + XG_BLEND_WEIGHT*xgLambdaAway;
+    usedXg = true;
+  }
+
+  // forma come correttivo limitato (centrata su 0.5 = neutra)
+  if(homeForm?.overall!=null) lambdaHome *= (1 + FORM_LAMBDA_IMPACT*(homeForm.overall-0.5)*2);
+  if(awayForm?.overall!=null) lambdaAway *= (1 + FORM_LAMBDA_IMPACT*(awayForm.overall-0.5)*2);
+
+  // correttivo scontri diretti, peso volutamente basso
+  if(h2hAdjustment){
+    lambdaHome *= (1 + H2H_WEIGHT*h2hAdjustment.homeBias);
+    lambdaAway *= (1 + H2H_WEIGHT*h2hAdjustment.awayBias);
+  }
+
+  // smorzamento verso la media di lega e limiti di sicurezza
+  lambdaHome = Math.pow(Math.max(lambdaHome,0.01), MODEL_SHRINKAGE) * Math.pow(lg.home, 1-MODEL_SHRINKAGE);
+  lambdaAway = Math.pow(Math.max(lambdaAway,0.01), MODEL_SHRINKAGE) * Math.pow(lg.away, 1-MODEL_SHRINKAGE);
+  lambdaHome = Math.min(LAMBDA_MAX, Math.max(LAMBDA_MIN, lambdaHome));
+  lambdaAway = Math.min(LAMBDA_MAX, Math.max(LAMBDA_MIN, lambdaAway));
+  if(!isFiniteNum(lambdaHome) || !isFiniteNum(lambdaAway)) return null;
+
+  // incertezza sui lambda: cresce con campione piccolo e dati mancanti
+  const nMin = Math.min(homeStrength.matches||0, awayStrength.matches||0);
+  const sampleUnc = Math.max(0.05, Math.min(0.6, 1/Math.sqrt(Math.max(1,nMin))));
+  const xgUnc = usedXg ? 0 : 0.10;
+  const uncertainty = Math.max(0, Math.min(1, sampleUnc + xgUnc));
+
+  return {
+    lambdaHome, lambdaAway,
+    usedXg,
+    confidence: Math.max(0, Math.min(100, 100*(1-uncertainty))),
+    uncertainty,
+    components: {
+      attackHome:hAtk, defenceHome:hDef, attackAway:aAtk, defenceAway:aDef,
+      formHome: homeForm?.overall ?? null, formAway: awayForm?.overall ?? null,
+      sosHome: homeStrength.scheduleStrength, sosAway: awayStrength.scheduleStrength,
+      h2hApplied: !!h2hAdjustment,
+    },
+  };
+}
+
+// ----- Correttivo H2H (#6): scarto reti medio storico tra le due squadre, peso limitato e -----
+// disattivato sotto un campione minimo, esattamente come nel foglio PARAMETRI_MODELLO dell'Excel.
+function computeH2HAdjustment(h2h, homeId, awayId){
+  if(!h2h || h2h.length < H2H_MIN_SAMPLE) return null;
+  let diffSum = 0, n = 0;
+  h2h.forEach(m=>{
+    const homeTeamWasHome = m.teams.home.id === homeId;
+    const gHomeTeam = homeTeamWasHome ? m.goals.home : m.goals.away;
+    const gAwayTeam = homeTeamWasHome ? m.goals.away : m.goals.home;
+    if(gHomeTeam==null || gAwayTeam==null) return;
+    diffSum += (gHomeTeam - gAwayTeam);
+    n++;
+  });
+  if(n < H2H_MIN_SAMPLE) return null;
+  const avgDiff = diffSum / n; // scarto reti medio storico a favore della squadra "di casa" di oggi
+  const bias = Math.max(-1, Math.min(1, avgDiff/3)); // normalizzato: 3 gol di scarto = bias massimo
+  return { homeBias: bias, awayBias: -bias, n, avgDiff };
+}
+
+// ----- Lambda calibrata (#1 smorzamento, #2 normalizzazione su media di lega, #3 limiti, -----
+// #4 correttore forma pesata, #6 correttivo H2H) — combina tutti i correttivi dell'Excel in
+// un'unica funzione, usata sia dall'analisi partita sia dalla scansione delle opportunità.
+function computeCalibratedLambdas(hs, as, leagueId, h2h, homeId, awayId){
+  const lg = getLeagueAverages(leagueId);
+  const homeFor = (hs?.homePlayed>=3) ? hs.avgHomeGf : hs?.avgGf;
+  const homeAgainst = (hs?.homePlayed>=3) ? hs.avgHomeGa : hs?.avgGa;
+  const awayFor = (as?.awayPlayed>=3) ? as.avgAwayGf : as?.avgGf;
+  const awayAgainst = (as?.awayPlayed>=3) ? as.avgAwayGa : as?.avgGa;
+  if(homeFor==null || homeAgainst==null || awayFor==null || awayAgainst==null) return null;
+
+  // #2 — forza attacco/difesa normalizzata sulla media di lega (schema moltiplicativo, non media semplice)
+  const attackHome = homeFor / lg.home;
+  const defenseAwayWeak = awayAgainst / lg.home;
+  const attackAway = awayFor / lg.away;
+  const defenseHomeWeak = homeAgainst / lg.away;
+  let lambdaHome = attackHome * defenseAwayWeak * lg.home;
+  let lambdaAway = attackAway * defenseHomeWeak * lg.away;
+
+  // #4 — correttore di forma pesata con decadimento (1 = nessuna correzione, forma neutra 0.5)
+  if(hs?.weightedForm!=null) lambdaHome *= (1 + FORM_ADJUST_WEIGHT*(hs.weightedForm-0.5)*2);
+  if(as?.weightedForm!=null) lambdaAway *= (1 + FORM_ADJUST_WEIGHT*(as.weightedForm-0.5)*2);
+
+  // #6 — correttivo H2H, peso basso e solo con campione sufficiente
+  const h2hAdj = computeH2HAdjustment(h2h, homeId, awayId);
+  if(h2hAdj){
+    lambdaHome *= (1 + H2H_WEIGHT*h2hAdj.homeBias);
+    lambdaAway *= (1 + H2H_WEIGHT*h2hAdj.awayBias);
+  }
+
+  // #1 — smorzamento verso la media di lega (shrinkage): attutisce le stime estreme da campioni piccoli
+  lambdaHome = Math.pow(Math.max(lambdaHome,0.01), MODEL_SHRINKAGE) * Math.pow(lg.home, 1-MODEL_SHRINKAGE);
+  lambdaAway = Math.pow(Math.max(lambdaAway,0.01), MODEL_SHRINKAGE) * Math.pow(lg.away, 1-MODEL_SHRINKAGE);
+
+  // #3 — limiti minimo/massimo di sicurezza
+  lambdaHome = Math.min(LAMBDA_MAX, Math.max(LAMBDA_MIN, lambdaHome));
+  lambdaAway = Math.min(LAMBDA_MAX, Math.max(LAMBDA_MIN, lambdaAway));
+
+  return { lambdaHome, lambdaAway, h2hApplied: !!h2hAdj, h2hSample: h2hAdj?.n||0 };
+}
+
+// ----- Punteggio di affidabilità (#5): quanto fidarsi della stima, in base al campione disponibile -----
+function computeReliabilityScore(hs, as){
+  const minMatches = Math.min(hs?.played||0, as?.played||0);
+  const score = Math.min(100, (minMatches/RELIABILITY_FULL_MATCHES)*100);
+  let label;
+  if(score < 40) label = 'Dati insufficienti';
+  else if(score < 60) label = 'Bassa';
+  else if(score < 75) label = 'Media';
+  else if(score < 90) label = 'Buona';
+  else label = 'Ottima';
+  return { score, label, minMatches };
+}
+
 function computeDixonColes(lambdaHome, lambdaAway, rho=-0.08, maxGoals=6){
   function tau(x,y,lam,mu,r){
     if(x===0 && y===0) return 1 - lam*mu*r;
@@ -2239,6 +5052,7 @@ function escapeHtml(s){ return String(s??'').replace(/[&<>"']/g, c=>({'&':'&amp;
   updateStakePill();
   updateCartPill();
   updateHistoryPill();
+  updateBacktestPill();
   if(state.apiKey){ showScreen('home'); }
   else { showScreen('setup'); }
 })();
